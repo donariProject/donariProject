@@ -42,7 +42,6 @@ a:hover {
 }
 .tab-group li a {
   display: block;
-  text-decoration: none;
   padding: 15px;
   background: rgba(160, 179, 176, 0.25);
   color: #a0b3b0;
@@ -63,7 +62,7 @@ a:hover {
   color: #ffffff;
 }
 
-.tab-content > div:last-child {
+.tab-contents > div:last-child {
   display: none;
 }
 
@@ -86,7 +85,7 @@ label {
   pointer-events: none;
   font-size: 22px;
 }
-label .req {
+label .reqs {
   margin: 2px;
   color: #1ab188;
 }
@@ -97,7 +96,7 @@ label.active {
   left: 2px;
   font-size: 14px;
 }
-label.active .req {
+label.active .reqs {
   opacity: 0;
 }
 
@@ -105,7 +104,7 @@ label.highlight {
   color: #ffffff;
 }
 
-input, textarea {
+div.login input, textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -134,17 +133,17 @@ textarea {
   margin-bottom: 40px;
 }
 
-.top-row:after {
+.top-rows:after {
   content: "";
   display: table;
   clear: both;
 }
-.top-row > div {
+.top-rows > div {
   float: left;
   width: 48%;
   margin-right: 4%;
 }
-.top-row > div:last-child {
+.top-rows > div:last-child {
   margin: 0;
 }
 

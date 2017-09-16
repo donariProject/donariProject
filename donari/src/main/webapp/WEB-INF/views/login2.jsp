@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +26,21 @@
 
 <!-- =================================== -->
 <!-- 			  STYLES 				 -->
+<link
+	href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
 <!-- =================================== -->
 
+<link rel="stylesheet" href="resources/assets/css/styles.css">
 <!-- BOOTSTRAP MIN -->
 <link href="resources/assets/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- MEDIA ELEMENT -->
-<link href="resources/assets/css/mediaelementplayer.min.css" rel="stylesheet" />
+<link href="resources/assets/css/mediaelementplayer.min.css"
+	rel="stylesheet" />
 
 <!-- MAGNIFIC POPUP CSS -->
 <link href="resources/assets/css/magnific-popup.css" rel="stylesheet" />
@@ -134,11 +142,12 @@
 <link rel="shortcut icon" href="resources/assets/img/favicon.png" />
 
 <script type="text/javascript">
-	function basicVideo() {
-		location.href="basicVideo";	
+	function join() {
+		location.href="join";
 	}
-
+	
 </script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebSite">
@@ -163,7 +172,17 @@
 					<li class="menuitem active"><a href="index.html">Home</a></li>
 					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
 					<li class="menuitem dropdown"><a href="#">MAKING VIDEO</a>
-					<li class="menuitem"><a href="about-us.html">My Page</a></li>
+						<ul class="droplist">
+							<li class="droplist-item"><a href="typography.html">Typography</a></li>
+							<li class="droplist-item"><a href="single-page.html">Single
+									Page</a></li>
+							<li class="droplist-item"><a href="sticky-header.html">Sticky
+									Header</a></li>
+							<li class="droplist-item"><a href="static-header.html">Static
+									Header</a></li>
+							<li class="droplist-item"><a href="404.html">404</a></li>
+						</ul></li>
+					<li class="menuitem"><a href="about-us.html">About Us</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -178,107 +197,100 @@
 		<div class="podcast-hero-inner">
 			<!-- ===== PODCAST LIST ===== -->
 			<section id="#episodes" class="section-positive">
-				<div class="container">
+				<div class="container" style="margin-top: 100px;">
 
 					<!-- ===== SECTION TITLE ===== -->
-					<h1 class="title-default">Making Video</h1>
 
 					<div class="row">
 			</section>
 
 			<!-- ===== MAIN ===== -->
-			<main id="main" class="main"> 
-			
-			<!-- ===== PODCAST CARD BOXED ===== -->
-			<div class="col-sm-6 mb-40">
-				<div class="podcast-card boxed" style="height: 700px">
-					<figure class="podcast-image">
-						<img src="resources/assets/img/cards/podcast-boxed-thumb3.jpg" alt="Soccer"
-							title="Soccer" style="margin-left: 20px; width: 628px;" onclick="basicVideo()"/>
-					</figure>
-					<div class="podcast-content" style="margin-left: 80px">
-						<h1>BASIC</h1>
-						<div class="podcast-content" style="margin-bottom: 20px;">
-						<h5 class="podcast-excerpt">
-							We will make your photos 
-							<br>
-							complete with music to beat.
-						</h5>
+			<main id="main" class="main">
+
+			<div class="form">
+
+				<ul class="tab-group">
+					<li class="tab"><a href="#login" style="width: 515px;">Log In</a></li>
+				</ul>
+
+				<div class="tab-contents">
+					<div id="signup">
+						<div class="login">
+							<form action="/" method="post">
+								<h1>Welcome Back!</h1>
+								<div class="field-wrap">
+									<label> Email Address<span class="reqs">*</span>
+									</label> <input type="email" required autocomplete="off" />
+								</div>
+								
+								<div class="field-wrap">
+									<label> Password<span class="reqs">*</span>
+									</label> <input type="email" required autocomplete="off" />
+								</div>
+
+								<button type="submit" class="button button-block">
+								Get Started
+								</button>
+								<br>
+								<button class="button button-block" onclick="join();">
+								Join
+								</button>
+							</form>
+						</div>
+					</div>
+
+					<div id="login">
 						
+
+						<form action="/" method="post">
+
+							<div class="field-wrap">
+								<label> Email Address<span class="reqs">*</span>
+								</label> <input type="email" required autocomplete="off" />
+							</div>
+
+							<div class="field-wrap">
+								<label> Password<span class="reqs">*</span>
+								</label> <input type="password" required autocomplete="off" />
+							</div>
+
+							<p class="forgot">
+								<a href="#">Forgot Password?</a>
+							</p>
+
+							<button class="button button-block" />
+							Log In
+							</button>
+
+						</form>
+
 					</div>
-					</div>
+
 				</div>
+				<!-- tab-content -->
+
 			</div>
 
-			<!-- ===== PODCAST CARD BOXED ===== -->
-			<div class="col-sm-6 mb-40">
-				<div class="podcast-card boxed" style="700px">
-					<figure class="podcast-image" style="300px">
-						<img src="resources/assets/img/cards/podcast-boxed-thumb4.jpg"
-							alt="Music Show" title="Music Show" style="width: 628px" />
-					</figure>
-					<div class="podcast-content" style="margin-left: 60px">
-						<span class="podcast-date">November 27, 2015</span>
-						<h2 class="podcast-title">
-							<a href="podcast.html">Episode #03 - The best show of our
-								lifes</a>
-						</h2>
-						<p class="podcast-excerpt">
-							<a href="podcast.html">This is a boxed podcast layout. Lorem
-								ipsum dolor sit amet, consectetur adipisicing elit...</a>
-						</p>
-					</div>
-				</div>
-			</div>
-	</section>
 
 
 
+			<!-- ===== FOOTER ===== --> <!-- ===== FOOTER INFORMATION ===== --> <!-- =================================== -->
+			<!-- 			  SCRIPTS 				 --> <!-- =================================== -->
 
+			<!-- JQUERY --> <script src="resources/assets/js/jquery-1.11.min.js"></script>
 
-	<!-- ===== FOOTER ===== -->
+			<!-- BOOTSTRAP JS --> <script
+				src="resources/assets/js/bootstrap.min.js"></script> <!-- MEDIA ELEMENT -->
+			<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
 
-	<!-- ===== FOOTER INFORMATION ===== -->
-	<section class="footer-credits">
-		<div class="container">
+			<!-- MAGNIFIC POPUP --> <script
+				src="resources/assets/js/magnific-popup.min.js"></script> <!-- FORM VALIDATE -->
+			<script src="resources/assets/js/validate.min.js"></script> <!-- PLACEHOLDER FOR IE -->
+			<script src="resources/assets/js/placeholder.min.js"></script> <!-- THEME JS -->
+			<script src="resources/assets/js/main.js"></script> <script
+				src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-			<div class="row">
-
-				<!-- ===== CREDIT LOGO ===== -->
-				<div class="col-sm-6 footer-logo">
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-	</footer>
-
-	<!-- =================================== -->
-	<!-- 			  SCRIPTS 				 -->
-	<!-- =================================== -->
-
-	<!-- JQUERY -->
-	<script src="resources/assets/js/jquery-1.11.min.js"></script>
-
-	<!-- BOOTSTRAP JS -->
-	<script src="resources/assets/js/bootstrap.min.js"></script>
-
-	<!-- MEDIA ELEMENT -->
-	<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
-
-	<!-- MAGNIFIC POPUP -->
-	<script src="resources/assets/js/magnific-popup.min.js"></script>
-
-	<!-- FORM VALIDATE -->
-	<script src="resources/assets/js/validate.min.js"></script>
-
-	<!-- PLACEHOLDER FOR IE -->
-	<script src="resources/assets/js/placeholder.min.js"></script>
-
-	<!-- THEME JS -->
-	<script src="resources/assets/js/main.js"></script>
-
+			<script src="resources/assets/js/index2.js"></script>
 </body>
 
 </html>

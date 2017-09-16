@@ -173,23 +173,9 @@ $(function(){
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
 					<li class="menuitem"><a href="index.html">Home</a></li>
-					<li class="menuitem"><a href="podcasts.html">Podcasts</a></li>
-					<li class="menuitem dropdown"><a href="#">Pages</a>
-						<ul class="droplist">
-							<li class="droplist-item"><a href="columns.html">Columns</a></li>
-							<li class="droplist-item"><a href="shortcodes.html">Shortcodes</a></li>
-							<li class="droplist-item"><a href="typography.html">Typography</a></li>
-							<li class="droplist-item"><a href="single-page.html">Single
-									Page</a></li>
-							<li class="droplist-item"><a href="sticky-header.html">Sticky
-									Header</a></li>
-							<li class="droplist-item"><a href="static-header.html">Static
-									Header</a></li>
-							<li class="droplist-item"><a href="404.html">404</a></li>
-						</ul></li>
-					<li class="menuitem active"><a href="about-us.html">About
-							Us</a></li>
-					<li class="menuitem"><a href="contact.html">Contact</a></li>
+					<li class="menuitem"><a href="podcasts.html">Contact</a></li>
+					<li class="menuitem dropdown"><a href="making">Making Video</a>
+					<li class="menuitem active"><a href="savevideo">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -220,11 +206,12 @@ $(function(){
 			<h2 class="title-default text-center">Insert Photo</h2>
 			<fieldset class="row" style="margin-left: 410px;">
 				<div class="col-md-9 nopadding" style = "margin-bottom: 30px;" >
-					<input type="email" name="EMAIL" class="form-control form-negative"
+					<input type="text" name="filepath" id=filepath class="form-control form-negative"
 						id="email-newsletter" placeholder="file path" required
 						style="width: 800px; float: right;" />
 				</div>
-			<input type="image" src="resources/assets/img/photos.png" onclick="photo()" style="width: 43px;">
+			<input id=multiFile type="file" multiple style="display: none;">
+			<img src='resources/assets/img/photos.png'  onclick= 'document.all.multiFile.click(); document.all.filepath.value=document.all.multiFile.value' style="width: 43px; margin-bottom: 30px;">
 			<input type="image" src="resources/assets/img/facebook.png" onclick="facebook()" style="width: 43px;">
 			</fieldset>
 			<div

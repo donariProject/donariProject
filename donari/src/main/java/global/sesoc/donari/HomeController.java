@@ -26,7 +26,27 @@ public class HomeController {
 	public String home() {
 		System.out.println("들어왔도다");
 		
-		return "loginjoin";
+		return "start";
 	}
 	
+	@RequestMapping(value="making", method=RequestMethod.GET)
+	public String selectMaking(){
+		
+		
+		return "making";
+	}
+	
+	
+	@RequestMapping(value="basicVideo", method=RequestMethod.GET)
+	public String basicVideo(){
+		
+		return "basicVideo";
+	}
+
+	@RequestMapping(value="savevideo", method=RequestMethod.GET)
+	public String saveVideo(){
+		
+		return "savevideo";
+	}
+
 }
