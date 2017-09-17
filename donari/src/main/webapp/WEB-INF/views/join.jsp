@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +27,21 @@
 
 <!-- =================================== -->
 <!-- 			  STYLES 				 -->
+<link
+	href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
 <!-- =================================== -->
 
+<link rel="stylesheet" href="resources/assets/css/styles.css">
 <!-- BOOTSTRAP MIN -->
 <link href="resources/assets/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- MEDIA ELEMENT -->
-<link href="resources/assets/css/mediaelementplayer.min.css" rel="stylesheet" />
+<link href="resources/assets/css/mediaelementplayer.min.css"
+	rel="stylesheet" />
 
 <!-- MAGNIFIC POPUP CSS -->
 <link href="resources/assets/css/magnific-popup.css" rel="stylesheet" />
@@ -133,6 +142,18 @@
 <link rel="icon" href="resources/assets/img/favicon.png" />
 <link rel="shortcut icon" href="resources/assets/img/favicon.png" />
 
+<script type="text/javascript">
+	function join() {
+		alert('dd')
+		location.href="join";
+	}
+	function login(){
+		location.href="login";
+		
+	}
+	
+</script>
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebSite">
@@ -151,30 +172,18 @@
 			</h1>
 
 			<!-- ===== NAVIGATION ===== -->
-			<!-- <nav class="navigation">
-				===== MENU =====
+			<nav class="navigation">
+				<!-- ===== MENU ===== -->
 				<ul class="menu">
-					<li class="menuitem active"><a href="index.html">Home</a></li>
-					<li class="menuitem"><a href="podcasts.html">Podcasts</a></li>
-					<li class="menuitem dropdown"><a href="#">Pages</a>
-						<ul class="droplist">
-							<li class="droplist-item"><a href="columns.html">Columns</a></li>
-							<li class="droplist-item"><a href="shortcodes.html">Shortcodes</a></li>
-							<li class="droplist-item"><a href="typography.html">Typography</a></li>
-							<li class="droplist-item"><a href="single-page.html">Single
-									Page</a></li>
-							<li class="droplist-item"><a href="sticky-header.html">Sticky
-									Header</a></li>
-							<li class="droplist-item"><a href="static-header.html">Static
-									Header</a></li>
-							<li class="droplist-item"><a href="404.html">404</a></li>
-						</ul></li>
+					<li class="menuitem active"><a href="index">Home</a></li>
+					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
+					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
+						
 					<li class="menuitem"><a href="about-us.html">About Us</a></li>
-					<li class="menuitem"><a href="contact.html">Contact</a></li>
 				</ul>
-				===== HAMBURGUER ICON =====
+				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
-			</nav> -->
+			</nav>
 
 		</div>
 	</header>
@@ -183,94 +192,114 @@
 	<section class="podcast-hero"
 		style="background-image: url(resources/assets/img/podcast-hero.jpg)">
 		<div class="podcast-hero-inner">
+			<!-- ===== PODCAST LIST ===== -->
+			<section id="#episodes" class="section-positive">
+				<div class="container" style="margin-top: 100px;">
 
-			<!-- ===== PODCAST INFO ===== -->
+					<!-- ===== SECTION TITLE ===== -->
 
+					<div class="row">
+			</section>
 
-			<!-- ===== PODCAST PLAYER ===== -->
-			<div class="podcast-hero-player-content">
-				<div class="enterpharse">
-					<div style="text-align: center; ">welcome to my Studio</div>
+			<!-- ===== MAIN ===== -->
+			<main id="main" class="main">
+
+			<div class="form" style="margin-top: 100px;">
+
+				<ul class="tab-group">
+					<li class="tab"><a href="#login" style="width: 515px;">Join</a></li>
+				</ul>
+
+				<div class="tab-contents">
+					<div id="signup">
+						<div class="login">
+							<form action="/" method="post">
+								<h1>Welcome to My Studio</h1>
+								<div class="field-wrap">
+									<label> NickName<span class="reqs">*</span>
+									</label> <input type="text" required autocomplete="off" />
+								</div>
+								<div class="field-wrap">
+									<label> ID<span class="reqs">*</span>
+									</label> <input type="text" required autocomplete="off" />
+								</div>
+								<div class="field-wrap">
+									<label> PassWord<span class="reqs">*</span>
+									</label> <input type="password" required autocomplete="off" />
+								</div>
+								
+								<div class="field-wrap">
+									<label> PassWordCheck<span class="reqs">*</span>
+									</label> <input type="password" required autocomplete="off" />
+								</div>
+								<div class="field-wrap">
+									<label> Email<span class="reqs">*</span>
+									</label> <input type="email" required autocomplete="off" />
+								</div>
+
+								<button type="submit" class="button button-block">
+								Get Started
+								</button>
+								<br>
+								<button class="button button-block" onclick="login();">
+								Back
+								</button>
+							</form>
+						</div>
+					</div>
+
+					<div id="login">
+						
+
+						<form action="/" method="post">
+
+							<div class="field-wrap">
+								<label> Email Address<span class="reqs">*</span>
+								</label> <input type="email" required autocomplete="off" />
+							</div>
+
+							<div class="field-wrap">
+								<label> Password<span class="reqs">*</span>
+								</label> <input type="password" required autocomplete="off" />
+							</div>
+
+							<p class="forgot">
+								<a href="#">Forgot Password?</a>
+							</p>
+
+							<button class="button button-block" />
+							Log In
+							</button>
+
+						</form>
+
+					</div>
 
 				</div>
-				<div class="col-sm-12 mb-50">
-					<a href="index" class="btn btn-primary btn-block btn-lg">Enter</a>
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-	<!-- ===== MAIN ===== -->
-	<main id="main" class="main"> <!-- ===== PODCAST LIST ===== -->
-	<section id="#episodes" class="section-positive">
-		<div class="container">
-
-			<!-- ===== SECTION TITLE ===== -->
-
-			<div class="row">
-
-
-				<!-- ===== CHECK MORE ===== -->
-
+				<!-- tab-content -->
 
 			</div>
 
-		</div>
-	</section>
-
-	</main>
-
-	<!-- ===== FOOTER ===== -->
-	<footer class="footer">
 
 
 
-		<!-- ===== FOOTER INFORMATION ===== -->
-		<section class="footer-credits">
-			<div class="container">
+			<!-- ===== FOOTER ===== --> <!-- ===== FOOTER INFORMATION ===== --> <!-- =================================== -->
+			<!-- 			  SCRIPTS 				 --> <!-- =================================== -->
 
-				<div class="row">
+			<!-- JQUERY --> <script src="resources/assets/js/jquery-1.11.min.js"></script>
 
-					<!-- ===== CREDIT LOGO ===== -->
-					<div class="col-sm-6 footer-logo"></div>
+			<!-- BOOTSTRAP JS --> <script
+				src="resources/assets/js/bootstrap.min.js"></script> <!-- MEDIA ELEMENT -->
+			<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
 
-					<!-- ===== CREDIT LOGO ===== -->
-					<div class="col-sm-6 text-right">Donari - 2017. All rights
-						reserved.</div>
+			<!-- MAGNIFIC POPUP --> <script
+				src="resources/assets/js/magnific-popup.min.js"></script> <!-- FORM VALIDATE -->
+			<script src="resources/assets/js/validate.min.js"></script> <!-- PLACEHOLDER FOR IE -->
+			<script src="resources/assets/js/placeholder.min.js"></script> <!-- THEME JS -->
+			<script src="resources/assets/js/main.js"></script> <script
+				src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-				</div>
-
-			</div>
-		</section>
-
-	</footer>
-
-	<!-- =================================== -->
-	<!-- 			  SCRIPTS 				 -->
-	<!-- =================================== -->
-
-	<!-- JQUERY -->
-	<script src="resources/assets/js/jquery-1.11.min.js"></script>
-
-	<!-- BOOTSTRAP JS -->
-	<script src="resources/assets/js/bootstrap.min.js"></script>
-
-	<!-- MEDIA ELEMENT -->
-	<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
-
-	<!-- MAGNIFIC POPUP -->
-	<script src="resources/assets/js/magnific-popup.min.js"></script>
-
-	<!-- FORM VALIDATE -->
-	<script src="resources/assets/js/validate.min.js"></script>
-
-	<!-- PLACEHOLDER FOR IE -->
-	<script src="resources/assets/js/placeholder.min.js"></script>
-
-	<!-- THEME JS -->
-	<script src="resources/assets/js/main.js"></script>
-
+			<script src="resources/assets/js/index2.js"></script>
 </body>
 
 </html>

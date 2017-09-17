@@ -22,11 +22,32 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	
+	@RequestMapping(value="index", method= RequestMethod.GET)
+	public String index(){
+		
+		return "index";
+	}
+		
+		
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		System.out.println("들어왔도다");
 		
 		return "start";
+	}
+	
+	@RequestMapping(value="login", method = RequestMethod.GET)
+	public String login(){
+		
+		return "login2";
+	}
+	
+	@RequestMapping(value="join", method = RequestMethod.GET)
+	public String join(){
+		
+		return "join";
 	}
 	
 	@RequestMapping(value="making", method=RequestMethod.GET)

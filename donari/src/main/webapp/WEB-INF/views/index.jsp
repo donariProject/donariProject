@@ -138,10 +138,11 @@
 				<nav class="navigation">
 					<!-- ===== MENU ===== -->
 					<ul class="menu">
-						<li class="menuitem active"><a href="index.html">Home</a></li>
+						<li class="menuitem"><a href="login">Login</a></li>
+						<li class="menuitem active"><a href="index">Home</a></li>
 						<li class="menuitem"><a href="making">Contact</a></li>
-						<li class="menuitem"><a href="makingVideo">Making Video</a></li>
-						<li class="menuitem"><a href="contact.html">My Page</a></li>
+						<li class="menuitem"><a href="making">Making Video</a></li>
+						<li class="menuitem"><a href="savevideo">My Page</a></li>
 					</ul>
 					<!-- ===== HAMBURGUER ICON ===== -->
 					<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -234,7 +235,7 @@
 						
 						<!-- ===== CHECK MORE ===== -->
 						<div class="col-sm-12 mb-50">
-							<a href="podcasts.html" class="btn btn-primary btn-block btn-lg">View more episodes</a>
+							<a href="podcasts.html" class="btn btn-primary btn-block btn-lg">View more Template</a>
 						</div>
 						
 					</div>

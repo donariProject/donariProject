@@ -135,22 +135,10 @@
 				<nav class="navigation">
 					<!-- ===== MENU ===== -->
 					<ul class="menu">
-						<li class="menuitem"><a href="index.html">Home</a></li>
-						<li class="menuitem"><a href="podcasts.html">Podcasts</a></li>
-						<li class="menuitem active dropdown">
-							<a href="#">Pages</a>
-							<ul class="droplist">
-								<li class="droplist-item"><a href="columns.html">Columns</a></li>
-								<li class="droplist-item"><a href="shortcodes.html">Shortcodes</a></li>
-								<li class="droplist-item"><a href="typography.html">Typography</a></li>
-								<li class="droplist-item"><a href="single-page.html">Single Page</a></li>
-								<li class="droplist-item"><a href="sticky-header.html">Sticky Header</a></li>
-								<li class="droplist-item"><a href="static-header.html">Static Header</a></li>
-								<li class="droplist-item"><a href="404.html">404</a></li>
-							</ul>
-						</li>
-						<li class="menuitem"><a href="about-us.html">About Us</a></li>
-						<li class="menuitem"><a href="contact.html">Contact</a></li>
+						<li class="menuitem"><a href="index">Home</a></li>
+						<li class="menuitem"><a href="#">Contact</a></li>
+						<li class="menuitem"><a href="making">Making Video</a></li>
+						<li class="menuitem"><a href="savevideo">My Page</a></li>
 					</ul>
 					<!-- ===== HAMBURGUER ICON ===== -->
 					<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>

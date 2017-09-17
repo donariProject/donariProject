@@ -160,10 +160,10 @@
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
-					<li class="menuitem active"><a href="index.html">Home</a></li>
+					<li class="menuitem active"><a href="index">Home</a></li>
 					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
-					<li class="menuitem dropdown"><a href="#">MAKING VIDEO</a>
-					<li class="menuitem"><a href="about-us.html">My Page</a></li>
+					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
+					<li class="menuitem"><a href="savevideo">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>

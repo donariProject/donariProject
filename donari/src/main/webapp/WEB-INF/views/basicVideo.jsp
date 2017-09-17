@@ -172,7 +172,7 @@ $(function(){
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
-					<li class="menuitem"><a href="index.html">Home</a></li>
+					<li class="menuitem"><a href="index">Home</a></li>
 					<li class="menuitem"><a href="podcasts.html">Contact</a></li>
 					<li class="menuitem dropdown"><a href="making">Making Video</a>
 					<li class="menuitem active"><a href="savevideo">My Page</a></li>
@@ -180,13 +180,12 @@ $(function(){
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
 			</nav>
-
 		</div>
 	</header>
 
 	<!-- ===== PAGE HEADER ===== -->
 	<header class="page-header"
-		style="background-image: url(assets/img/single-background.jpg)">
+		style="background-image: url(resources/assets/img/single-background.jpg)">
 		<div class="page-header-inner">
 			<div class="container">
 

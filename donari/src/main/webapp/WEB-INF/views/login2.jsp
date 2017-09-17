@@ -169,19 +169,9 @@
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
-					<li class="menuitem active"><a href="index.html">Home</a></li>
+					<li class="menuitem active"><a href="index">Home</a></li>
 					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
-					<li class="menuitem dropdown"><a href="#">MAKING VIDEO</a>
-						<ul class="droplist">
-							<li class="droplist-item"><a href="typography.html">Typography</a></li>
-							<li class="droplist-item"><a href="single-page.html">Single
-									Page</a></li>
-							<li class="droplist-item"><a href="sticky-header.html">Sticky
-									Header</a></li>
-							<li class="droplist-item"><a href="static-header.html">Static
-									Header</a></li>
-							<li class="droplist-item"><a href="404.html">404</a></li>
-						</ul></li>
+					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
 					<li class="menuitem"><a href="about-us.html">About Us</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
@@ -207,7 +197,7 @@
 			<!-- ===== MAIN ===== -->
 			<main id="main" class="main">
 
-			<div class="form">
+			<div class="form" style="margin-top: 100px;">
 
 				<ul class="tab-group">
 					<li class="tab"><a href="#login" style="width: 515px;">Log In</a></li>
