@@ -76,48 +76,6 @@ public class FileuploadController
 		return file;
 	}
 	
-	// 싱글 파일 업로드폼
-	@RequestMapping(value="/fileUpload",method=RequestMethod.GET)
-	public String fileUploadForm()
-	{
-		return "fileUploadForm";
-	}//fileUploadForm()
-	 
-	// 싱글 파일 업로드 처리
-	@RequestMapping(value="/fileUpload",method=RequestMethod.POST)
-	public String fileUpload(String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
-	{
-		String fileName = files.getOriginalFilename();
-		String saveDir = request.getServletContext().getRealPath("");
-		System.out.println("단일 파일 저장 경로 : "+saveDir);
-		System.out.println("제목 : "+title);
-		System.out.println("단일 파일 명 : "+fileName);
-		//System.out.println("수업때 배운거로 써보는 저장 경로"+path);
-		// String saveFile = saveDir+"\\"+file1.getOriginalFilename();
-		 
-		// 중복된 파일인 경우 덮어 쓰기가 되기 때문에 중복 방지 처리를 해 줘야 한다.
-		File fileObj
-		// = new File(saveFile);
-		// = new File(saveDir,file1.getOriginalFilename());
-		 
-		// 중복된 파일 방지 처리를 한 파일 객체를 사용 한다.
-		= DuplicateFile.getFile(saveDir, files);
-		 
-		files.transferTo(fileObj);
-		model.addAttribute("title",title);
-		model.addAttribute("files",files);
-		model.addAttribute("fileName",fileName);
-		model.addAttribute("serverFileName",fileObj.getName());
-		return "fileUpload";
-	}//fileUploadForm()
-	 
-	// 다중 파일 업로드폼
-	@RequestMapping(value="/fileUploads",method=RequestMethod.GET)
-	public String fileUploadForms()
-	{
-		return "fileUploadForms";
-	}//fileUploadForms()
-	 
 	// 다중 파일 업로드 처리
 	@RequestMapping(value="/fileUploads",method=RequestMethod.POST)
 	public String fileUploads(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
@@ -139,5 +97,5 @@ public class FileuploadController
 		model.addAttribute("title",title);
 		model.addAttribute("files",files);
 		return "fileUploads";
-	}//fileUploadForms()
+	}//fileUploads()
 }//class
