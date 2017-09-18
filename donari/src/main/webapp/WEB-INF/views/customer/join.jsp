@@ -144,7 +144,6 @@
 
 <script type="text/javascript">
 	function join() {
-		alert('dd')
 		location.href="join";
 	}
 	function login(){
