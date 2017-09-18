@@ -4,11 +4,10 @@
 <html lang="en">
 
 <script type="text/javascript">
-$(function(){
-	$("#changeposition").sortable();
-	
-})
+	$(function() {
+		$("#changeposition").sortable();
 
+	})
 </script>
 <head>
 
@@ -141,17 +140,21 @@ $(function(){
 <link rel="icon" href="resources/assets/img/favicon.png" />
 <link rel="shortcut icon" href="resources/assets/img/favicon.png" />
 <style type="text/css">
-#btn1{
+#btn1 {
 	border: none;
 	background-color: #f1f1f1;
 }
 
-#btn2{
+#btn2 {
 	border: none;
 	background-color: #f1f1f1;
 }
 </style>
 </head>
+<script type="text/javascript">
+
+
+</script>
 
 <body itemscope itemtype="http://schema.org/WebSite">
 
@@ -174,7 +177,8 @@ $(function(){
 				<ul class="menu">
 					<li class="menuitem"><a href="index">Home</a></li>
 					<li class="menuitem"><a href="podcasts.html">Contact</a></li>
-					<li class="menuitem dropdown"><a href="making">Making Video</a>
+					<li class="menuitem dropdown"><a href="making">Making
+							Video</a>
 					<li class="menuitem active"><a href="savevideo">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
@@ -204,163 +208,54 @@ $(function(){
 			<!-- ===== SECTION TITLE ===== -->
 			<h2 class="title-default text-center">Insert Photo</h2>
 			<fieldset class="row" style="margin-left: 410px;">
-				<div class="col-md-9 nopadding" style = "margin-bottom: 30px;" >
-					<input type="text" name="filepath" id=filepath class="form-control form-negative"
-						id="email-newsletter" placeholder="file path" required
+				<div class="col-md-9 nopadding" style="margin-bottom: 30px;">
+					<input type="text" name="filepath" id=filepath
+						class="form-control form-negative" id="email-newsletter"
+						placeholder="file path" required
 						style="width: 800px; float: right;" />
 				</div>
-			<input id=multiFile type="file" multiple style="display: none;">
-			<img src='resources/assets/img/photos.png'  onclick= 'document.all.multiFile.click(); document.all.filepath.value=document.all.multiFile.value' style="width: 43px; margin-bottom: 30px;">
-			<input type="image" src="resources/assets/img/facebook.png" onclick="facebook()" style="width: 43px;">
+				<input id=multiFile type="file" multiple style="display: none;">
+				<img src='resources/assets/img/photos.png'
+					onclick='document.all.multiFile.click(); document.all.filepath.value=document.all.multiFile.value'
+					style="width: 43px; margin-bottom: 30px;"> <input
+					type="image" src="resources/assets/img/facebook.png"
+					onclick="facebook()" style="width: 43px;">
 			</fieldset>
 			<div
 				style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
-				<div class="row mb-30" style="margin-left: 85px; width: 1000px" >
+				<div class="row mb-30" style="margin-left: 85px; width: 1000px">
 
 					<!-- ===== TEAM CARD ===== -->
-				<div class="changeposition" id="changeposition">
-					<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>
-
+					<div class="changeposition" id="changeposition">
 						<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
+							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
 							<div class="team-cards">
 								<figure class="team-card-image">
 									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
+										title="John Doe" style="float: left;" width="100px;"
+										height="100px;" />
 								</figure>
 
 							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
+						</div>
+
+
+					<div class="allteamcard">
+							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
 							<div class="team-cards">
 								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
+									<img src="resources/assets/img/team/team-2.jpg" alt="John Doe"
+										title="John Doe" style="float: left;" width="100px;"
+										height="100px;" />
 								</figure>
 
 							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
+						</div>
 
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
-					</div>	<div class="allteamcard">
-						<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"height="100px;"/>
-								</figure>
-
-							</div>
 					</div>
-							</div>
+				</div>
 			</div>
-		</div>
-<!-- 		<div class="arrownext">
+			<!-- 		<div class="arrownext">
 			<center><img src="resources/assets/img/up-arrow.png" style="width: 3%"></center>
 		</div>
  -->
@@ -405,11 +300,13 @@ $(function(){
 	<!-- 			  SCRIPTS 				 -->
 	<!-- =================================== -->
 
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
-	 <script type="text/javascript" src="resources/assets/js/jquery.tablednd.js"></script>
+	<script type="text/javascript"
+		src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+	<script type="text/javascript"
+		src="resources/assets/js/jquery.tablednd.js"></script>
 
 
-	
+
 	<!-- JQUERY -->
 	<script src="resources/assets/js/jquery-1.11.min.js"></script>
 
@@ -430,6 +327,11 @@ $(function(){
 
 	<!-- THEME JS -->
 	<script src="resources/assets/js/main.js"></script>
+
+	<!-- Drag and Drop -->
+	<script src="resources/assets/js/jquery-sortable-min.js"></script>
+	<script src="resources/assets/js/jquery-ui.min.js"></script>
+	<script src="resources/assets/js/jquery.tablednd.js"></script>
 
 </body>
 

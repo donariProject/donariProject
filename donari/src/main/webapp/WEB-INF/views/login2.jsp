@@ -172,7 +172,7 @@
 					<li class="menuitem active"><a href="index">Home</a></li>
 					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
 					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
-					<li class="menuitem"><a href="about-us.html">About Us</a></li>
+					<li class="menuitem"><a href="savevideo">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -200,22 +200,22 @@
 			<div class="form" style="margin-top: 100px;">
 
 				<ul class="tab-group">
-					<li class="tab"><a href="#login" style="width: 515px;">Log In</a></li>
+					<li class="tab"><a href="login" style="width: 515px;">Log In</a></li>
 				</ul>
 
 				<div class="tab-contents">
 					<div id="signup">
 						<div class="login">
-							<form action="/" method="post">
+							<form action="login" method="post">
 								<h1>Welcome Back!</h1>
 								<div class="field-wrap">
-									<label> Email Address<span class="reqs">*</span>
-									</label> <input type="email" required autocomplete="off" />
+									<label> ID<span class="reqs">*</span>
+									</label> <input type="text" name="id" required autocomplete="off" />
 								</div>
 								
 								<div class="field-wrap">
 									<label> Password<span class="reqs">*</span>
-									</label> <input type="email" required autocomplete="off" />
+									</label> <input type="password" name="password" required autocomplete="off" />
 								</div>
 
 								<button type="submit" class="button button-block">

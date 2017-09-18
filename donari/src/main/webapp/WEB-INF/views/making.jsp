@@ -138,6 +138,11 @@
 		location.href="basicVideo";	
 	}
 
+	function template(){
+		
+		location.href="template";
+	}
+	
 </script>
 </head>
 
@@ -215,7 +220,7 @@
 				<div class="podcast-card boxed" style="700px">
 					<figure class="podcast-image" style="300px">
 						<img src="resources/assets/img/cards/podcast-boxed-thumb4.jpg"
-							alt="Music Show" title="Music Show" style="width: 628px" />
+							alt="Music Show" title="Music Show" style="width: 628px" onclick="template()" />
 					</figure>
 					<div class="podcast-content" style="margin-left: 60px">
 						<span class="podcast-date">November 27, 2015</span>

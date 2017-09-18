@@ -152,6 +152,13 @@
 		
 	}
 	
+	function joinCK(){
+		var id = document.getElementById
+		
+		
+	}
+	
+	
 </script>
 
 </head>
@@ -179,7 +186,7 @@
 					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
 					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
 						
-					<li class="menuitem"><a href="about-us.html">About Us</a></li>
+					<li class="menuitem"><a href="savevideo">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -207,34 +214,34 @@
 			<div class="form" style="margin-top: 100px;">
 
 				<ul class="tab-group">
-					<li class="tab"><a href="#login" style="width: 515px;">Join</a></li>
+					<li class="tab"><a href="login" style="width: 515px;">Join</a></li>
 				</ul>
 
 				<div class="tab-contents">
 					<div id="signup">
 						<div class="login">
-							<form action="/" method="post">
+							<form action="join" method="post" onclick="return:joinCK();">
 								<h1>Welcome to My Studio</h1>
 								<div class="field-wrap">
 									<label> NickName<span class="reqs">*</span>
-									</label> <input type="text" required autocomplete="off" />
+									</label> <input type="text" id="nickname" name="nickname" required autocomplete="off" />
 								</div>
 								<div class="field-wrap">
 									<label> ID<span class="reqs">*</span>
-									</label> <input type="text" required autocomplete="off" />
+									</label> <input type="text" id="id" name="id" required autocomplete="off" />
 								</div>
 								<div class="field-wrap">
 									<label> PassWord<span class="reqs">*</span>
-									</label> <input type="password" required autocomplete="off" />
+									</label> <input type="password" id="password" name="pw" required autocomplete="off" />
 								</div>
 								
 								<div class="field-wrap">
 									<label> PassWordCheck<span class="reqs">*</span>
-									</label> <input type="password" required autocomplete="off" />
+									</label> <input type="password" id="passwordCK" required autocomplete="off" />
 								</div>
 								<div class="field-wrap">
 									<label> Email<span class="reqs">*</span>
-									</label> <input type="email" required autocomplete="off" />
+									</label> <input type="email" name="email" required autocomplete="off" />
 								</div>
 
 								<button type="submit" class="button button-block">
