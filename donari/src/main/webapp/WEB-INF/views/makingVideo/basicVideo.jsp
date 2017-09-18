@@ -278,12 +278,12 @@ $(document).ready(function()
 			<!-- ===== SECTION TITLE ===== -->
 			<h2 class="title-default text-center">Insert Photo</h2>
 			<fieldset class="row" style="margin-left: 410px;">
-				<div class="col-md-9 nopadding" style="margin-bottom: 30px;">
+				<!-- <div class="col-md-9 nopadding" style="margin-bottom: 30px;">
 					<input type="text" name="filepath" 
 					id=filepath class="form-control form-negative" 
 					id="email-newsletter" placeholder="file path" 
 					required style="width: 800px; float: right;" />
-				</div>
+				</div> -->
 				
 				<form action="fileUploads" method="post" enctype="multipart/form-data">
 				<!-- <input id=multiFile type="file" multiple="multiple" style="display: none;"> -->
@@ -299,22 +299,21 @@ $(document).ready(function()
 				
 				<input type="image" src="resources/assets/img/facebook.png"	onclick="facebook()" style="width: 43px;">
 			</fieldset>
-			<div
-				style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
+			<div style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
 				<div class="row mb-30" style="margin-left: 85px; width: 1000px">
-
 					<!-- ===== TEAM CARD ===== -->
 					<div class="changeposition" id="changeposition">
 						<div class="allteamcard">
 							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
 							<div class="team-cards">
 								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe" title="John Doe" style="float: left;" width="100px;" height="100px;" />
+									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe" 
+										 title="John Doe" style="float: left;" width="100px;" 
+										 height="100px;" />
 								</figure>
 							</div>
 						</div>
-
-					<div class="allteamcard">
+						<div class="allteamcard">
 							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
 							<div class="team-cards">
 								<figure class="team-card-image">
@@ -324,7 +323,6 @@ $(document).ready(function()
 								</figure>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
