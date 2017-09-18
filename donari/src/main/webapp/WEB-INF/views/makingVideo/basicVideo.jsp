@@ -139,22 +139,92 @@
 
 <link rel="icon" href="resources/assets/img/favicon.png" />
 <link rel="shortcut icon" href="resources/assets/img/favicon.png" />
+
 <style type="text/css">
-#btn1 {
-	border: none;
-	background-color: #f1f1f1;
-}
-
-#btn2 {
-	border: none;
-	background-color: #f1f1f1;
-}
+	#btn1 
+	{
+		border: none;
+		background-color: #f1f1f1;
+	}
+	
+	#btn2 
+	{
+		border: none;
+		background-color: #f1f1f1;
+	}
+	
+	input[type="file"] 
+	{
+	  display: block;
+	}
+	
+	.imageThumb 
+	{
+	  max-height: 75px;
+	  border: 2px solid;
+	  padding: 1px;
+	  cursor: pointer;
+	}
+	
+	.pip 
+	{
+	  display: inline-block;
+	  margin: 10px 10px 0 0;
+	}
+	
+	.remove
+	 {
+	  display: block;
+	  background: #444;
+	  border: 1px solid black;
+	  color: white;
+	  text-align: center;
+	  cursor: pointer;
+	}
+	
+	.remove:hover 
+	{
+	  background: white;
+	  color: black;
+	}
 </style>
-</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-
+$(document).ready(function()
+{
+	if (window.File && window.FileList && window.FileReader) 
+	{
+		$("#files").on("change", function(e)
+		{
+			var files = e.target.files,
+	        filesLength = files.length;
+	      for (var i = 0; i < filesLength; i++) 
+	      {
+	        var f = files[i]
+	        var fileReader = new FileReader();
+	        fileReader.onload = (function(e) 
+       			{
+	          		var file = e.target;
+	          		$("<span class=\"pip\">" +
+		            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+		            /*"<br/><span class=\"remove\">Remove image</span>" + */
+		            "</span>").insertAfter("#files");
+		          /* $(".remove").click(function(){
+		            $(this).parent(".pip").remove();
+		          }); */
+		        });
+	        fileReader.readAsDataURL(f);
+	      }
+	    });
+	} 
+	
+	else 
+	{
+		alert("Your browser doesn't support to File API")
+	}
+	});
 </script>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebSite">
 
@@ -209,17 +279,25 @@
 			<h2 class="title-default text-center">Insert Photo</h2>
 			<fieldset class="row" style="margin-left: 410px;">
 				<div class="col-md-9 nopadding" style="margin-bottom: 30px;">
-					<input type="text" name="filepath" id=filepath
-						class="form-control form-negative" id="email-newsletter"
-						placeholder="file path" required
-						style="width: 800px; float: right;" />
+					<input type="text" name="filepath" 
+					id=filepath class="form-control form-negative" 
+					id="email-newsletter" placeholder="file path" 
+					required style="width: 800px; float: right;" />
 				</div>
-				<input id=multiFile type="file" multiple style="display: none;">
-				<img src='resources/assets/img/photos.png'
+				
+				<form action="fileUploads" method="post" enctype="multipart/form-data">
+				<!-- <input id=multiFile type="file" multiple="multiple" style="display: none;"> -->
+				<!-- <img src='resources/assets/img/photos.png'
 					onclick='document.all.multiFile.click(); document.all.filepath.value=document.all.multiFile.value'
-					style="width: 43px; margin-bottom: 30px;"> <input
-					type="image" src="resources/assets/img/facebook.png"
-					onclick="facebook()" style="width: 43px;">
+					style="width: 43px; margin-bottom: 30px;">  -->
+				<input id="files" name="files" type="file" multiple="multiple" style="display: none;">
+				<img src='resources/assets/img/photos.png'
+					onclick='document.all.files.click(); document.all.filepath.value=document.all.files.value'
+					style="width: 43px; margin-bottom: 30px;"> 
+				<button type="submit">사진 전송</button>
+				</form>
+				
+				<input type="image" src="resources/assets/img/facebook.png"	onclick="facebook()" style="width: 43px;">
 			</fieldset>
 			<div
 				style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
@@ -231,14 +309,10 @@
 							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
 							<div class="team-cards">
 								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"
-										height="100px;" />
+									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe" title="John Doe" style="float: left;" width="100px;" height="100px;" />
 								</figure>
-
 							</div>
 						</div>
-
 
 					<div class="allteamcard">
 							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
@@ -248,7 +322,6 @@
 										title="John Doe" style="float: left;" width="100px;"
 										height="100px;" />
 								</figure>
-
 							</div>
 						</div>
 
