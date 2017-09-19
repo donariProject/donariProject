@@ -1,97 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-	<html lang="en">
+<html lang="en">
 
-<script type="text/javascript">
-	$(function() {
-		$("#changeposition").sortable();
-	});
-		// This is called with the results from from FB.getLoginStatus().
-		function statusChangeCallback(response) {
-			console.log('statusChangeCallback');
-			console.log(response);
-			if (response.status === 'connected') {
-				// Logged into your app and Facebook.
-				testAPI();
-			} else {
-				// The person is not logged into your app or we are unable to tell.
-				document.getElementById('status').innerHTML = 'Please log '
-						+ 'into this app.';
-			}
-		}
-
-		function checkLoginState() {
-			FB.getLoginStatus(function(response) {
-				statusChangeCallback(response);
-			});
-		}
-
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId : '1422718804473239',
-				cookie : true, // enable cookies to allow the server to access 
-				// the session
-				xfbml : true, // parse social plugins on this page
-				version : 'v2.8' // use graph api version 2.8
-			});
-
-			FB.getLoginStatus(function(response) {
-				statusChangeCallback(response);
-				if (response.status === 'connected') {
-					console.log(response.authResponse.accessToken);
-				}
-			});
-
-		};
-
-		// Load the SDK asynchronously
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id))
-				return;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-
-		 function testAPI() {
-			FB.api("me/albums?fields=count, id, name", function(response) {
-				var jj = JSON.stringify(response);
-				var data = response["data"];
-				console.log("data : "+JSON.stringify(data));
-
-				var idList = new Array();
-				var nameList = new Array();
-				var countList = new Array();
-				
-				for (var i = 0; i < data.length; i++) {
-					var obj = data[i];
-
-					idList.push(obj.id);
-					
-					nameList.push(obj.name);
-					console.log("name : "+obj.name);
-					
-					countList.push(obj.count);
-					console.log("count : "+obj.count);
-					
-				}
-					
-					//화면에 앨범리스트 출력
-					var html = "";
-					for (var i = 0; i < idList.length; i++) {
-						html += '<a href="albumList?albumName='+idList[i]+'&count='+countList[i]+'">'+ nameList[i]+'</a><br>';
-					}
-					document.getElementById("albumlist").innerHTML=html;
-			});
-		} 
-	
-</script>
-<head>
-
-<title>Soundcast - Podcast Responsive Theme</title>
+<title>Donari - Make your video at once!</title>
 
 <!-- =================================== -->
 <!-- 			MORDERNIZR 			 	 -->
@@ -157,7 +69,7 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="donari" />
-<meta property="og:description" content="make video at once" />
+<meta property="og:description" content="make your video at once" />
 <meta property="og:url" content="http://www.donari.com" />
 <meta property="og:site_name" content="Donari" />
 <meta property="og:image"
@@ -165,54 +77,48 @@
 
 
 <style type="text/css">
-	#btn1 
-	{
-		border: none;
-		background-color: #f1f1f1;
-	}
-	
-	#btn2 
-	{
-		border: none;
-		background-color: #f1f1f1;
-	}
-	
-	input[type="file"] 
-	{
-	  display: block;
-	}
-	
-	.imageThumb 
-	{
-	  max-height: 75px;
-	  border: 2px solid;
-	  padding: 1px;
-	  cursor: pointer;
-	}
-	
-	.pip 
-	{
-	  display: inline-block;
-	  margin: 10px 10px 0 0;
-	}
-	
-	.remove
-	 {
-	  display: block;
-	  background: #444;
-	  border: 1px solid black;
-	  color: white;
-	  text-align: center;
-	  cursor: pointer;
-	}
-	
-	.remove:hover 
-	{
-	  background: white;
-	  color: black;
-	}
+#btn1 {
+	border: none;
+	background-color: #f1f1f1;
+}
+
+#btn2 {
+	border: none;
+	background-color: #f1f1f1;
+}
+
+input[type="file"] {
+	display: block;
+}
+
+.imageThumb {
+	max-height: 75px;
+	border: 2px solid;
+	padding: 1px;
+	cursor: pointer;
+}
+
+.pip {
+	display: inline-block;
+	margin: 10px 10px 0 0;
+}
+
+.remove {
+	display: block;
+	background: #444;
+	border: 1px solid black;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+}
+
+.remove:hover {
+	background: white;
+	color: black;
+}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -254,7 +160,7 @@ function statusChangeCallback(response) {
 	console.log(response);
 	if (response.status === 'connected') {
 		// Logged into your app and Facebook.
-		testAPI();
+		//testAPI();
 	} else {
 		// The person is not logged into your app or we are unable to tell.
 		document.getElementById('status').innerHTML = 'Please log '
@@ -341,10 +247,9 @@ window.fbAsyncInit = function() {
 
 			<!-- ===== LOGO ===== -->
 			<h1 class="logo">
-				<a href="index.html"><img itemprop="logo"
+				<a href="index.html"> <img itemprop="logo"
 					src="resources/assets/img/logo.png"
-					alt="Soundcast - Podcast Responsive Theme"
-					title="Soundcast - Podcast Responsive Theme" /></a>
+					alt="Donari - Make Your Video At Once!" title="Dougani Narimashita" /></a>
 			</h1>
 
 			<!-- ===== NAVIGATION ===== -->
@@ -353,8 +258,14 @@ window.fbAsyncInit = function() {
 				<ul class="menu">
 					<li class="menuitem"><a href="index">Home</a></li>
 					<li class="menuitem"><a href="podcasts.html">Contact</a></li>
-					<li class="menuitem dropdown"><a href="making">Making
+					<li class="menuitem active dropdown"><a href="making">Making
 							Video</a>
+						<ul class="droplist">
+							<li class="droplist-item"><a href="basicVideo">Basic
+									Video</a></li>
+							<li class="droplist-item"><a href="selectTemplate">Select
+									Template</a></li>
+						</ul>
 					<li class="menuitem active"><a href="savevideo">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
@@ -390,22 +301,32 @@ window.fbAsyncInit = function() {
 					id="email-newsletter" placeholder="file path" 
 					required style="width: 800px; float: right;" />
 				</div> -->
-				
-				<form action="fileUploads" method="post" enctype="multipart/form-data">
-				<!-- <input id=multiFile type="file" multiple="multiple" style="display: none;"> -->
-				<!-- <img src='resources/assets/img/photos.png'
+
+				<!-- ===== FILE UPLOAD ===== -->
+				<form action="fileUploads" method="post"
+					enctype="multipart/form-data">
+					<!-- <input id=multiFile type="file" multiple="multiple" style="display: none;"> -->
+					<!-- <img src='resources/assets/img/photos.png'
 					onclick='document.all.multiFile.click(); document.all.filepath.value=document.all.multiFile.value'
 					style="width: 43px; margin-bottom: 30px;">  -->
-				<input id="files" name="files" type="file" multiple="multiple" style="display: none;">
-				<img src='resources/assets/img/photos.png'
-					onclick='document.all.files.click(); document.all.filepath.value=document.all.files.value'
-					style="width: 43px; margin-bottom: 30px;"> 
-				<button type="submit">사진 전송</button>
+					<input id="files" name="files" type="file" multiple="multiple"
+						style="display: none;"> <img
+						src='resources/assets/img/photos.png'
+						onclick='document.all.files.click(); document.all.filepath.value=document.all.files.value'
+						style="width: 43px; margin-bottom: 30px;">
+					<button type="submit">사진 전송</button>
 				</form>
+
+				<!-- ===== FACEBOOK ALBUM LIST ===== -->
+				<input type="image" src="resources/assets/img/facebook.png"
+					onclick="testAPI()" style="width: 43px;">
+				<div id="albumlist"></div>
 				
-				<input type="image" src="resources/assets/img/facebook.png"	onclick="facebook()" style="width: 43px;">
+				<!-- ===== FACEBOOK Login button ===== -->
+				<!-- <fb:login-button scope="public_profile,email,user_photos" onlogin="checkLoginState();"></fb:login-button> -->
 			</fieldset>
-			<div style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
+			<div
+				style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
 				<div class="row mb-30" style="margin-left: 85px; width: 1000px">
 					<!-- ===== TEAM CARD ===== -->
 					<div class="changeposition" id="changeposition">
@@ -413,9 +334,9 @@ window.fbAsyncInit = function() {
 							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
 							<div class="team-cards">
 								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe" 
-										 title="John Doe" style="float: left;" width="100px;" 
-										 height="100px;" />
+									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
+										title="John Doe" style="float: left;" width="100px;"
+										height="100px;" />
 								</figure>
 							</div>
 						</div>

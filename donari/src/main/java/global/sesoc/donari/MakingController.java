@@ -3,6 +3,7 @@ package global.sesoc.donari;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,14 +14,14 @@ public class MakingController {
     SqlSession sql;
 	
 	
-	//±âº» ±â´É or ÅÛÇÃ¸´ ±â´É  ¼±ÅÃÇÏ´Â Ã¢À¸·Î ÀÌµ¿
+	//ï¿½âº» ï¿½ï¿½ï¿½ or ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping(value="making", method=RequestMethod.GET)
 	public String selectMaking(){
 		
 		return "makingVideo/making";
 	}
 
-	//±âº» ±â´ÉÆäÀÌÁö·Î ÀÌµ¿
+	//ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping(value="basicVideo", method=RequestMethod.GET)
 	public String basicVideo(){
 		
@@ -28,11 +29,20 @@ public class MakingController {
 	}
 
 	
-	//ÅÛÇÃ¸´ ±â´É ÆäÀÌÁö·Î ÀÌµ¿
-	@RequestMapping(value="template", method=RequestMethod.GET)
-	public String template(){
+	//ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	@RequestMapping(value="selectTemplate", method=RequestMethod.GET)
+	public String selectTemplate(){
 		
-		return "makingVideo/template";
+		return "makingVideo/selectTemplate";
+	}
+
+	@RequestMapping(value="albumList", method=RequestMethod.GET)
+	public String albumList(String albumName, String count, Model model){
+		System.out.println("albumName : "+albumName);
+		System.out.println("count : "+count);
+		model.addAttribute("albumAdd", albumName);
+		model.addAttribute("albumCount", count);
+		return "makingVideo/facebookAlbum";
 	}
 	
 	
