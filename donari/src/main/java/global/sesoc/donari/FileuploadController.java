@@ -27,7 +27,7 @@ public class FileuploadController
 	/*@Autowired
 	private String path;*/
 	
-	private static final String FILE_PATH = "C:/Users/SCITMaster/Documents/workspace-sts-3.8.4.RELEASE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/fileund/sample.mp4";
+	private static final String FILE_PATH = "C:/Users/SCITMaster/Documents/workspace-sts-3.8.4.RELEASE/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/donari/sample.mp4";
 	
 //	파일 다운로드
 	@GetMapping("/download")
@@ -77,25 +77,30 @@ public class FileuploadController
 	}
 	
 	// 다중 파일 업로드 처리
-	@RequestMapping(value="/fileUploads",method=RequestMethod.POST)
-	public String fileUploads(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
-	{
-		String saveDir = request.getServletContext().getRealPath("");
-		System.out.println("다중 파일 저장 경로 : "+saveDir);
-		// 올라온 파일 확인
-		for(MultipartFile file : multiFiles.getFiles())
+		@RequestMapping(value="/fileUploads",method=RequestMethod.POST)
+		public String fileUploads(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
 		{
-			System.out.println("다중 파일 원본 파일 명 : "+file.getOriginalFilename());
-			 
-			// 중복 되지 않는 파일 객체를 만든다.
-			File serverFile = DuplicateFile.getFile(saveDir, file);
-			System.out.println("서버 파일 명:"+serverFile.getName());
-			//System.out.println("수업때 배운거로 써보는 저장 경로"+path);
-			// 실제적으로 저장할 파일로 이동
-			file.transferTo(serverFile);
-		}//for
-		model.addAttribute("title",title);
-		model.addAttribute("files",files);
-		return "fileUploads";
-	}//fileUploads()
-}//class
+			String saveDir = request.getServletContext().getRealPath("");
+			System.out.println("다중 파일 저장 경로 : "+saveDir);
+			// 올라온 파일 확인
+			
+			for(MultipartFile file : multiFiles.getFiles())
+			{
+				System.out.println("다중 파일 원본 파일 명 : "+file.getOriginalFilename());
+				 
+				// 중복 되지 않는 파일 객체를 만든다.
+				File serverFile = DuplicateFile.getFile(saveDir, file);
+				System.out.println("서버 파일 명:"+serverFile.getName());
+				//System.out.println("수업때 배운거로 써보는 저장 경로"+path);
+				// 실제적으로 저장할 파일로 이동
+				file.transferTo(serverFile);
+				System.out.println("저장 된 경로 및 파일 이름 ? "+serverFile);
+			}//for
+			model.addAttribute("title",title);
+			model.addAttribute("files",files);
+			model.addAttribute("saveDir",saveDir);
+			System.out.println("파일 이름 : "+files);
+			
+			return "fileUploads";
+		}//fileUploadForms()
+	}//class
