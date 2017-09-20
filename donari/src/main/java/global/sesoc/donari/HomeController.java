@@ -19,10 +19,10 @@ public class HomeController {
 		return "mainScreen/index";
 	}
 		
-	@RequestMapping(value="making", method=RequestMethod.GET)
+	@RequestMapping(value="make", method=RequestMethod.GET)
 	public String making(){
 		
-		return "makingVideo/making";
+		return "makingVideo/make";
 	}
 	
 	@RequestMapping(value="basicVideo", method=RequestMethod.GET)

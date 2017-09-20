@@ -137,24 +137,22 @@
 				<img itemprop="logo" src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a></h1>
 				
 				<!-- ===== NAVIGATION ===== -->
-				<nav class="navigation">
-					<!-- ===== MENU ===== -->
-					<ul class="menu">
-						<li class="menuitem active"><a href="index">Home</a></li>
-						<li class="menuitem dropdown">
-							<a href="making">Making</a>
-							<ul class="droplist">
-								<li class="droplist-item"><a href="basicVideo">Basic</a></li>
-								<li class="droplist-item"><a href="selectTemplate">Template</a></li>
-							</ul>
-						</li>
-						<li class="menuitem"><a href="aboutUs">About Us</a></li>
-						<li class="menuitem"><a href="login">Login</a></li>
-						<li class="menuitem"><a href="join">Join</a></li>
-					</ul>
-					<!-- ===== HAMBURGUER ICON ===== -->
-					<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
-				</nav>
+			<nav class="navigation">
+				<!-- ===== MENU ===== -->
+				<ul class="menu">
+					<li class="menuitem active"><a href="index">Home</a></li>
+					<li class="menuitem dropdown"><a href="make">Make</a>
+						<ul class="droplist">
+							<li class="droplist-item"><a href="basicVideo">Interaction Video</a></li>
+							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
+						</ul></li>
+					<li class="menuitem"><a href="aboutUs">About Us</a></li>
+					<li class="menuitem"><a href="login">Login</a></li>
+					<li class="menuitem"><a href="join">Join</a></li>
+				</ul>
+				<!-- ===== HAMBURGUER ICON ===== -->
+				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
+			</nav>
 			</div>
 		</header>
 		

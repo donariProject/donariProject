@@ -165,9 +165,9 @@
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
 					<li class="menuitem"><a href="index">Home</a></li>
-					<li class="menuitem dropdown active"><a href="making">Making</a>
+					<li class="menuitem dropdown active"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="basicVideo">Basic</a></li>
+							<li class="droplist-item"><a href="basicVideo">Interaction Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
