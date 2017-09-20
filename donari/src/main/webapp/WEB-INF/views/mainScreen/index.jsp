@@ -132,7 +132,9 @@
 			<div class="container">
 			
 				<!-- ===== LOGO ===== -->
-				<h1 class="logo"><a href="index.html"><img itemprop="logo" src="resources/assets/img/logo.png" alt="Soundcast - Podcast Responsive Theme" title="Soundcast - Podcast Responsive Theme" /></a></h1>
+				<h1 class="logo">
+				<a href="index.html">
+				<img itemprop="logo" src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a></h1>
 				
 				<!-- ===== NAVIGATION ===== -->
 				<nav class="navigation">

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +32,8 @@
 <link href="resources/assets/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- MEDIA ELEMENT -->
-<link href="resources/assets/css/mediaelementplayer.min.css" rel="stylesheet" />
+<link href="resources/assets/css/mediaelementplayer.min.css"
+	rel="stylesheet" />
 
 <!-- MAGNIFIC POPUP CSS -->
 <link href="resources/assets/css/magnific-popup.css" rel="stylesheet" />
@@ -155,92 +156,73 @@
 
 			<!-- ===== LOGO ===== -->
 			<h1 class="logo">
-				<a href="index.html"><img itemprop="logo"
-					src="resources/assets/img/logo.png"
-					alt="Soundcast - Podcast Responsive Theme"
-					title="Soundcast - Podcast Responsive Theme" /></a>
+				<a href="index.html"> <img itemprop="logo"
+					src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a>
 			</h1>
 
 			<!-- ===== NAVIGATION ===== -->
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
-					<li class="menuitem active"><a href="index">Home</a></li>
-					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
-					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
-					<li class="menuitem"><a href="savevideo">My Page</a></li>
+					<li class="menuitem"><a href="index">Home</a></li>
+					<li class="menuitem dropdown active"><a href="making">Making</a>
+						<ul class="droplist">
+							<li class="droplist-item"><a href="basicVideo">Basic</a></li>
+							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
+						</ul></li>
+					<li class="menuitem"><a href="aboutUs">About Us</a></li>
+					<li class="menuitem"><a href="login">Login</a></li>
+					<li class="menuitem"><a href="join">Join</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
 			</nav>
-
 		</div>
 	</header>
 
-	<!-- ===== LASTEST PODCAST (HERO) ===== -->
+	<!-- ===== UPSIDE ===== -->
 	<section class="podcast-hero"
 		style="background-image: url(resources/assets/img/podcast-hero.jpg)">
 		<div class="podcast-hero-inner">
-			<!-- ===== PODCAST LIST ===== -->
-			<section id="#episodes" class="section-positive">
+
+			<!-- ===== UPSIDE TITLE ===== -->
+			<div class="container">
+				<div class="podcast-hero-content">
+					<h2 class="podcast-hero-title">
+						<a href="podcast.html">Select Mode</a>
+					</h2>
+				</div>
+			</div>
+
+			<!-- ===== UPSIDE PLAYER ===== -->
+			<div class="podcast-hero-player-content">
 				<div class="container">
-
-					<!-- ===== SECTION TITLE ===== -->
-					<h1 class="title-default">Making Video</h1>
-
-					<div class="row">
-			</section>
-
-			<!-- ===== MAIN ===== -->
-			<main id="main" class="main"> 
-			
-			<!-- ===== PODCAST CARD BOXED ===== -->
-			<div class="col-sm-6 mb-40">
-				<div class="podcast-card boxed" style="height: 700px">
-					<figure class="podcast-image">
-						<img src="resources/assets/img/cards/podcast-boxed-thumb3.jpg" alt="Soccer"
-							title="Soccer" style="margin-left: 20px; width: 628px;" onclick="basicVideo()"/>
-					</figure>
-					<div class="podcast-content" style="margin-left: 80px">
-						<h1>BASIC</h1>
-						<div class="podcast-content" style="margin-bottom: 20px;">
-						<h5 class="podcast-excerpt">
-							We will make your photos 
-							<br>
-							complete with music to beat.
-						</h5>
-						
-					</div>
-					</div>
+					<!-- ===== CUSTOM PLAYER ===== -->
 				</div>
 			</div>
 
-			<!-- ===== PODCAST CARD BOXED ===== -->
-			<div class="col-sm-6 mb-40">
-				<div class="podcast-card boxed" style="700px">
-					<figure class="podcast-image" style="300px">
-						<img src="resources/assets/img/cards/podcast-boxed-thumb4.jpg"
-							alt="Music Show" title="Music Show" style="width: 628px" onclick="template()" />
-					</figure>
-					<div class="podcast-content" style="margin-left: 60px">
-						<span class="podcast-date">November 27, 2015</span>
-						<h2 class="podcast-title">
-							<a href="podcast.html">Episode #03 - The best show of our
-								lifes</a>
-						</h2>
-						<p class="podcast-excerpt">
-							<a href="podcast.html">This is a boxed podcast layout. Lorem
-								ipsum dolor sit amet, consectetur adipisicing elit...</a>
-						</p>
-					</div>
-				</div>
-			</div>
+		</div>
 	</section>
 
-
-
-
-
+	<!-- ===== MAIN ===== -->
+	<main id="main-basic" class="main-making">
+	<div class="container" style="width: 100%; text-align:center; vertical-align:middle;">
+		<!-- ===== SECTION TITLE ===== -->
+		<div class="mode"
+			style="display: inline-block; margin-left: auto; margin-right: auto; width: 40%;">
+			<h2 class="title-default" style="text-align: center;">Basic
+				<a href="basicVideo"><figure>
+				<img src="resources/assets/img/basic.jpg" alt="Basic" title="Basic" class="mode"/></figure></a>
+			</h2>
+		</div>
+		<div class="mode" style="display: inline-block; margin-left: auto; margin-right: auto; width: 40%;">
+			<h2 class="title-default" style="text-align: center;">Template
+				<a href="selectTemplate"><figure>
+				<img src="resources/assets/img/template.jpg" alt="template" title="template" class="mode"/></figure></a>
+			</h2>
+		</div>
+	</div>
+	</main>
 	<!-- ===== FOOTER ===== -->
 
 	<!-- ===== FOOTER INFORMATION ===== -->
@@ -250,8 +232,7 @@
 			<div class="row">
 
 				<!-- ===== CREDIT LOGO ===== -->
-				<div class="col-sm-6 footer-logo">
-				</div>
+				<div class="col-sm-6 footer-logo"></div>
 			</div>
 
 		</div>
