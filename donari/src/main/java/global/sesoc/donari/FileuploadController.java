@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -80,9 +81,10 @@ public class FileuploadController
 		@RequestMapping(value="/fileUploads",method=RequestMethod.POST)
 		public String fileUploads(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
 		{
-			String saveDir = request.getServletContext().getRealPath("");
+			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
 			System.out.println("다중 파일 저장 경로 : "+saveDir);
 			// 올라온 파일 확인
+			ArrayList<String> botari = new ArrayList<String>();
 			
 			for(MultipartFile file : multiFiles.getFiles())
 			{
@@ -95,12 +97,20 @@ public class FileuploadController
 				// 실제적으로 저장할 파일로 이동
 				file.transferTo(serverFile);
 				System.out.println("저장 된 경로 및 파일 이름 ? "+serverFile);
+				
+				String filePath = ""+serverFile;
+				String CompleteFilePath = filePath.replaceAll("\\\\", "/");
+				System.out.println(CompleteFilePath+"완전체");
+				
+				botari.add(file.getOriginalFilename());
+				System.out.println(botari+"넌 누구냐!!!!!!!!!!!!!!!!!!!!!!");
 			}//for
+			model.addAttribute("botari",botari);
 			model.addAttribute("title",title);
 			model.addAttribute("files",files);
 			model.addAttribute("saveDir",saveDir);
 			System.out.println("파일 이름 : "+files);
 			
-			return "fileUploads";
+			return "makingVideo/basicVideo";
 		}//fileUploadForms()
 	}//class
