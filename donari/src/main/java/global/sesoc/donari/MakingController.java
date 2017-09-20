@@ -15,26 +15,8 @@ public class MakingController {
 	
 	
 	//�⺻ ��� or ���ø� ���  �����ϴ� â���� �̵�
-	@RequestMapping(value="making", method=RequestMethod.GET)
-	public String selectMaking(){
-		
-		return "makingVideo/making";
-	}
-
-	//�⺻ ����������� �̵�
-	@RequestMapping(value="basicVideo", method=RequestMethod.GET)
-	public String basicVideo(){
-		
-		return "makingVideo/basicVideo";
-	}
-
 	
-	//���ø� ��� �������� �̵�
-	@RequestMapping(value="selectTemplate", method=RequestMethod.GET)
-	public String selectTemplate(){
-		
-		return "makingVideo/selectTemplate";
-	}
+
 
 	@RequestMapping(value="albumList", method=RequestMethod.GET)
 	public String albumList(String albumName, String count, Model model){

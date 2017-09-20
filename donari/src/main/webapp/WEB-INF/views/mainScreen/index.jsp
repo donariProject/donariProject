@@ -138,16 +138,21 @@
 				<nav class="navigation">
 					<!-- ===== MENU ===== -->
 					<ul class="menu">
-						<li class="menuitem"><a href="login">Login</a></li>
 						<li class="menuitem active"><a href="index">Home</a></li>
-						<li class="menuitem"><a href="making">Contact</a></li>
-						<li class="menuitem"><a href="making">Making Video</a></li>
-						<li class="menuitem"><a href="savevideo">My Page</a></li>
+						<li class="menuitem dropdown">
+							<a href="making">Making</a>
+							<ul class="droplist">
+								<li class="droplist-item"><a href="basicVideo">Basic</a></li>
+								<li class="droplist-item"><a href="selectTemplate">Template</a></li>
+							</ul>
+						</li>
+						<li class="menuitem"><a href="aboutUs">About Us</a></li>
+						<li class="menuitem"><a href="login">Login</a></li>
+						<li class="menuitem"><a href="join">Join</a></li>
 					</ul>
 					<!-- ===== HAMBURGUER ICON ===== -->
 					<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
 				</nav>
-				
 			</div>
 		</header>
 		
