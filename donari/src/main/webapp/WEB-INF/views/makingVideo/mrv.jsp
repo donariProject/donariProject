@@ -143,10 +143,10 @@ input[type="file"] {
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
-					<li class="menuitem"><a href="index">Home</a></li>
-					<li class="menuitem dropdown active"><a href="make">Make</a>
+					<li class="menuitem active"><a href="index">Home</a></li>
+					<li class="menuitem dropdown"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="interactionVideo">Interaction Video</a></li>
+							<li class="droplist-item"><a href="mrv" style="fontsize:20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>

@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	
 	<head>
 
@@ -16,7 +15,7 @@
 		<!-- 			  TITLE 			 	 -->
 		<!-- =================================== -->
 
-		<title>Soundcast - Podcast Responsive Theme</title>
+		<title>Donari</title>
 
 		<!-- =================================== -->
 		<!-- 			MORDERNIZR 			 	 -->
@@ -52,15 +51,6 @@
 		<!-- =================================== -->
 		
 		<meta name="theme-color" content="#fff" />
-		
-		<!-- =================================== -->
-		<!-- 			CONDITIONAL 			 -->
-		<!-- =================================== -->
-		
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 
 		<!-- =================================== -->
 		<!-- 			 VIEWPORT 				 -->
@@ -143,7 +133,7 @@
 					<li class="menuitem active"><a href="index">Home</a></li>
 					<li class="menuitem dropdown"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="interactionVideo">Interaction Video</a></li>
+							<li class="droplist-item"><a href="mrv" style="fontsize:20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
@@ -163,7 +153,9 @@
 				<!-- ===== PODCAST INFO ===== -->
 				<div class="container">
 						<div class="podcast-hero-content">
-						<h2 class="podcast-hero-title"><a href="podcast.html"></a></h2>
+						<div>
+							<video width="1200" height="650" src="resources/assets/video/Sunrise.mp4"></video>
+						</div>
 					</div>
 				</div>
 				
@@ -186,69 +178,53 @@
 				<div class="container">
 					
 					<!-- ===== SECTION TITLE ===== -->
-					<h2 class="title-default">Template Introduce</h2>
-					
-					<div class="row">
-					
-						<!-- ===== PODCAST CARD FULL ===== -->
-						<div class="col-sm-12 mb-40">
-							<div class="podcast-card full">
-								<figure class="podcast-image"><a href="podcast-soundcloud.html"><img src="resources/assets/img/cards/podcast-full-thumb.jpg" alt="Seattle" title="Seattle" /></a></figure>
-								<div class="podcast-content">
-									<span class="podcast-date">December 21, 2015</span>
-									<h2 class="podcast-title"><a href="podcast-soundcloud.html">Episode #07 - Podcast embed from SoundCloud</a></h2>
-									<p class="podcast-excerpt"><a href="podcast-soundcloud.html">This is a full card example, porro culpa minus ipsam a accusantium, cupiditate expedita accusamus, perspiciatis magni aliquid cumque facilis rerum eius. Ipsum facilis iste repudiandae ducimus accusamus...</a></p>
-									<ul class="podcast-meta">
-										<li class="item"><a href="#" class="podcast-tag" rel="tag">Lifestyle</a></li>
-										<li class="item"><i class="fa fa-clock-o"></i> 37 mins.</li>
-										<li class="item"><a href="podcast-soundcloud.html" class="podcast-play"><i class="fa fa-play"></i> Play Episode</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-12 mb-40">
-							<div class="podcast-card full">
-								<figure class="podcast-image"><a href="podcast-soundcloud.html"><img src="resources/assets/img/cards/podcast-full-thumb.jpg" alt="Seattle" title="Seattle" /></a></figure>
-								<div class="podcast-content">
-									<span class="podcast-date">December 21, 2015</span>
-									<h2 class="podcast-title"><a href="podcast-soundcloud.html">Episode #07 - Podcast embed from SoundCloud</a></h2>
-									<p class="podcast-excerpt"><a href="podcast-soundcloud.html">This is a full card example, porro culpa minus ipsam a accusantium, cupiditate expedita accusamus, perspiciatis magni aliquid cumque facilis rerum eius. Ipsum facilis iste repudiandae ducimus accusamus...</a></p>
-									<ul class="podcast-meta">
-										<li class="item"><a href="#" class="podcast-tag" rel="tag">Lifestyle</a></li>
-										<li class="item"><i class="fa fa-clock-o"></i> 37 mins.</li>
-										<li class="item"><a href="podcast-soundcloud.html" class="podcast-play"><i class="fa fa-play"></i> Play Episode</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-12 mb-40">
-							<div class="podcast-card full">
-								<figure class="podcast-image"><a href="podcast-soundcloud.html"><img src="resources/assets/img/cards/podcast-full-thumb.jpg" alt="Seattle" title="Seattle" /></a></figure>
-								<div class="podcast-content">
-									<span class="podcast-date">December 21, 2015</span>
-									<h2 class="podcast-title"><a href="podcast-soundcloud.html">Episode #07 - Podcast embed from SoundCloud</a></h2>
-									<p class="podcast-excerpt"><a href="podcast-soundcloud.html">This is a full card example, porro culpa minus ipsam a accusantium, cupiditate expedita accusamus, perspiciatis magni aliquid cumque facilis rerum eius. Ipsum facilis iste repudiandae ducimus accusamus...</a></p>
-									<ul class="podcast-meta">
-										<li class="item"><a href="#" class="podcast-tag" rel="tag">Lifestyle</a></li>
-										<li class="item"><i class="fa fa-clock-o"></i> 37 mins.</li>
-										<li class="item"><a href="podcast-soundcloud.html" class="podcast-play"><i class="fa fa-play"></i> Play Episode</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<!-- ===== CHECK MORE ===== -->
-						<div class="col-sm-12 mb-50">
-							<a href="podcasts.html" class="btn btn-primary btn-block btn-lg">View more Template</a>
-						</div>
-						
+					<h2 align="center" class="title-default">홍보 문구</h2>
+					<div class="row" >
+					<br>
+					<div style="width:15%; height:200px; margin:auto; margin-left: auto; margin-right: auto; padding:5px; vertical-align: middle;">
+						<span class="my_fontaw my_fontmu">
+						<a href="basicVideo"><i class="fa fa-film fa-2x" ></i></a></span>
 					</div>
 					
+						<!-- ===== PODCAST CARD FULL ===== -->
+						<!--<div class="col-sm-12 mb-40">
+							<div class="podcast-card full">
+								<figure class="podcast-image"><a href="podcast-soundcloud.html"><img src='resources/assets/img/blue_rose.png'></a></figure>
+								<div class="podcast-content">
+									<span class="podcast-date">test 1 Template</span>
+									<h2 class="podcast-title"><a href="podcast-soundcloud.html">test 1 템플릿으로 이동합니다.</a></h2>
+									<p class="podcast-excerpt"><a href="podcast-soundcloud.html">test 1 템플릿에 대한 설명입니다.</a></p>
+									<ul class="podcast-meta">
+										<li class="item"><a href="#" class="podcast-tag" rel="tag">템플릿 카테고리</a></li>
+										 <li class="item"><i class="fa fa-clock-o"></i> </li> 
+										 <li class="item"><a href="podcast-soundcloud.html" class="podcast-play"><i class="fa fa-play"></i> </a></li> 
+									</ul>
+								</div>
+							</div>
+						</div>
+					 	<div class="col-sm-12 mb-40">
+							<div class="podcast-card full">
+								<figure class="podcast-image"><a href="podcast-soundcloud.html"><img src='resources/assets/img/klein-bottle.jpg'></a></figure>
+								<div class="podcast-content">
+									<span class="podcast-date">test 2 Template</span>
+									<h2 class="podcast-title"><a href="podcast-soundcloud.html">test 2 템플릿으로 이동합니다.</a></h2>
+									<p class="podcast-excerpt"><a href="podcast-soundcloud.html">test 2 템플릿에 대한 설명입니다.</a></p>
+									<ul class="podcast-meta">
+										<li class="item"><a href="#" class="podcast-tag" rel="tag">템플릿 카테고리</a></li>
+										<li class="item"><i class="fa fa-clock-o"></i> </li>
+										<li class="item"><a href="podcast-soundcloud.html" class="podcast-play"><i class="fa fa-play"></i> </a></li>
+									</ul>
+								</div>
+							</div>
+						</div> -->
+						
+						<!-- ===== CHECK MORE ===== -->
+						<!-- <div class="col-sm-12 mb-50">
+							<a href="podcasts.html" class="btn btn-primary btn-block btn-lg">View more Template</a>
+						</div> -->
+					</div>
 				</div>
 			</section>
-			
-			
 						
 					
 		<!-- ===== FOOTER ===== -->
