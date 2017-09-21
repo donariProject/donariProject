@@ -2663,10 +2663,14 @@ form .form-callback.error {
 	height: 60px;
 }
 
-.page-header .page-header-inner,
+.page-header-inner,
 .page-header-podcast .page-header-inner,
 .page-error .page-header-inner {
 	padding-top: 50px;
+}
+
+.page-header {
+	margin: auto;
 }
 
 .page-header h2,

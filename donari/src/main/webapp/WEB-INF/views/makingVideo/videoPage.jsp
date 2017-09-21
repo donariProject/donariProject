@@ -158,7 +158,7 @@
 		<main id="main" class="main">
 			
 			<!-- ===== PAGE HEADER ===== -->
-			<header class="page-header" style="background-image: url(resources/assets/img/single-background.jpg)">
+			<header class="page-header" id="vpHeader" style="background-image: url(resources/assets/img/single-background.jpg)">
 				<div class="page-header-inner">
 					<div class="container" style="position: relative;">
 
@@ -177,18 +177,6 @@
 							<!-- ===== PAGE MAIN CONTENT ===== -->
 							<div >
 								<figure><img src="resources/assets/img/gallery/large/image-2.jpg" alt="Image" title="Image" style="display: block; margin: auto;"/></figure>
-							</div>
-							
-							<!-- ===== PREV AND NEXT ===== -->
-							<div class="page-pagination">
-								<!-- ===== PREV ===== -->
-								<a href="podcast-soundcloud.html" class="page-pagination-prev">
-									<i class="fa fa-long-arrow-left"></i>
-								</a>
-								<!-- ===== NEXT ===== -->
-								<a href="#" class="page-pagination-next">
-									<i class="fa fa-long-arrow-right"></i>
-								</a>
 							</div>
 							
 				</div>

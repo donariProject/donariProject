@@ -42,6 +42,11 @@ public class HomeController {
 		
 		return "aboutUs";
 	}
+	@RequestMapping(value="templatePageTest", method=RequestMethod.GET)
+	public String templatePageTest(){
+		
+		return "makingVideo/templatePageTest";
+	}
 }
 
 	
