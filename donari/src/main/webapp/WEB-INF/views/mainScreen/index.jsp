@@ -186,7 +186,6 @@
 						<span class="my_fontaw my_fontmu">
 						<a href="basicVideo"><i class="fa fa-film fa-2x" ></i></a></span>
 					</div>
-					
 						<!-- ===== PODCAST CARD FULL ===== -->
 						<!--<div class="col-sm-12 mb-40">
 							<div class="podcast-card full">
