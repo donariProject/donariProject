@@ -2,6 +2,7 @@
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -24,6 +25,20 @@
 	
 	<context:component-scan base-package="global.sesoc.donari" />
 	
+	<!-- 로그인 인터셉터 정의 -->
+	<beans:bean id="loginInterceptor" class="global.sesoc.donari.interceptor.LoginInterceptor"></beans:bean>
 	
+	<!-- 로그인 인터셉터를 경유해서 처리할 경로들 지정 -->
+	<!-- 현 XML파일 상단의 beans 태그 내에 xmlns:mvc="http://www.springframework.org/schema/mvc" 추가하고 사용 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/" />
+			<mapping path="/" />
+			<mapping path="/" />
+			<mapping path="/" />
+			<mapping path="/" />
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>
