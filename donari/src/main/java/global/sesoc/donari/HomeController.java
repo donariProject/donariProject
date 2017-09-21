@@ -34,7 +34,7 @@ public class HomeController {
 	@RequestMapping(value="selectTemplate", method=RequestMethod.GET)
 	public String selectTemplate(){
 		
-		return "makingVideo/selectTemplate";
+		return "makingVideo/videoPage";
 	}
 	
 	@RequestMapping(value="aboutUs", method=RequestMethod.GET)

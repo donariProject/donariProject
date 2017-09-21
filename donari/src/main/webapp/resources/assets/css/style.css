@@ -1593,7 +1593,7 @@ form .form-callback.error {
 .podcast-hero {
 	position: relative;
 	width: 100%;
-	height: 100%;
+	height: 30%;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-color: #110f16;
@@ -1610,7 +1610,7 @@ form .form-callback.error {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 200px;
+	height: 30%;
 	display: block; /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background-image: -webkit-linear-gradient(to top, transparent, #18151f);
 	background-image: -moz-linear-gradient(to top, transparent, #18151f);
@@ -1625,7 +1625,7 @@ form .form-callback.error {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 300px;
+	height: 30%;
 	display: block; /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background-image: -webkit-linear-gradient(to bottom, transparent, #110f16);
 	background-image: -moz-linear-gradient(to bottom, transparent, #110f16);
@@ -1654,7 +1654,7 @@ form .form-callback.error {
 
 .podcast-hero .podcast-hero-content {
 	position: absolute;
-	top: 50%;
+	top: 70%;
 	left: 0;
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
@@ -2021,7 +2021,7 @@ form .form-callback.error {
 .page-header-podcast,
 .page-error {
 	position: relative;
-	height: 450px;
+	height: 200px;
 	padding: 0;
 	margin: 0;
 	background-position: center center;
@@ -2060,7 +2060,7 @@ form .form-callback.error {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 300px;
+	height: 200px;
 	display: block; /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background-image: -webkit-linear-gradient(to bottom, transparent, #110f16);
 	background-image: -moz-linear-gradient(to bottom, transparent, #110f16);
@@ -2075,7 +2075,7 @@ form .form-callback.error {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	padding-top: 140px;
+	padding-top: 80px;
 	background-color: #110f16;
 	background-color: rgba(17, 15, 22, 0.7);
 	zoom: 1;
@@ -2088,7 +2088,7 @@ form .form-callback.error {
 .page-header h2,
 .page-header-podcast h2,
 .page-error h2 {
-	margin: 90px 0 20px 0;
+	margin: 5px 0 20px 0;
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 48px;
@@ -2374,7 +2374,7 @@ form .form-callback.error {
 	display: block;
 	padding: 30px;
 	color: #444;
-	background: #e4e4e4;
+	background: rgba(255, 255, 255, 0.5);
 }
 
 .page-pagination a:hover,

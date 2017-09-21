@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	
 	<head>
 
@@ -21,23 +21,23 @@
 		<!-- 			MORDERNIZR 			 	 -->
 		<!-- =================================== -->
 
-		<script src="assets/js/modernizr.js"></script>
+		<script src="resources/assets/js/modernizr.js"></script>
 		
 		<!-- =================================== -->
 		<!-- 			  STYLES 				 -->
 		<!-- =================================== -->
 		
 		<!-- BOOTSTRAP MIN -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="resources/assets/css/bootstrap.min.css" rel="stylesheet" />
 		
 		<!-- MEDIA ELEMENT -->
-		<link href="assets/css/mediaelementplayer.min.css" rel="stylesheet" />
+		<link href="resources/assets/css/mediaelementplayer.min.css" rel="stylesheet" />
 		
 		<!-- MAGNIFIC POPUP CSS -->
-		<link href="assets/css/magnific-popup.css" rel="stylesheet" />
+		<link href="resources/assets/css/magnific-popup.css" rel="stylesheet" />
 		
 		<!-- THEME CSS -->
-		<link href="assets/css/style.css" rel="stylesheet" />
+		<link href="resources/assets/css/style.css" rel="stylesheet" />
 		
 		<!-- GOOGLE FONTS -->
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -127,11 +127,11 @@
 	<body itemscope itemtype="http://schema.org/WebSite">
 		
 		<!-- ===== HEADER ===== -->
-		<header class="header sticky" data-offset="60" itemscope itemtype="http://schema.org/Organization">
+		<header class="header sticky scrolling" data-offset="60" itemscope itemtype="http://schema.org/Organization">
 			<div class="container">
 			
 				<!-- ===== LOGO ===== -->
-				<h1 class="logo"><a href="index.html"><img itemprop="logo" src="assets/img/logo.png" alt="Soundcast - Podcast Responsive Theme" title="Soundcast - Podcast Responsive Theme" /></a></h1>
+				<h1 class="logo"><a href="index"><img itemprop="logo" src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a></h1>
 				
 				<!-- ===== NAVIGATION ===== -->
 			<nav class="navigation">
@@ -158,21 +158,14 @@
 		<main id="main" class="main">
 			
 			<!-- ===== PAGE HEADER ===== -->
-			<header class="page-header" style="background-image: url(assets/img/single-background.jpg)">
+			<header class="page-header" style="background-image: url(resources/assets/img/single-background.jpg)">
 				<div class="page-header-inner">
-					<div class="container">
+					<div class="container" style="position: relative;">
 
-						<!-- ===== BREADCRUMB ===== -->
-						<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-							<li itemprop="itemListElement"><a href="index.html">Home</a></li>
-							<li itemprop="itemListElement"><a href="#">Sticky Header</a></li>
-						</ol>
-
-						<!-- ===== PAGE HEADER CONTENT ===== -->
-						<div class="page-header-content text-center">
-							<h2>Sticky Header</h2>
+						<!-- ===== PAGE HEADER CONTENT 페이지 타이틀 ===== -->
+						<div class="page-header-content text-center" style="position: relative;">
+							<h2 style="margin-top:20px;">Video Page</h2>
 						</div>
-
 					</div>
 				</div>
 			</header>
@@ -181,200 +174,23 @@
 			<div class="section-negative">
 				<div class="container">
 					
-					<div class="row mt-70 mb-50">
-						
-						<!-- ===== PODCAST TEXT CONTENT ===== -->
-						<div class="col-md-8 mb-50">
-							
 							<!-- ===== PAGE MAIN CONTENT ===== -->
-							<div class="page-content">
-								<figure><img src="assets/img/gallery/large/image-2.jpg" alt="Image" title="Image" /></figure>
-								<p>"He's too sound asleep, Mr. Stubb; go thou down, and wake him, and tell him. I must see to the deck here. Thou know'st what to say."</p>
-								<p>Next morning the not-yet-subsided sea rolled in long slow billows of mighty bulk, and striving in the Pequod's gurgling track, pushed her on like giants' palms outspread. The strong, unstaggering breeze abounded so, that sky and air seemed vast outbellying sails; the whole world boomed before the wind. Muffled in the full morning light, the invisible sun was only known by the spread intensity of his place; where his bayonet rays moved on in stacks. Emblazonings, as of crowned Babylonian kings and queens, reigned over everything. The sea was as a crucible of molten gold, that bubblingly leaps with light and heat.</p>
-								<p>Long maintaining an enchanted silence, Ahab stood apart; and every time the tetering ship loweringly pitched down her bowsprit, he turned to eye the bright sun's rays produced ahead; and when she profoundly settled by the stern, he turned behind, and saw the sun's rearward place, and how the same yellow rays were blending with his undeviating wake.</p>
-								<p>"Ha, ha, my ship! thou mightest well be taken now for the sea-chariot of the sun. Ho, ho! all ye nations before my prow, I bring the sun to ye! Yoke on the further billows; hallo! a tandem, I drive the sea!"</p>
-								<p>But suddenly reined back by some counter thought, he hurried towards the helm, huskily demanding how the ship was heading.</p>
-								<p>"East-sou-east, sir," said the frightened steersman.</p>
-								<p>"Thou liest!" smiting him with his clenched fist. "Heading East at this hour in the morning, and the sun astern?"</p>
-								<p>Upon this every soul was confounded; for the phenomenon just then observed by Ahab had unaccountably escaped every one else; but its very blinding palpableness must have been the cause.</p>
-								<!-- ===== GALLERY WITH ZOOM ===== -->
-								<div class="page-gallery">
-									<div class="col-md-4 col-xs-6 nopadding">
-										<figure class="gallery-item">
-											<a href="assets/img/gallery/large/image-2.jpg" class="gallery-zoom">
-												<img src="assets/img/gallery/thumb/image-2.jpg" alt="Gallery" title="Gallery" />
-											</a>
-										</figure>
-									</div>
-									<div class="col-md-4 col-xs-6 nopadding">
-										<figure class="gallery-item">
-											<a href="assets/img/gallery/large/image-1.jpg" class="gallery-zoom" title="This is a caption">
-												<img src="assets/img/gallery/thumb/image-1.jpg" alt="Gallery" title="Gallery" />
-											</a>
-											<figcaption>This is a caption</figcaption>
-										</figure>
-									</div>
-									<div class="col-md-4 col-xs-6 nopadding">
-										<figure class="gallery-item">
-											<a href="assets/img/gallery/large/image-3.jpg" class="gallery-zoom">
-												<img src="assets/img/gallery/thumb/image-3.jpg" alt="Gallery" title="Gallery" />
-											</a>
-										</figure>
-									</div>
-									<div class="col-md-4 col-xs-6 nopadding">
-										<figure class="gallery-item">
-											<a href="assets/img/gallery/large/image-3.jpg" class="gallery-zoom" title="This is a caption">
-												<img src="assets/img/gallery/thumb/image-3.jpg" alt="Gallery" title="Gallery" />
-											</a>
-											<figcaption>This is a caption</figcaption>
-										</figure>
-									</div>
-									<div class="col-md-4 col-xs-6 nopadding">
-										<figure class="gallery-item">
-											<a href="assets/img/gallery/large/image-2.jpg" class="gallery-zoom">
-												<img src="assets/img/gallery/thumb/image-2.jpg" alt="Gallery" title="Gallery" />
-											</a>
-										</figure>
-									</div>
-									<div class="col-md-4 col-xs-6 nopadding">
-										<figure class="gallery-item">
-											<a href="assets/img/gallery/large/image-1.jpg" class="gallery-zoom">
-												<img src="assets/img/gallery/thumb/image-1.jpg" alt="Gallery" title="Gallery" />
-											</a>
-										</figure>
-									</div>
-								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit tempora tempore blanditiis rem obcaecati et nihil, culpa mollitia sed, vel recusandae iste officia, ipsam laudantium architecto maiores est, unde molestias!</p>
+							<div >
+								<figure><img src="resources/assets/img/gallery/large/image-2.jpg" alt="Image" title="Image" style="display: block; margin: auto;"/></figure>
 							</div>
-							
-							<!-- ===== HR ===== -->
-							<hr />
 							
 							<!-- ===== PREV AND NEXT ===== -->
 							<div class="page-pagination">
 								<!-- ===== PREV ===== -->
 								<a href="podcast-soundcloud.html" class="page-pagination-prev">
 									<i class="fa fa-long-arrow-left"></i>
-									<span>December 21, 2015</span>
-									<p>Episode #07 - Podcast embed from SoundCloud</p>
 								</a>
 								<!-- ===== NEXT ===== -->
 								<a href="#" class="page-pagination-next">
 									<i class="fa fa-long-arrow-right"></i>
-									<span>December 25, 2015</span>
-									<p>Episode #09 - Santa is coming...</p>
 								</a>
 							</div>
 							
-							<!-- ===== HR ===== -->
-							<hr />
-							
-							<!-- ===== COMMENTS ===== -->
-							<div class="page-comments">
-									
-								<!-- ===== COMMENT ITEM ===== -->
-								<div class="comment-item">
-									<!-- ===== COMMENT IMAGE ===== -->
-									<div class="comment-image">
-										<figure><img src="assets/img/avatar/avatar-f.jpg" alt="Avatar" title="Avatar" /></figure>
-									</div>
-									<!-- ===== COMMENT CONTENT ===== -->
-									<div class="comment-content">
-										<cite class="comment-author">Jana Doe</cite> <small>says:</small>
-										<span class="comment-date">January 10, 2015</span>
-										<div class="comment-body">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quis reiciendis, quibusdam magnam, repudiandae facere consectetur mollitia nam iure quia explicabo, velit? Neque, assumenda consequatur, magnam quod ipsam veniam qui!</p>
-										</div>
-									</div>
-								</div>
-								
-								<div class="comment-item">
-									<!-- ===== COMMENT IMAGE ===== -->
-									<div class="comment-image">
-										<figure><img src="assets/img/avatar/avatar-m.jpg" alt="Avatar" title="Avatar" /></figure>
-									</div>
-									<!-- ===== COMMENT CONTENT ===== -->
-									<div class="comment-content">
-										<cite class="comment-author">John Doe</cite> <small>says:</small>
-										<span class="comment-date">January 12, 2015</span>
-										<div class="comment-body">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quis reiciendis, quibusdam magnam, repudiandae facere consectetur mollitia nam iure quia explicabo, velit? Neque, assumenda consequatur, magnam quod ipsam veniam qui!</p>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							
-							<!-- ===== HR ===== -->
-							<hr />
-							
-							<!-- ===== FORM COMMENTS ===== -->
-							<form action="#" class="form-comment form-validate">
-								<fieldset class="row">
-									<legend class="col-md-12">Leave a comment</legend>
-									<div class="col-md-8 mb-20">
-										<label for="name" class="label-control">Name*:</label>
-										<input type="text" id="name" name="name" class="form-control" required />
-									</div>
-									<div class="col-md-8 mb-20">
-										<label for="email" class="label-control">Email*:</label>
-										<input type="email" id="email" name="email" class="form-control" required />
-									</div>
-									<div class="col-md-8 mb-20">
-										<label for="website" class="label-control">Website:</label>
-										<input type="text" id="website" name="website" class="form-control" />
-									</div>
-									<div class="col-md-12 mb-20">
-										<label for="comment" class="label-control">Comment*:</label>
-										<textarea name="comment" id="comment" rows="8" class="form-control" required></textarea>
-									</div>
-									<div class="col-md-5">
-										<input type="submit" class="btn btn-lg btn-block btn-success" value="Send comment" />
-									</div>
-								</fieldset>
-							</form>
-							
-						</div>
-						
-						<!-- ===== SIDEBAR ===== -->
-						<div class="col-md-4">
-						
-							<!-- ===== PODCAST SIDEBAR ===== -->
-							<div class="page-sidebar">
-							
-								<!-- ===== SEARCH ===== -->
-								<div class="sidebar-widget">
-									<h2 class="title-separator">Search</h2>
-									<form action="#" class="form-search">
-										<fieldset>
-											<div class="col-md-9 nopadding">
-												<input type="search" name="search" class="form-control noborder" placeholder="Search" />
-											</div>
-											<div class="col-md-3 nopadding">
-												<button class="btn btn-success btn-lg btn-block"><i class="fa fa-search"></i></button>
-											</div>
-										</fieldset>
-									</form>
-								</div>
-								
-								<!-- ===== PODCAST WIDGET ===== -->
-								<div class="sidebar-widget">
-									<h2 class="title-separator">Last Episode</h2>
-									<div class="podcast-card sidebar">
-										<figure class="podcast-image"><a href="podcast.html"><img src="assets/img/cards/podcast-boxed-thumb2.jpg" alt="Photography" title="Photography" /></a></figure>
-										<div class="podcast-content">
-											<span class="podcast-date">December 22, 2015</span>
-											<h2 class="podcast-title"><a href="podcast.html">Episode #08 - Our vacations have been so amazing!</a></h2>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-							
-						</div>
-						
-					</div>
-					
 				</div>
 			</div>
 			
@@ -387,7 +203,7 @@
 			<section class="section-positive">
 				<div class="container">
 					
-					<div class="row mt-70 mb-30">
+					<div class="mt-70 mb-30">
 						
 						<!-- ===== SITEMAP ===== -->
 						<div class="col-sm-3 mb-40">
@@ -463,12 +279,12 @@
 						
 						<!-- ===== CREDIT LOGO ===== -->
 						<div class="col-sm-6 footer-logo">
-							<h2><a href="index.html"><img src="assets/img/logo.png" alt="Soudcast - Podcast Responsive Theme" title="Soundcast - Podcast Responsive Theme" /></a></h2>
+							<h2><a href="index"><img src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a></h2>
 						</div>
 						
 						<!-- ===== CREDIT LOGO ===== -->
 						<div class="col-sm-6 text-right">
-							Soundcast - 2016. All rights reserved.
+							Donari - 2017. All rights reserved.
 						</div>
 						
 					</div>

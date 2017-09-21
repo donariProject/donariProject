@@ -16,7 +16,7 @@
 <!-- 			  TITLE 			 	 -->
 <!-- =================================== -->
 
-<title>Soundcast - Podcast Responsive Theme</title>
+<title>Donari</title>
 
 <!-- =================================== -->
 <!-- 			MORDERNIZR 			 	 -->
@@ -164,8 +164,8 @@
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
-					<li class="menuitem active"><a href="index">Home</a></li>
-					<li class="menuitem dropdown"><a href="make">Make</a>
+					<li class="menuitem"><a href="index">Home</a></li>
+					<li class="menuitem dropdown active"><a href="make">Make</a>
 						<ul class="droplist">
 							<li class="droplist-item"><a href="mrv" style="fontsize:20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
@@ -193,15 +193,6 @@
 					</h2>
 				</div>
 			</div>
-
-			<!-- ===== UPSIDE PLAYER ===== -->
-			<div class="podcast-hero-player-content">
-				<div class="container">
-					<!-- ===== CUSTOM PLAYER ===== -->
-				</div>
-			</div>
-
-		</div>
 	</section>
 
 	<!-- ===== MAIN ===== -->
@@ -223,22 +214,6 @@
 		</div>
 	</div>
 	</main>
-	<!-- ===== FOOTER ===== -->
-
-	<!-- ===== FOOTER INFORMATION ===== -->
-	<section class="footer-credits">
-		<div class="container">
-
-			<div class="row">
-
-				<!-- ===== CREDIT LOGO ===== -->
-				<div class="col-sm-6 footer-logo"></div>
-			</div>
-
-		</div>
-	</section>
-
-	</footer>
 
 	<!-- =================================== -->
 	<!-- 			  SCRIPTS 				 -->

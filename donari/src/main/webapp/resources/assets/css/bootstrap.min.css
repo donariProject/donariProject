@@ -1903,7 +1903,7 @@ pre code {
 	margin-right: -15px;
 	margin-left: -15px;
 }
-
+/* 
 .col-lg-1,
 .col-lg-10,
 .col-lg-11,
@@ -1951,7 +1951,7 @@ pre code {
 .col-xs-6,
 .col-xs-7,
 .col-xs-8,
-/* .col-xs-9 {
+.col-xs-9 {
 	position: relative;
 	min-height: 1px;
 	padding-right: 15px;
@@ -7345,6 +7345,9 @@ th.visible-sm {
 
 .container {
 	width: 970px;
+}
+.container_page {
+	width: 100%;
 }
 
 .col-md-1,
