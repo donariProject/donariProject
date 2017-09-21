@@ -25,10 +25,10 @@ public class HomeController {
 		return "makingVideo/make";
 	}
 	
-	@RequestMapping(value="basicVideo", method=RequestMethod.GET)
+	@RequestMapping(value="interactionVideo", method=RequestMethod.GET)
 	public String basicVideo(){
 		
-		return "makingVideo/basicVideo";
+		return "makingVideo/interactionVideo";
 	}
 	
 	@RequestMapping(value="selectTemplate", method=RequestMethod.GET)

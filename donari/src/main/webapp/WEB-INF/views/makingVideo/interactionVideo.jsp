@@ -120,39 +120,7 @@ input[type="file"] {
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function()
-{
-	if (window.File && window.FileList && window.FileReader) 
-	{
-		$("#files").on("change", function(e)
-		{
-			var files = e.target.files,
-	        filesLength = files.length;
-	      for (var i = 0; i < filesLength; i++) 
-	      {
-	        var f = files[i]
-	        var fileReader = new FileReader();
-	        fileReader.onload = (function(e) 
-       			{
-	          		var file = e.target;
-	          		$("<span class=\"pip\">" +
-		            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
-		            /*"<br/><span class=\"remove\">Remove image</span>" + */
-		            "</span>").insertAfter("#files");
-		          /* $(".remove").click(function(){
-		            $(this).parent(".pip").remove();
-		          }); */
-		        });
-	        fileReader.readAsDataURL(f);
-	      }
-	    });
-	} 
-	
-	else 
-	{
-		alert("Your browser doesn't support to File API")
-	}
-	});
+
 	
 </script>
 </head>
@@ -176,16 +144,14 @@ $(document).ready(function()
 				<!-- ===== MENU ===== -->
 				<ul class="menu">
 					<li class="menuitem"><a href="index">Home</a></li>
-					<li class="menuitem"><a href="podcasts.html">Contact</a></li>
-					<li class="menuitem active dropdown"><a href="making">Making
-							Video</a>
+					<li class="menuitem dropdown active"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="basicVideo">Basic
-									Video</a></li>
-							<li class="droplist-item"><a href="selectTemplate">Select
-									Template</a></li>
-						</ul>
-					<li class="menuitem active"><a href="savevideo">My Page</a></li>
+							<li class="droplist-item"><a href="interactionVideo">Interaction Video</a></li>
+							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
+						</ul></li>
+					<li class="menuitem"><a href="aboutUs">About Us</a></li>
+					<li class="menuitem"><a href="login">Login</a></li>
+					<li class="menuitem"><a href="join">Join</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -201,7 +167,7 @@ $(document).ready(function()
 
 				<!-- ===== PAGE HEADER CONTENT ===== -->
 				<div class="page-header-content text-center">
-					<h2>Basic Making Video</h2>
+					<h2>Make a Music Interaction Video</h2>
 				</div>
 
 			</div>
@@ -244,8 +210,7 @@ $(document).ready(function()
 				<!-- ===== FACEBOOK Login button ===== -->
 				<!-- <fb:login-button scope="public_profile,email,user_photos" onlogin="checkLoginState();"></fb:login-button> -->
 			</fieldset>
-			<div
-				style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
+			<div style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
 				<div class="row mb-30" style="margin-left: 85px; width: 1000px">
 					<!-- ===== TEAM CARD ===== -->
 					<div class="changeposition" id="changeposition">
@@ -288,27 +253,17 @@ $(document).ready(function()
 
 	<!-- ===== FOOTER ===== -->
 	<footer class="footer">
-
-
-
 		<!-- ===== FOOTER INFORMATION ===== -->
 		<section class="footer-credits">
 			<div class="container">
-
 				<div class="row">
-
 					<!-- ===== CREDIT LOGO ===== -->
 
-
 					<!-- ===== CREDIT LOGO ===== -->
-					<div class="col-sm-6 text-right">Donari - 2017. All rights
-						reserved.</div>
-
+					<div class="col-sm-6 text-right">Donari - 2017. All rights reserved.</div>
 				</div>
-
 			</div>
 		</section>
-
 	</footer>
 
 	<!-- =================================== -->
@@ -343,8 +298,8 @@ $(document).ready(function()
 	<!-- THEME JS -->
 	<script src="resources/assets/js/main.js"></script>
 
-	<!-- FACEBOOK LOGIN JS -->
-	<script src="resources/assets/js/fb_login.js"></script>
+	<!-- FILEUPLOAD -->
+	<script src="resources/assets/js/fileupload.js"></script>
 
 	<!-- Drag and Drop -->
 	<script src="resources/assets/js/jquery-sortable-min.js"></script>
