@@ -153,6 +153,7 @@
 				<!-- ===== PODCAST INFO ===== -->
 				<div class="container">
 						<div class="podcast-hero-content">
+						<h2 class="podcast-hero-title"><a href="podcast.html"></a></h2>
 						<div>
 							<video width="1200" height="650" src="resources/assets/video/Sunrise.mp4"></video>
 						</div>
