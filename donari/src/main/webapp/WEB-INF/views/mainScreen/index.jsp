@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	
@@ -115,7 +116,7 @@
 
 	</head>
 
-	<body itemscope itemtype="http://schema.org/WebSite">
+	<body itemscope itemtype="http://schema.org/WebSite" >
 		
 		<!-- ===== HEADER ===== -->
 		<header class="header absolute" itemscope itemtype="http://schema.org/Organization">
@@ -139,6 +140,7 @@
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
 					<li class="menuitem"><a href="login">Login</a></li>
 					<li class="menuitem"><a href="join">Join</a></li>
+					<li class="menuitem"><a href="myPage">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -147,83 +149,20 @@
 		</header>
 		
 		<!-- ===== LASTEST PODCAST (HERO) ===== -->
-		<section class="podcast-hero" style="background-image: url(resources/assets/img/podcast-hero.jpg)">
-			<div class="podcast-hero-inner">
-			
-				<!-- ===== PODCAST INFO ===== -->
-				<div class="container">
-						<div class="podcast-hero-content">
-						<div>
-							<video width="1200" height="650" src="resources/assets/video/Sunrise.mp4"></video>
-						</div>
-					</div>
-				</div>
-				
-				<!-- ===== PODCAST PLAYER ===== -->
-				<div class="podcast-hero-player-content">
-					<div class="container">
-						<!-- ===== CUSTOM PLAYER ===== -->
-						<audio src="resources/assets/audio/emotional.mp3"></audio>
-					</div>
-				</div>
-				
-			</div>
+		<section class="podcast-hero">
+		
 		</section>
 		
 		<!-- ===== MAIN ===== -->
-		<main id="main" class="main">
+		<main id="main" class="main" >
 			
-			<!-- ===== PODCAST LIST ===== -->
-			<section id="#episodes" class="section-positive">
-				<div class="container">
+			<!-- ===== NEWSLETTER ===== -->
+			<section class="section-intro">
 					
 					<!-- ===== SECTION TITLE ===== -->
-					<h2 align="center" class="title-default">홍보 문구</h2>
-					<div class="row" >
-					<br>
-					<div style="width:15%; height:200px; margin:auto; margin-left: auto; margin-right: auto; padding:5px; vertical-align: middle;">
-						<span class="my_fontaw my_fontmu">
-						<a href="basicVideo"><i class="fa fa-film fa-2x" ></i></a></span>
-					</div>
-					
-						<!-- ===== PODCAST CARD FULL ===== -->
-						<!--<div class="col-sm-12 mb-40">
-							<div class="podcast-card full">
-								<figure class="podcast-image"><a href="podcast-soundcloud.html"><img src='resources/assets/img/blue_rose.png'></a></figure>
-								<div class="podcast-content">
-									<span class="podcast-date">test 1 Template</span>
-									<h2 class="podcast-title"><a href="podcast-soundcloud.html">test 1 템플릿으로 이동합니다.</a></h2>
-									<p class="podcast-excerpt"><a href="podcast-soundcloud.html">test 1 템플릿에 대한 설명입니다.</a></p>
-									<ul class="podcast-meta">
-										<li class="item"><a href="#" class="podcast-tag" rel="tag">템플릿 카테고리</a></li>
-										 <li class="item"><i class="fa fa-clock-o"></i> </li> 
-										 <li class="item"><a href="podcast-soundcloud.html" class="podcast-play"><i class="fa fa-play"></i> </a></li> 
-									</ul>
-								</div>
-							</div>
-						</div>
-					 	<div class="col-sm-12 mb-40">
-							<div class="podcast-card full">
-								<figure class="podcast-image"><a href="podcast-soundcloud.html"><img src='resources/assets/img/klein-bottle.jpg'></a></figure>
-								<div class="podcast-content">
-									<span class="podcast-date">test 2 Template</span>
-									<h2 class="podcast-title"><a href="podcast-soundcloud.html">test 2 템플릿으로 이동합니다.</a></h2>
-									<p class="podcast-excerpt"><a href="podcast-soundcloud.html">test 2 템플릿에 대한 설명입니다.</a></p>
-									<ul class="podcast-meta">
-										<li class="item"><a href="#" class="podcast-tag" rel="tag">템플릿 카테고리</a></li>
-										<li class="item"><i class="fa fa-clock-o"></i> </li>
-										<li class="item"><a href="podcast-soundcloud.html" class="podcast-play"><i class="fa fa-play"></i> </a></li>
-									</ul>
-								</div>
-							</div>
-						</div> -->
-						
-						<!-- ===== CHECK MORE ===== -->
-						<!-- <div class="col-sm-12 mb-50">
-							<a href="podcasts.html" class="btn btn-primary btn-block btn-lg">View more Template</a>
-						</div> -->
-					</div>
-				</div>
+					<h2 class="title-default">Never miss an episode</h2>
+					<p>Form with MailChimp ready, just change the action! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br />  Vel modi rem laudantium, alias minus temporibus nihil reiciendis vero.</p>
+					<p><a href="mrv"><i class="fa fa-play-circle fa-3x"></i></a></p>
 			</section>
 						
 					
@@ -236,6 +175,71 @@
 					
 					<div class="row mt-70 mb-30">
 						
+						<!-- ===== SITEMAP ===== -->
+						<div class="col-sm-3 mb-40">
+							<h2 class="title-separator white">Sitemap</h2>
+							<ul class="footer-list">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="podcasts.html">Podcasts</a></li>
+								<li><a href="single-page.html">Pages</a></li>
+								<li><a href="about-us.html">About Us</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
+						
+						<!-- ===== PODCASTS EPISODES ===== -->
+						<div class="col-sm-3 mb-40">
+							<h2 class="title-separator white">Lastest Episodes</h2>
+							<ul class="footer-complement">
+								<li>
+									<a href="podcast.html">#08 - Our vacations have been so amazing!</a>
+									<span>December 22, 2015</span>
+								</li>
+								<li>
+									<a href="podcast-soundcloud.html">#07 - Podcast embed from SoundCloud</a>
+									<span>December 21, 2015</span>
+								</li>
+							</ul>
+						</div>
+						
+						<!-- ===== PODCASTS EPISODES ===== -->
+						<div class="col-sm-3 mb-40">
+							<h2 class="title-separator white">Who is helping?</h2>
+							<ul class="footer-complement">
+								<li>
+									<a href="#">@reidarking</a>
+									<span>Donation - U$ 10</span>
+								</li>
+								<li>
+									<a href="#">@reidarking</a>
+									<span>Donation - U$ 5</span>
+								</li>
+								<li>
+									<a href="#">@reidarking</a>
+									<span>Donation - U$ 50</span>
+								</li>
+							</ul>
+						</div>
+						
+						<!-- ===== SOCIAL CONNECTION ===== -->
+						<div class="col-sm-3 mb-40">
+							<h2 class="title-separator white">We are social</h2>
+							<ul class="social-list">
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-spotify"></i></a></li>
+							</ul>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
 			
 			<!-- ===== FOOTER INFORMATION ===== -->
 			<section class="footer-credits">
@@ -245,12 +249,12 @@
 						
 						<!-- ===== CREDIT LOGO ===== -->
 						<div class="col-sm-6 footer-logo">
-							<h2><a href="index.html"><img src="resources/assets/img/logo.png" alt="Soudcast - Podcast Responsive Theme" title="Soundcast - Podcast Responsive Theme" /></a></h2>
+							<h2><a href="index.html"><img src="assets/img/logo.png" alt="Soudcast - Podcast Responsive Theme" title="Soundcast - Podcast Responsive Theme" /></a></h2>
 						</div>
 						
 						<!-- ===== CREDIT LOGO ===== -->
 						<div class="col-sm-6 text-right">
-							Donari - 2017. All rights reserved.
+							Soundcast - 2016. All rights reserved.
 						</div>
 						
 					</div>

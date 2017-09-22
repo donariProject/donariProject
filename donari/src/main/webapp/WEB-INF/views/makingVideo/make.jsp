@@ -202,8 +202,8 @@
 		<div class="mode"
 			style="display: inline-block; margin-left: auto; margin-right: auto; width: 40%;">
 			<h2 class="title-default" style="text-align: center;">Basic
-				<a href="basicVideo"><figure>
-				<img src="resources/assets/img/basic.jpg" alt="Basic" title="Basic" class="mode"/></figure></a>
+				<a href="mrv"><figure>
+				<img src="resources/assets/img/basic.jpg" alt="Music React Video" title="Music React Video" class="mode"/></figure></a>
 			</h2>
 		</div>
 		<div class="mode" style="display: inline-block; margin-left: auto; margin-right: auto; width: 40%;">

@@ -167,7 +167,7 @@ input[type="file"] {
 
 				<!-- ===== PAGE HEADER CONTENT ===== -->
 				<div class="page-header-content text-center">
-					<h2>Make a Music Interaction Video</h2>
+					<h2>Music React Video</h2>
 				</div>
 
 			</div>
