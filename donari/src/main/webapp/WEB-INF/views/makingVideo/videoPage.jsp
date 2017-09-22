@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html>
 	
-	<head>
-
 <head>
 
 <!-- =================================== -->
@@ -132,8 +130,8 @@
 <!-- 			  FAVICON 				 -->
 <!-- =================================== -->
 
-<link rel="icon" href="assets/img/favicon.png" />
-<link rel="shortcut icon" href="assets/img/favicon.png" />
+<link rel="icon" href="resources/assets/img/favicon.png" />
+<link rel="shortcut icon" href="resources/assets/img/favicon.png" />
 
 </head>
 
@@ -161,6 +159,7 @@
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
 					<li class="menuitem"><a href="login">Login</a></li>
 					<li class="menuitem"><a href="join">Join</a></li>
+					<li class="menuitem"><a href="myPage">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -171,7 +170,7 @@
 	<!-- ===== MAIN ===== -->
 	<main id="main" class="main"> 
 	<!-- ===== PAGE HEADER ===== --> 
-	<header class="page-header" id="vpHeader" style="background-image: url(resources/assets/img/single-background.jpg)">
+	<header class="page-header" id="vpHeader" >
 		<div class="page-header-inner">
 			<div class="container" style="position: relative;">
 
@@ -193,7 +192,6 @@
 						alt="Image" title="Image" style="display: block; margin: auto;" />
 				</figure>
 			</div>
-
 		</div>
 	</div>
 
@@ -302,25 +300,25 @@
 	<!-- =================================== -->
 
 	<!-- JQUERY -->
-	<script src="assets/js/jquery-1.11.min.js"></script>
+	<script src="resources/assets/js/jquery-1.11.min.js"></script>
 
 	<!-- BOOTSTRAP JS -->
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="resources/assets/js/bootstrap.min.js"></script>
 
 	<!-- MEDIA ELEMENT -->
-	<script src="assets/js/mediaelement-and-player.min.js"></script>
+	<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
 
 	<!-- MAGNIFIC POPUP -->
-	<script src="assets/js/magnific-popup.min.js"></script>
+	<script src="resources/assets/js/magnific-popup.min.js"></script>
 
 	<!-- FORM VALIDATE -->
-	<script src="assets/js/validate.min.js"></script>
+	<script src="resources/assets/js/validate.min.js"></script>
 
 	<!-- PLACEHOLDER FOR IE -->
-	<script src="assets/js/placeholder.min.js"></script>
+	<script src="resources/assets/js/placeholder.min.js"></script>
 
 	<!-- THEME JS -->
-	<script src="assets/js/main.js"></script>
+	<script src="resources/assets/js/main.js"></script>
 
 </body>
 

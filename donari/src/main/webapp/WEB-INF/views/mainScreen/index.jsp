@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	
@@ -116,7 +115,7 @@
 
 	</head>
 
-	<body itemscope itemtype="http://schema.org/WebSite" >
+	<body itemscope itemtype="http://schema.org/WebSite">
 		
 		<!-- ===== HEADER ===== -->
 		<header class="header absolute" itemscope itemtype="http://schema.org/Organization">
@@ -124,7 +123,7 @@
 			
 				<!-- ===== LOGO ===== -->
 				<h1 class="logo">
-				<a href="index.html">
+				<a href="index">
 				<img itemprop="logo" src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a></h1>
 				
 		<!-- ===== NAVIGATION ===== -->
@@ -154,14 +153,20 @@
 		</section>
 		
 		<!-- ===== MAIN ===== -->
-		<main id="main" class="main" >
+		<main id="main" class="main" style="background-image:url('resources/assets/img/intro.gif');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    height:100%;
+    width:100%;">
 			
 			<!-- ===== NEWSLETTER ===== -->
 			<section class="section-intro">
 					
 					<!-- ===== SECTION TITLE ===== -->
-					<h2 class="title-default">Never miss an episode</h2>
-					<p>Form with MailChimp ready, just change the action! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br />  Vel modi rem laudantium, alias minus temporibus nihil reiciendis vero.</p>
+					<h1 class="intro-title" style="font-size: 50px; font-family: Montserrat;">Donari</h1>
+					<p>Make Your Pictures to Video which a react for music!</p>
 					<p><a href="mrv"><i class="fa fa-play-circle fa-3x"></i></a></p>
 			</section>
 						
@@ -176,65 +181,63 @@
 					<div class="row mt-70 mb-30">
 						
 						<!-- ===== SITEMAP ===== -->
-						<div class="col-sm-3 mb-40">
-							<h2 class="title-separator white">Sitemap</h2>
-							<ul class="footer-list">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="podcasts.html">Podcasts</a></li>
-								<li><a href="single-page.html">Pages</a></li>
-								<li><a href="about-us.html">About Us</a></li>
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</div>
+					<div class="col-sm-3 mb-40">
+						<h2 class="title-separator white">Sitemap</h2>
+						<ul class="footer-list">
+							<li><a href="index">Home</a></li>
+							<li><a href="make">Make</a></li>
+							<li><a href="mvr">Music React Video</a></li>
+							<li><a href="selectTemplate">Template</a></li>
+							<li><a href="aboutUs">About Us</a></li>
+						</ul>
+					</div>
 						
 						<!-- ===== PODCASTS EPISODES ===== -->
-						<div class="col-sm-3 mb-40">
-							<h2 class="title-separator white">Lastest Episodes</h2>
-							<ul class="footer-complement">
-								<li>
-									<a href="podcast.html">#08 - Our vacations have been so amazing!</a>
-									<span>December 22, 2015</span>
-								</li>
-								<li>
-									<a href="podcast-soundcloud.html">#07 - Podcast embed from SoundCloud</a>
-									<span>December 21, 2015</span>
-								</li>
-							</ul>
-						</div>
-						
-						<!-- ===== PODCASTS EPISODES ===== -->
-						<div class="col-sm-3 mb-40">
-							<h2 class="title-separator white">Who is helping?</h2>
-							<ul class="footer-complement">
-								<li>
-									<a href="#">@reidarking</a>
-									<span>Donation - U$ 10</span>
-								</li>
-								<li>
-									<a href="#">@reidarking</a>
-									<span>Donation - U$ 5</span>
-								</li>
-								<li>
-									<a href="#">@reidarking</a>
-									<span>Donation - U$ 50</span>
-								</li>
-							</ul>
-						</div>
-						
-						<!-- ===== SOCIAL CONNECTION ===== -->
-						<div class="col-sm-3 mb-40">
-							<h2 class="title-separator white">We are social</h2>
-							<ul class="social-list">
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
-								<li class="social-item"><a href="#" target="_blank"><i class="fa fa-spotify"></i></a></li>
-							</ul>
-						</div>
+					<div class="col-sm-3 mb-40">
+						<h2 class="title-separator white">Lastest Episodes</h2>
+						<ul class="footer-complement">
+							<li><a href="podcast.html">#08 - Our vacations have been
+									so amazing!</a> <span>December 22, 2015</span></li>
+							<li><a href="podcast-soundcloud.html">#07 - Podcast
+									embed from SoundCloud</a> <span>December 21, 2015</span></li>
+						</ul>
+					</div>
+
+					<!-- ===== PODCASTS EPISODES ===== -->
+					<div class="col-sm-3 mb-40">
+						<h2 class="title-separator white">Who is helping?</h2>
+						<ul class="footer-complement">
+							<li><a href="#">@reidarking</a> <span>Donation - U$
+									10</span></li>
+							<li><a href="#">@reidarking</a> <span>Donation - U$ 5</span>
+							</li>
+							<li><a href="#">@reidarking</a> <span>Donation - U$
+									50</span></li>
+						</ul>
+					</div>
+
+					<!-- ===== SOCIAL CONNECTION ===== -->
+					<div class="col-sm-3 mb-40">
+						<h2 class="title-separator white">We are social</h2>
+						<ul class="social-list">
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-facebook"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-twitter"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-instagram"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-google-plus"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-soundcloud"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-pinterest"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-youtube"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i
+									class="fa fa-spotify"></i></a></li>
+						</ul>
+					</div>
 						
 					</div>
 					
@@ -249,12 +252,12 @@
 						
 						<!-- ===== CREDIT LOGO ===== -->
 						<div class="col-sm-6 footer-logo">
-							<h2><a href="index.html"><img src="assets/img/logo.png" alt="Soudcast - Podcast Responsive Theme" title="Soundcast - Podcast Responsive Theme" /></a></h2>
+							<h2><a href="index"><img src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a></h2>
 						</div>
 						
 						<!-- ===== CREDIT LOGO ===== -->
 						<div class="col-sm-6 text-right">
-							Soundcast - 2016. All rights reserved.
+							Donari - 2017. All rights reserved.
 						</div>
 						
 					</div>
