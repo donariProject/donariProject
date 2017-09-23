@@ -405,7 +405,7 @@ li {
 	text-align: center;
 }
 
-.section-negative {
+.section-positive {
 	background: #110f16;
 	color: #f1f1f1;
 }
@@ -2200,7 +2200,7 @@ form .form-callback.error {
 }
 
 .page-content>figure {
-	margin-bottom: 25px;
+	margin: auto;
 }
 
 /* ========================= */
@@ -2209,7 +2209,8 @@ form .form-callback.error {
 
 /* ========================= */
 .page-gallery {
-	margin-bottom: 25px;
+	height: 100%;
+	margin: auto;
 	*zoom: 1;
 }
 
