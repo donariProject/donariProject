@@ -420,7 +420,7 @@ li {
 	position: relative;
 	margin: auto auto;
 	padding: 0 0;
-	height: 600px;
+/* 	height: 600px; */
 }
 .template-container div {
 	display: inline-block;
@@ -433,7 +433,9 @@ li {
 .sliderbtn {
 	width: 5%;
 	height: 100%;
-	
+	margin: auto 0px;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .templates {
@@ -441,11 +443,13 @@ li {
 	height: 100%;
 }
 
-.temps {
-	width:500px;
-	height: 500px;
-}
 
+/* 
+.temps {
+	display: block;
+}
+ */
+ 
 /* ========================= */
 
 /*      	NEGATIVE  	     */

@@ -152,19 +152,25 @@
 	</header> 
 	
 	<div class="template-container">
-		<div class="sliderbtn slick-prev"><i class="fa fa-angle-double-left fa-3x"></i></div>
+		<div class="sliderbtn slick-prev"><p style="text-align: center; vertical-align: middel;"><i class="fa fa-angle-double-left fa-3x"></i></p></div>
 		<div class="templates">
 			<div class="temps" id="template1">
-				<div><h2>Select A Music</h2></div>
+				<div style="display: block;"><h2>Select A Music</h2></div>
+				<div>
+				<form action="getMusic" method="post" enctype="multipart/form-data">
+					<input type="file" name="musicFile">
+					<input type="submit" name="전송">
+				</form>
+				</div>
 			</div>
 			<div id="template2">
-				<div><h2>Select A Image</h2></div>
+				<div style="display: block;"><h2>Select A Image</h2></div>
 			</div>
 			<div id="template3">
-				<div><h2>Select A Music</h2></div>
+				<div style="display: block;"><h2>Select A Music</h2></div>
 			</div>
 		</div>
-		<div class="sliderbtn slick-next"><i class="fa fa-angle-double-right fa-3x"></i></div>
+		<div class="sliderbtn slick-next"><p style="text-align: center; vertical-align: middel;"><i class="fa fa-angle-double-right fa-3x"></i></p></div>
 	</div>
 	
 	</main>
@@ -282,7 +288,6 @@ $(document).ready(function(){
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		fade: false,
-		centerMode: true,
 		centerPadding: true,
 		adaptiveHeight: true,
 		variableWidth: true,
