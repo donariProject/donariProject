@@ -1,7 +1,5 @@
 package global.sesoc.donari;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +32,7 @@ public class HomeController {
 	@RequestMapping(value="selectTemplate", method=RequestMethod.GET)
 	public String selectTemplate(){
 		
-		return "makingVideo/selectTemplate";
+		return "template/selectTemplate";
 	}
 	
 	@RequestMapping(value="aboutUs", method=RequestMethod.GET)
@@ -42,11 +40,13 @@ public class HomeController {
 		
 		return "aboutUs";
 	}
+	
 	@RequestMapping(value="templatePageTest", method=RequestMethod.GET)
 	public String templatePageTest(){
 		
 		return "makingVideo/templatePageTest";
 	}
+	
 	@RequestMapping(value="myPage", method=RequestMethod.GET)
 	public String myPage(){
 		

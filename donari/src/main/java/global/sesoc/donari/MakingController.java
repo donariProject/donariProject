@@ -13,11 +13,7 @@ public class MakingController {
 	@Autowired
     SqlSession sql;
 	
-	
-	//�⺻ ��� or ���ø� ���  �����ϴ� â���� �̵�
-	
-
-
+	/*
 	@RequestMapping(value="albumList", method=RequestMethod.GET)
 	public String albumList(String albumName, String count, Model model){
 		System.out.println("albumName : "+albumName);
@@ -26,7 +22,22 @@ public class MakingController {
 		model.addAttribute("albumCount", count);
 		return "makingVideo/facebookAlbum";
 	}
+	*/
 	
+	@RequestMapping(value = "movie", method = RequestMethod.GET)
+	public String movie() {
+		return "template/movie";
+	}
+	
+	@RequestMapping(value = "travel", method = RequestMethod.GET)
+	public String travel() {
+		return "template/travel";
+	}
+	
+	@RequestMapping(value = "vlog", method = RequestMethod.GET)
+	public String vlog() {
+		return "template/vlog";
+	}
 	
 }
 	
