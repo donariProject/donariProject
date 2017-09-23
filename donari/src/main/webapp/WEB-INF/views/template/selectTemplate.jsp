@@ -191,7 +191,7 @@
 	<div class="section-positive" style="height:70%;">
 		
 		<!-- ===== PICTURES ===== -->
-		<div class="container" style="height:100%;">
+		<div class="container" style="height:100%; margin-top:auto; margin-bottom:auto;">
 			<!-- ===== GALLERY WITH ZOOM ===== -->
 			<div class="page-gallery">
 				<div class="col-md-4 nopadding" style="height:100%;">

@@ -412,6 +412,42 @@ li {
 
 /* ========================= */
 
+/*      	TEMPLATE  	     */
+
+/* ========================= */
+
+.template-container {
+	position: relative;
+	margin: auto auto;
+	padding: 0 0;
+	height: 600px;
+}
+.template-container div {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	margin: auto auto;
+	padding: 0 0;
+		
+}
+.sliderbtn {
+	width: 5%;
+	height: 100%;
+	
+}
+
+.templates {
+	width: 88%;
+	height: 100%;
+}
+
+.temps {
+	width:500px;
+	height: 500px;
+}
+
+/* ========================= */
+
 /*      	NEGATIVE  	     */
 
 /* ========================= */
@@ -1957,7 +1993,7 @@ form .form-callback.error {
 /* ========================= */
 .page-header, .page-header-podcast, .page-error {
 	position: relative;
-	height: 200px;
+	height: 30%;
 	padding: 0;
 	margin: 0;
 	background-position: center center;

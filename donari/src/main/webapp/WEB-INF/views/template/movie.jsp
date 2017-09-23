@@ -3,7 +3,7 @@
 <html>
 
 <!-- =================================== -->
-<!-- 		  SELECT TEMPLATE 1 			 -->
+<!-- 	        	  MOVIE 			 -->
 <!-- =================================== -->
 	
 <head>
@@ -35,8 +35,7 @@
 <link href="resources/assets/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- MEDIA ELEMENT -->
-<link href="resources/assets/css/mediaelementplayer.min.css"
-	rel="stylesheet" />
+<link href="resources/assets/css/mediaelementplayer.min.css" rel="stylesheet" />
 
 <!-- MAGNIFIC POPUP CSS -->
 <link href="resources/assets/css/magnific-popup.css" rel="stylesheet" />
@@ -45,16 +44,17 @@
 <link href="resources/assets/css/style.css" rel="stylesheet" />
 
 <!-- GOOGLE FONTS -->
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'
-	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 
 <!-- FONT AWESOME -->
-<link
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
-	rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<!-- ANIMATE -->
+<link href="resources/assets/css/animate.css" rel="stylesheet">
+
+<!-- SLICK -->
+<link href="resources/assets/slick/slick.css" rel="stylesheet"/>
 
 <!-- =================================== -->
 <!-- 		 	THEME COLOR 			 -->
@@ -104,39 +104,6 @@
 <meta name="robots" content="index, follow">
 <meta name="msnbot" content="NOODP" />
 
-<!-- =================================== -->
-<!-- 			 FACEBOOK 				 -->
-<!-- =================================== -->
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Soundcast" />
-<meta property="og:description" content="Podcast Responsive Theme" />
-<meta property="og:url" content="http://www.reidark.com.br/soundcast" />
-<meta property="og:site_name" content="Soundcast" />
-<meta property="og:image"
-	content="http://www.reidark.com.br/soundcast/assets/img/facebook-og.jpg" />
-
-<!-- =================================== -->
-<!-- 			  TWITTER 				 -->
-<!-- =================================== -->
-
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="http://www.reidark.com.br/soundcast" />
-<meta name="twitter:creator" content="@reidarking" />
-<meta name="twitter:title" content="Soundcast" />
-<meta name="twitter:description" content="Podcast Responsive Theme" />
-<meta name="twitter:domain" content="reidark" />
-<meta name="twitter:image"
-	content="http://www.reidark.com.br/soundcast/assets/img/twitter-og.jpg" />
-
-<!-- =================================== -->
-<!-- 			  FAVICON 				 -->
-<!-- =================================== -->
-
-<link rel="icon" href="resources/assets/img/favicon.png" />
-<link rel="shortcut icon" href="resources/assets/img/favicon.png" />
-
 </head>
 
 <body itemscope itemtype="http://schema.org/WebSite">
@@ -155,8 +122,7 @@
 					<li class="menuitem"><a href="index">Home</a></li>
 					<li class="menuitem dropdown active"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="mrv"
-								style="fontsize: 20pt;">Music React Video</a></li>
+							<li class="droplist-item"><a href="mrv" style="fontsize: 20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
@@ -171,91 +137,36 @@
 	</header>
 
 	<!-- ===== MAIN ===== -->
-	<main id="main" class="main"> 
-	
+	<main class="main"> 
 	<!-- ===== PAGE HEADER ===== --> 
 	<header class="page-header" id="vpHeader" >
 		<div class="page-header-inner">
 			<div class="container" style="position: relative;">
 
 				<!-- ===== PAGE HEADER CONTENT 페이지 타이틀 ===== -->
-				<div class="page-header-content text-center"
-					style="position: relative;">
+				<div class="page-header-content text-center" style="position: relative;">
 					<h2 style="margin-top: 20px;">Movie</h2>
 				</div>
 			</div>
 		</div>
 	</header> 
 	
-	<!-- ===== PAGE CONTENT ===== -->
-	<div class="section-negative">
-		
-		<!-- ===== PICTURES ===== -->
-		<div class="container">
-			<!-- ===== GALLERY WITH ZOOM ===== -->
-			<div class="page-gallery">
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item">
-						<a href="resources/assets/img/gallery/large/image-2.jpg" class="gallery-zoom">
-						<img src="resources/assets/img/gallery/thumb/image-2.jpg"/>
-						</a>
-					</figure>
-				</div>
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item">
-						<a href="resources/assets/img/gallery/large/image-2.jpg" class="gallery-zoom">
-						<img src="resources/assets/img/gallery/thumb/image-2.jpg"/>
-						</a>
-					</figure>
-				</div>
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item">
-						<a href="resources/assets/img/gallery/large/image-1.jpg" class="gallery-zoom" title="This is a caption">
-							<img src="resources/assets/img/gallery/thumb/image-1.jpg" alt="Gallery" title="Gallery" />
-						</a>
-						<figcaption>This is a caption</figcaption>
-					</figure>
-				</div>
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item">
-						<a href="resources/assets/img/gallery/large/image-3.jpg" class="gallery-zoom">
-							<img src="resources/assets/img/gallery/thumb/image-3.jpg" alt="Gallery" title="Gallery" />
-						</a>
-					</figure>
-				</div>
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item" id="itemf">
-						<a href="resources/assets/img/gallery/large/image-3.jpg" class="gallery-zoom" title="This is a caption">
-							<img src="resources/assets/img/gallery/thumb/image-3.jpg" alt="Gallery" title="Gallery" />
-						</a>
-						<figcaption>This is a caption</figcaption>
-					</figure>
-				</div>
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item" id="itemf">
-						<a href="resources/assets/img/gallery/large/image-2.jpg" class="gallery-zoom">
-							<img src="resources/assets/img/gallery/thumb/image-2.jpg" alt="Gallery" title="Gallery" />
-						</a>
-					</figure>
-				</div>
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item" id="itemf">
-						<a href="resources/assets/img/gallery/large/image-1.jpg" class="gallery-zoom">
-							<img src="resources/assets/img/gallery/thumb/image-1.jpg" alt="Gallery" title="Gallery" />
-						</a>
-					</figure>
-				</div>
-				<div class="col-md-3 col-xs-6 nopadding">
-					<figure class="gallery-item" id="itemf">
-						<a href="resources/assets/img/gallery/large/image-1.jpg" class="gallery-zoom">
-							<img src="resources/assets/img/gallery/thumb/image-1.jpg" alt="Gallery" title="Gallery" />
-						</a>
-					</figure>
-				</div>
+	<div class="template-container">
+		<div class="sliderbtn slick-prev"><i class="fa fa-angle-double-left fa-3x"></i></div>
+		<div class="templates">
+			<div class="temps" id="template1">
+				<div><h2>Select A Music</h2></div>
+			</div>
+			<div id="template2">
+				<div><h2>Select A Image</h2></div>
+			</div>
+			<div id="template3">
+				<div><h2>Select A Music</h2></div>
 			</div>
 		</div>
+		<div class="sliderbtn slick-next"><i class="fa fa-angle-double-right fa-3x"></i></div>
 	</div>
-
+	
 	</main>
 
 	<!-- ===== FOOTER ===== -->
@@ -354,7 +265,34 @@
 
 	<!-- THEME JS -->
 	<script src="resources/assets/js/main.js"></script>
+	
+	<!-- SLICK -->
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="resources/assets/slick/slick.js"></script>
+<script type="text/javascript">
 
+$(document).ready(function(){
+	$('.templates').slick({
+		accessibility : true,
+		arrows: true,
+		autoplay : false,
+		speed : 100, 
+		infinite: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		fade: false,
+		centerMode: true,
+		centerPadding: true,
+		adaptiveHeight: true,
+		variableWidth: true,
+		draggable: false,
+		prevArrow: '.slick-prev', //prev 버튼
+	    nextArrow: '.slick-next' //netx 버튼
+	});
+  });
+
+</script>
 </body>
 
 </html>
