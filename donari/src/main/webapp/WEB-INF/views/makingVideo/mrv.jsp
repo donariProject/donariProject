@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <title>Donari - Make your video at once!</title>
 
 <!-- =================================== -->
@@ -14,6 +13,11 @@
 <!-- =================================== -->
 <!-- 			  STYLES 				 -->
 <!-- =================================== -->
+
+<link rel="stylesheet" type="text/css"
+	href="resources/assets/slick/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/assets/slick/slick-theme.css" />
 
 <!-- BOOTSTRAP MIN -->
 <link href="./resources/assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -116,17 +120,125 @@ input[type="file"] {
 	background: white;
 	color: black;
 }
-</style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript">
 
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="resources/assets/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="resources/assets/js/jquery.bgiframe.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		initSwap();
+		//$("#changeposition").sortable();
+		$('#nextBtn').attr("disabled", "disabled");
+		
+		$('.slide').slick({
+			dots : false,
+			nextArrow : $('#nextBtn'),
+			prevArrow : $('#previousBtn'),
+			draggable : false
+		});
+		$("#submitBtn").click(function() {
+			$.post("fileUploads", $(".form").serialzie(), function(data) {
+
+			});
+		});
+
+		$('#musicUploadBtn').click(function(e) {
+			e.preventDefault();
+			$('#music').click();
+		});
+		
+		$("#multiFile").change(function () {
+		    readURL(this);
+		});
+		
+		$('*[draggable!=true]','.slick-track').unbind('dragstart');
+	});
+	
+	//이미지 파일 가져오는 곳
+	function readURL(input) {
+		var div = document.getElementById('imageArrayDiv');
+		
+		for(var i = 0 ; i < input.files.length; i++){
+			 var reader = new FileReader();
+			 reader.onload = function (e) {
+	                var picFile = e.target;
+	                div.innerHTML += "<img src='" + picFile.result + "' height='100px'></img>";
+	                initSwap();
+			 }
+		        reader.readAsDataURL(input.files[i]);    
+		}
+		
+		tt(input);
+	}
+	
+	function musicUpload(val){
+		document.getElementById('musicFileName').value=val;
+		var form = document.forms.namedItem("musicUploadForm");
+		var oData = new FormData(form);
+
+		$.ajax({
+			url : './musicUpload',
+			processData : false,
+			contentType : false,
+			data : oData,
+			type : 'POST',
+			success : function(result) {
+				$('#nextBtn').attr("disabled", false);
+			}
+		});
+	}
+	
+	function initDraggable($elements) {
+        $elements.draggable({
+            appendTo: "body",
+            helper: "clone",
+            cursor: "move",
+            revert: "invalid"
+        });
+    }
+	
+    function initDroppable($elements) {
+        $elements.droppable({
+            activeClass: "ui-state-default",
+            hoverClass: "ui-drop-hover",
+            accept: ":not(.ui-sortable-helper)",
+
+            over: function(event, ui) {
+                var $this = $(this);
+            },
+            drop: function(event, ui) {
+                var $this = $(this);
+
+                var linew1 = $(this).after(ui.draggable.clone());
+                var linew2 = $(ui.draggable).after($(this).clone());
+                $(ui.draggable).remove();
+                $(this).remove();
+                initSwap();
+            }
+        });
+    }
+    
+    function initSwap() {
+        initDroppable($("#imageArrayDiv img"));
+        initDraggable($("#imageArrayDiv img"));
+    }
+    
+    function tt(input){
+    	
+    	var form = document.getElementById('tes');
+
+    	for (var i=0; i<input.files.length; i++){
+    		form.innerHTML += '<input id="multiFile" name="files" type="file" value="'+input.files[i]+'"';
+    	}
+
+    	document.getElementById('tes').submit();
+    }
 	
 </script>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebSite">
-
 	<!-- ===== HEADER ===== -->
 	<header class="header absolute" itemscope
 		itemtype="http://schema.org/Organization">
@@ -146,7 +258,8 @@ input[type="file"] {
 					<li class="menuitem active"><a href="index">Home</a></li>
 					<li class="menuitem dropdown"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="mrv" style="fontsize:20pt;">Music React Video</a></li>
+							<li class="droplist-item"><a href="mrv"
+								style="fontsize: 20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
@@ -167,7 +280,7 @@ input[type="file"] {
 
 				<!-- ===== PAGE HEADER CONTENT ===== -->
 				<div class="page-header-content text-center">
-					<h2>Music React Video</h2>
+					<h2>Make a Music Interaction Video</h2>
 				</div>
 
 			</div>
@@ -175,70 +288,64 @@ input[type="file"] {
 	</header>
 	<!-- ===== ABOUT US ===== -->
 	<section id="about-us" class="section-negative">
-		<div class="container">
+		<div class="slide">
+			<div id="musicUpload">
+				<!-- ===== SECTION TITLE ===== -->
+				<h1 class="title-default text-center" style='font-size: 30pt'>Step
+					1</h1>
+				<h2 class="title-default text-center">Insert Music</h2>
+				<fieldset class="row" style="margin-left: 600px;">
+					<form name="musicUploadForm" action="fileUploads" method="post"
+						enctype="multipart/form-data">
+						<input id="music" name="music" type="file" accept="audio/mp3"
+							style="display: none;"
+							onchange="musicUpload(this.value);">
+						<img id="musicUploadBtn"
+							src='resources/assets/img/musicUploadBtn.png'> <input
+							type="text" size="30" id="musicFileName" readonly="readonly">
+						<button type="submit" style="display: none;"></button>
+					</form>
+				</fieldset>
+				<button id="nextBtn" style="margin-top: 170px; margin-left: 1200px;">Next</button>
+			</div>
+			<div id="imageUpload">
+				<!-- ===== SECTION TITLE ===== -->
+				<h2 class="title-default text-center">Insert Photo</h2>
+				<fieldset class="row" style="margin-top: 100px;">
 
-			<!-- ===== SECTION TITLE ===== -->
-			<h2 class="title-default text-center">Insert Photo</h2>
-			<fieldset class="row" style="margin-left: 410px;">
-				<!-- <div class="col-md-9 nopadding" style="margin-bottom: 30px;">
-					<input type="text" name="filepath" 
-					id=filepath class="form-control form-negative" 
-					id="email-newsletter" placeholder="file path" 
-					required style="width: 800px; float: right;" />
-				</div> -->
 
-				<!-- ===== FILE UPLOAD ===== -->
-				<form action="fileUploads" method="post"
-					enctype="multipart/form-data">
-					<!-- <input id=multiFile type="file" multiple="multiple" style="display: none;"> -->
-					<!-- <img src='resources/assets/img/photos.png'
-					onclick='document.all.multiFile.click(); document.all.filepath.value=document.all.multiFile.value'
-					style="width: 43px; margin-bottom: 30px;">  -->
-					<input id="files" name="files" type="file" multiple="multiple"
-						style="display: none;"> <img
-						src='resources/assets/img/photos.png'
-						onclick='document.all.files.click(); document.all.filepath.value=document.all.files.value'
-						style="width: 43px; margin-bottom: 30px;">
-					<button type="submit">사진 전송</button>
-				</form>
+					<button id="previousBtn" style="margin-left: 200px;">Previous</button>
+				</fieldset>
+				<fieldset class="row" style="margin-left: 410px;">
+					
+					<form name="tes" action="fileUploads" method="post"
+						enctype="multipart/form-data">
+						
+					</form>
+					
+					<form id="imageUploadForm" action="fileUploads" method="post"
+						enctype="multipart/form-data">
+						<input id="multiFile" name="files" type="file" multiple="multiple"
+							style="display: none;"> <img
+							src='resources/assets/img/photos.png'
+							onclick='document.all.multiFile.click();'
+							style="width: 43px; margin-bottom: 30px;">
+						<button type="submit">전송</button>
+					</form>
 
-				<!-- ===== FACEBOOK ALBUM LIST ===== -->
-				<input type="image" src="resources/assets/img/facebook.png"
-					onclick="testAPI()" style="width: 43px;">
-				<div id="albumlist"></div>
-				
-				<!-- ===== FACEBOOK Login button ===== -->
-				<!-- <fb:login-button scope="public_profile,email,user_photos" onlogin="checkLoginState();"></fb:login-button> -->
-			</fieldset>
-			<div style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
-				<div class="row mb-30" style="margin-left: 85px; width: 1000px">
-					<!-- ===== TEAM CARD ===== -->
-					<div class="changeposition" id="changeposition">
-						<div class="allteamcard">
-							<!-- <div class="col-lg-4 col-lg-offset-0 "> -->
-							<div class="team-cards">
-								<figure class="team-card-image">
-									<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"
-										height="100px;" />
-										<img src="resources/assets/img/team/team-1.jpg" alt="John Doe"
-										title="John Doe" style="float: left;" width="100px;"
-										height="100px;" />
-								</figure>
-							</div>
-							<div class="team-cards">
-								<figure class="team-card-image">
-									
-								</figure>
-							</div>
+					<input type="image" src="resources/assets/img/facebook.png"
+						onclick="facebook()" style="width: 43px;">
+				</fieldset>
+				<div
+					style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
+					<div class="row mb-30 image" style="margin-left: 85px; width: 1000px">
+						<!-- 업로드된 다중 이미지가 들어가는 div -->
+						<div id="imageArrayDiv">
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- 		<div class="arrownext">
-			<center><img src="resources/assets/img/up-arrow.png" style="width: 3%"></center>
 		</div>
- -->
 	</section>
 
 	<!-- ===== NEWSLETTER ===== -->
@@ -260,7 +367,8 @@ input[type="file"] {
 					<!-- ===== CREDIT LOGO ===== -->
 
 					<!-- ===== CREDIT LOGO ===== -->
-					<div class="col-sm-6 text-right">Donari - 2017. All rights reserved.</div>
+					<div class="col-sm-6 text-right">Donari - 2017. All rights
+						reserved.</div>
 				</div>
 			</div>
 		</section>
@@ -271,14 +379,14 @@ input[type="file"] {
 	<!-- =================================== -->
 
 	<script type="text/javascript"
-		src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+		src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript"
+		src="resources/assets/slick/slick.min.js"></script>
+
+
 	<script type="text/javascript"
 		src="resources/assets/js/jquery.tablednd.js"></script>
 
-
-
-	<!-- JQUERY -->
-	<script src="resources/assets/js/jquery-1.11.min.js"></script>
 
 	<!-- BOOTSTRAP JS -->
 	<script src="resources/assets/js/bootstrap.min.js"></script>
@@ -303,8 +411,6 @@ input[type="file"] {
 
 	<!-- Drag and Drop -->
 	<script src="resources/assets/js/jquery-sortable-min.js"></script>
-	<script src="resources/assets/js/jquery-ui.min.js"></script>
-	<script src="resources/assets/js/jquery.tablednd.js"></script>
 
 </body>
 
