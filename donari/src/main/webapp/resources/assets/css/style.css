@@ -388,7 +388,7 @@ li {
 /* ========================= */
 
 #main {
-	background-image:url('resources/assets/img/intro.gif');
+	background-image:url('../../assets/img/intro.gif');
     background-size:100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -426,7 +426,7 @@ li {
 	display: inline-block;
 	text-align: center;
 	position: relative;
-	margin: auto auto;
+/* 	margin: auto auto; */
 	padding: 0 0;
 		
 }

@@ -3,7 +3,7 @@
 <html>
 
 <!-- =================================== -->
-<!-- 		  SELECT TEMPLATE 1 			 -->
+<!-- 	        	  MOVIE 			 -->
 <!-- =================================== -->
 	
 <head>
@@ -35,8 +35,7 @@
 <link href="resources/assets/css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- MEDIA ELEMENT -->
-<link href="resources/assets/css/mediaelementplayer.min.css"
-	rel="stylesheet" />
+<link href="resources/assets/css/mediaelementplayer.min.css" rel="stylesheet" />
 
 <!-- MAGNIFIC POPUP CSS -->
 <link href="resources/assets/css/magnific-popup.css" rel="stylesheet" />
@@ -45,16 +44,17 @@
 <link href="resources/assets/css/style.css" rel="stylesheet" />
 
 <!-- GOOGLE FONTS -->
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'
-	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 
 <!-- FONT AWESOME -->
-<link
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
-	rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<!-- ANIMATE -->
+<link href="resources/assets/css/animate.css" rel="stylesheet">
+
+<!-- SLICK -->
+<link href="resources/assets/slick/slick.css" rel="stylesheet"/>
 
 <!-- =================================== -->
 <!-- 		 	THEME COLOR 			 -->
@@ -105,37 +105,12 @@
 <meta name="msnbot" content="NOODP" />
 
 <!-- =================================== -->
-<!-- 			 FACEBOOK 				 -->
-<!-- =================================== -->
-
-<meta property="og:locale" content="en" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Soundcast" />
-<meta property="og:description" content="Podcast Responsive Theme" />
-<meta property="og:url" content="http://www.reidark.com.br/soundcast" />
-<meta property="og:site_name" content="Soundcast" />
-<meta property="og:image"
-	content="http://www.reidark.com.br/soundcast/assets/img/facebook-og.jpg" />
-
-<!-- =================================== -->
-<!-- 			  TWITTER 				 -->
-<!-- =================================== -->
-
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="http://www.reidark.com.br/soundcast" />
-<meta name="twitter:creator" content="@reidarking" />
-<meta name="twitter:title" content="Soundcast" />
-<meta name="twitter:description" content="Podcast Responsive Theme" />
-<meta name="twitter:domain" content="reidark" />
-<meta name="twitter:image"
-	content="http://www.reidark.com.br/soundcast/assets/img/twitter-og.jpg" />
-
-<!-- =================================== -->
 <!-- 			  FAVICON 				 -->
 <!-- =================================== -->
 
 <link rel="icon" href="resources/assets/img/favicon.png" />
 <link rel="shortcut icon" href="resources/assets/img/favicon.png" />
+
 
 </head>
 
@@ -155,8 +130,7 @@
 					<li class="menuitem"><a href="index">Home</a></li>
 					<li class="menuitem dropdown active"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="mrv"
-								style="fontsize: 20pt;">Music React Video</a></li>
+							<li class="droplist-item"><a href="mrv" style="fontsize: 20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
@@ -171,57 +145,30 @@
 	</header>
 
 	<!-- ===== MAIN ===== -->
-	<main id="main" class="main"> 
-	
+	<main class="main"> 
 	<!-- ===== PAGE HEADER ===== --> 
 	<header class="page-header" id="vpHeader" >
 		<div class="page-header-inner">
 			<div class="container" style="position: relative;">
 
 				<!-- ===== PAGE HEADER CONTENT 페이지 타이틀 ===== -->
-				<div class="page-header-content text-center"
-					style="position: relative;">
-					<h2 style="margin-top: 20px;">Select Template</h2>
+				<div class="page-header-content text-center" style="position: relative;">
+					<h2 style="margin-top: 20px;">Movie</h2>
 				</div>
 			</div>
 		</div>
 	</header> 
 	
-	<!-- ===== PAGE CONTENT ===== -->
-	<div class="section-positive" style="height:70%;">
-		
-		<!-- ===== PICTURES ===== -->
-		<div class="container" style="height:100%; margin-top:auto; margin-bottom:auto;">
-			<!-- ===== GALLERY WITH ZOOM ===== -->
-			<div class="page-gallery">
-				<div style="height:100%;">
-					<figure style="height:100%;">
-						<a href="movieImg">
-						<img src="resources/assets/img/template/movie.jpg" alt="movie" title="movie" />
-						</a>
-						<figcaption>MOVIE</figcaption>
-					</figure>
-				</div>
-				<div style="height:100%;">
-					<figure style="height:100%;">
-						<a href="travel">
-						<img src="resources/assets/img/template/travel.jpg" alt="travel" title="travel" />
-						</a>
-						<figcaption>TRAVEL</figcaption>
-					</figure>
-				</div>
-				<div style="height:100%;">
-					<figure class="gallery-item" style="height:100%;">
-						<a href="vlog">
-							<img src="resources/assets/img/template/vlog.jpg" alt="vlog" title="vlog" />
-						</a>
-						<figcaption>VLOG</figcaption>
-					</figure>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- ===== UPLOAD IMAGES ===== -->
+	<div>
+		<form id="imageUploadForm" action="tempImg" method="post" enctype="multipart/form-data">
+			<input id="multiFile" name="files" type="file" multiple="multiple" style="display: none;">
+			<img src='resources/assets/img/photos.png' onclick='document.all.multiFile.click();' style="width: 43px; margin-bottom: 30px;">
+			<button type="submit">전송</button>
+		</form>
 
+	</div>
+	
 	</main>
 
 	<!-- ===== FOOTER ===== -->
@@ -230,9 +177,7 @@
 		<!-- ===== FOOTER CONTENT INFORMATION ===== -->
 		<section class="section-positive">
 			<div class="container">
-
 				<div class="mt-70 mb-30">
-
 					<!-- ===== SITEMAP ===== -->
 					<div class="col-sm-3 mb-40">
 						<h2 class="title-separator white">Sitemap</h2>
@@ -249,10 +194,8 @@
 					<div class="col-sm-3 mb-40">
 						<h2 class="title-separator white">Lastest Episodes</h2>
 						<ul class="footer-complement">
-							<li><a href="podcast.html">#08 - Our vacations have been
-									so amazing!</a> <span>December 22, 2015</span></li>
-							<li><a href="podcast-soundcloud.html">#07 - Podcast
-									embed from SoundCloud</a> <span>December 21, 2015</span></li>
+							<li><a href="podcast.html">#08 - Our vacations have been so amazing!</a> <span>December 22, 2015</span></li>
+							<li><a href="podcast-soundcloud.html">#07 - Podcast embed from SoundCloud</a> <span>December 21, 2015</span></li>
 						</ul>
 					</div>
 
@@ -260,12 +203,9 @@
 					<div class="col-sm-3 mb-40">
 						<h2 class="title-separator white">Who is helping?</h2>
 						<ul class="footer-complement">
-							<li><a href="#">@reidarking</a> <span>Donation - U$
-									10</span></li>
-							<li><a href="#">@reidarking</a> <span>Donation - U$ 5</span>
-							</li>
-							<li><a href="#">@reidarking</a> <span>Donation - U$
-									50</span></li>
+							<li><a href="#">@reidarking</a> <span>Donation - U$ 10</span></li>
+							<li><a href="#">@reidarking</a> <span>Donation - U$ 5</span></li>
+							<li><a href="#">@reidarking</a> <span>Donation - U$ 50</span></li>
 						</ul>
 					</div>
 
@@ -273,50 +213,31 @@
 					<div class="col-sm-3 mb-40">
 						<h2 class="title-separator white">We are social</h2>
 						<ul class="social-list">
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-facebook"></i></a></li>
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-twitter"></i></a></li>
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-instagram"></i></a></li>
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-google-plus"></i></a></li>
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-soundcloud"></i></a></li>
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-pinterest"></i></a></li>
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-youtube"></i></a></li>
-							<li class="social-item"><a href="#" target="_blank"><i
-									class="fa fa-spotify"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+							<li class="social-item"><a href="#" target="_blank"><i class="fa fa-spotify"></i></a></li>
 						</ul>
 					</div>
-
 				</div>
-
 			</div>
 		</section>
 
 		<!-- ===== FOOTER INFORMATION ===== -->
 		<section class="footer-credits">
 			<div class="container">
-
 				<div class="row">
-
 					<!-- ===== CREDIT LOGO ===== -->
 					<div class="col-sm-6 footer-logo">
-						<h2>
-							<a href="index"><img src="resources/assets/img/logo.png"
-								alt="Donari" title="Donari" /></a>
-						</h2>
+						<h2><a href="index"><img src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a></h2>
 					</div>
-
 					<!-- ===== CREDIT LOGO ===== -->
-					<div class="col-sm-6 text-right">Donari - 2017. All rights
-						reserved.</div>
-
+					<div class="col-sm-6 text-right">Donari - 2017. All rights reserved.</div>
 				</div>
-
 			</div>
 		</section>
 
@@ -333,10 +254,10 @@
 	<script src="resources/assets/js/bootstrap.min.js"></script>
 
 	<!-- MEDIA ELEMENT -->
-<!-- 	<script src="resources/assets/js/mediaelement-and-player.min.js"></script> -->
+	<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
 
 	<!-- MAGNIFIC POPUP -->
-<!-- 	<script src="resources/assets/js/magnific-popup.min.js"></script> -->
+	<script src="resources/assets/js/magnific-popup.min.js"></script>
 
 	<!-- FORM VALIDATE -->
 	<script src="resources/assets/js/validate.min.js"></script>
@@ -345,8 +266,8 @@
 	<script src="resources/assets/js/placeholder.min.js"></script>
 
 	<!-- THEME JS -->
-	<!-- <script src="resources/assets/js/main.js"></script> -->
-
+	<script src="resources/assets/js/main.js"></script>
+	
 </body>
 
 </html>

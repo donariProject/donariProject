@@ -29,6 +29,11 @@ public class MakingController {
 		return "template/movie";
 	}
 	
+	@RequestMapping(value = "movieImg", method = RequestMethod.GET)
+	public String movieImg() {
+		return "template/movieImg";
+	}
+	
 	@RequestMapping(value = "travel", method = RequestMethod.GET)
 	public String travel() {
 		return "template/travel";
@@ -38,6 +43,8 @@ public class MakingController {
 	public String vlog() {
 		return "template/vlog";
 	}
+	
+	
 	
 }
 	

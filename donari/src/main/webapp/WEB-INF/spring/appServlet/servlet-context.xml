@@ -24,6 +24,10 @@
 	
 	<context:component-scan base-package="global.sesoc.donari" />
 	
-	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <beans:property name="maxUploadSize" value="524288000"></beans:property>
+      <beans:property name="maxInMemorySize" value="524288000"></beans:property>
+      <beans:property name="defaultEncoding" value="UTF-8"></beans:property>
+   </beans:bean>
 	
 </beans:beans>

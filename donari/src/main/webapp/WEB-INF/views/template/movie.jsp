@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -104,6 +105,14 @@
 <meta name="robots" content="index, follow">
 <meta name="msnbot" content="NOODP" />
 
+<!-- =================================== -->
+<!-- 			  FAVICON 				 -->
+<!-- =================================== -->
+
+<link rel="icon" href="resources/assets/img/favicon.png" />
+<link rel="shortcut icon" href="resources/assets/img/favicon.png" />
+
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebSite">
@@ -150,27 +159,17 @@
 			</div>
 		</div>
 	</header> 
-	
+
 	<div class="template-container">
 		<div class="sliderbtn slick-prev"><p style="text-align: center; vertical-align: middel;"><i class="fa fa-angle-double-left fa-3x"></i></p></div>
-		<div class="templates">
-			<div class="temps" id="template1">
-				<div style="display: block;"><h2>Select A Music</h2></div>
+		<div class="templates" id="imgBoard">
+			<c:forEach items="${botari}" var="pic">
 				<div>
-				<form action="getMusic" method="post" enctype="multipart/form-data">
-					<input type="file" name="musicFile">
-					<input type="submit" name="전송">
-				</form>
+					<div style="display: block;"><a><img src="${pic}" style="vertical-align: middle; text-align: center; margin: auto auto;"></div>
 				</div>
-			</div>
-			<div id="template2">
-				<div style="display: block;"><h2>Select A Image</h2></div>
-			</div>
-			<div id="template3">
-				<div style="display: block;"><h2>Select A Music</h2></div>
-			</div>
+			</c:forEach>
 		</div>
-		<div class="sliderbtn slick-next"><p style="text-align: center; vertical-align: middel;"><i class="fa fa-angle-double-right fa-3x"></i></p></div>
+		<div class="sliderbtn slick-next"><p style="text-align: center; vertical-align: middle;"><i class="fa fa-angle-double-right fa-3x"></i></p></div>
 	</div>
 	
 	</main>
@@ -276,26 +275,48 @@
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="resources/assets/slick/slick.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript">
 
-$(document).ready(function(){
-	$('.templates').slick({
-		accessibility : true,
-		arrows: true,
-		autoplay : false,
-		speed : 100, 
-		infinite: false,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		fade: false,
-		centerPadding: true,
-		adaptiveHeight: true,
-		variableWidth: true,
-		draggable: false,
-		prevArrow: '.slick-prev', //prev 버튼
-	    nextArrow: '.slick-next' //netx 버튼
+	/* $(document).ready(function(){
+		var html = "";
+		
+		var imgs = "${botari}";
+		for (var i = 0; i < imgs.length; i++) {
+			html += '<div style="display:block;"><img src="/'+imgs[i]+'"></div>';
+		}
+		document.getElementById("imgBoard").innerHTML(html);
 	});
-  });
+	//이미지 파일 가져오는 곳
+	function readURL(input) {
+		var div = document.getElementById('imageArrayDiv');
+		
+		for(var i = 0 ; i < input.files.length; i++){
+			 var reader = new FileReader();
+			 reader.onload = function (e) {
+	                var picFile = e.target;
+	                div.innerHTML += "<img src='" + picFile.result + "' height='100px'></img>";
+			 }
+		        reader.readAsDataURL(input.files[i]);    
+		}
+		
+	} */
+	$(document).ready(function(){
+		
+		$('.templates').slick({
+			accessibility : true,
+			arrows: true,
+			autoplay : false,
+			speed : 100, 
+			infinite: false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			fade: false,
+			draggable: false,
+			prevArrow: '.slick-prev', //prev 버튼
+		    nextArrow: '.slick-next' //netx 버튼
+		});
+		
+	  });
 
 </script>
 </body>
