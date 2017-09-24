@@ -166,7 +166,6 @@
 			<img src='resources/assets/img/photos.png' onclick='document.all.multiFile.click();' style="width: 43px; margin-bottom: 30px;">
 			<button type="submit">전송</button>
 		</form>
-
 	</div>
 	
 	</main>

@@ -162,13 +162,20 @@
 
 	<div class="template-container">
 		<div class="sliderbtn slick-prev"><p style="text-align: center; vertical-align: middel;"><i class="fa fa-angle-double-left fa-3x"></i></p></div>
+			<form action="changeImg" method="post" enctype="multipart/form-data">
 		<div class="templates" id="imgBoard">
-			<c:forEach items="${botari}" var="pic">
-				<div>
-					<div style="display: block;"><a><img src="${pic}" style="vertical-align: middle; text-align: center; margin: auto auto;"></div>
+			<input class="imgsection" id="reimg" name="files" type="file" style="display: none;">
+			
+			<c:forEach varStatus="s" items="${botari}" var="pic">
+				<div style="display: block;">
+					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="vertical-align: middle; text-align: center; margin: auto auto;">
+					<input type="hidden" name="s" value="${s.index}">
 				</div>
 			</c:forEach>
+			
+			<button type="submit">전송</button>
 		</div>
+			</form>
 		<div class="sliderbtn slick-next"><p style="text-align: center; vertical-align: middle;"><i class="fa fa-angle-double-right fa-3x"></i></p></div>
 	</div>
 	
@@ -285,21 +292,18 @@
 			html += '<div style="display:block;"><img src="/'+imgs[i]+'"></div>';
 		}
 		document.getElementById("imgBoard").innerHTML(html);
-	});
-	//이미지 파일 가져오는 곳
-	function readURL(input) {
-		var div = document.getElementById('imageArrayDiv');
+	});*/
+	
+	var clicked;
+	
+	function gogo(mvimg){
+		document.getElementById('reimg').click();
+		clicked=mvimg;
 		
-		for(var i = 0 ; i < input.files.length; i++){
-			 var reader = new FileReader();
-			 reader.onload = function (e) {
-	                var picFile = e.target;
-	                div.innerHTML += "<img src='" + picFile.result + "' height='100px'></img>";
-			 }
-		        reader.readAsDataURL(input.files[i]);    
-		}
-		
-	} */
+	}
+	
+	
+	
 	$(document).ready(function(){
 		
 		$('.templates').slick({
@@ -316,8 +320,62 @@
 		    nextArrow: '.slick-next' //netx 버튼
 		});
 		
+		$("#reimg").change(function () {
+			var form = $("#reimg");
+			var formData = new FormData(form);
+			formData.append('files', $('input[type=file]')[0].files[0]);
+			formData.append('index', clicked);
+			
+			$.ajax({
+		        // Your server script to process the upload
+		        url: 'reupload',
+		        type: 'POST',
+
+		        // Form data
+		        data: formData,
+
+		        // Tell jQuery not to process data or worry about content-type
+		        // You *must* include these options!
+		        cache: false,
+		        contentType: false,
+		        processData: false,
+
+		        // Custom XMLHttpRequest
+		        xhr: function() {
+		            var myXhr = $.ajaxSettings.xhr();
+		            if (myXhr.upload) {
+		                // For handling the progress of the upload
+		                myXhr.upload.addEventListener('progress', function(e) {
+		                    if (e.lengthComputable) {
+		                        $('progress').attr({
+		                            value: e.loaded,
+		                            max: e.total,
+		                        });
+		                    }
+		                } , false);
+		            }
+		            return myXhr;
+		        },
+		        success : function(result){
+		        	alert(result);
+					//document.getElementById(""+clicked).src=result+ new Date().getTime();
+					$("#"+clicked).attr('src', '');
+		        	d = new Date();
+		        	$("#"+clicked).attr("src", result+"?"+d.getTime());
+				}
+		    });
+		});
+		
 	  });
 
+	  
+	
+	$('.realimg').on('click', function() {
+		/*  var imgg = $('.realimg').change();
+		 var ii = imgg.getAttribute("src");
+		 alert(ii); */
+		
+	});
 </script>
 </body>
 

@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import global.sesoc.donari.util.DuplicateFile;
@@ -90,7 +91,11 @@ public class FileuploadController
 			{
 				System.out.println("다중 파일 원본 파일 명 : "+file.getOriginalFilename());
 				 
+				File check = new File(file.getOriginalFilename());
 				// 중복 되지 않는 파일 객체를 만든다.
+				if (check.exists()) {
+					break;
+				}
 				File serverFile = DuplicateFile.getFile(saveDir, file);
 				System.out.println("서버 파일 명:"+serverFile.getName());
 				//System.out.println("수업때 배운거로 써보는 저장 경로"+path);
@@ -119,39 +124,52 @@ public class FileuploadController
 		public String tempImg(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
 		{
 			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
-			System.out.println("다중 파일 저장 경로 : "+saveDir);
 			// 올라온 파일 확인
 			ArrayList<String> botari = new ArrayList<String>();
-			ArrayList<String> paths = new ArrayList<String>();
-			
+			int i = 0;
 			for(MultipartFile file : multiFiles.getFiles())
 			{
-				System.out.println("다중 파일 원본 파일 명 : "+file.getOriginalFilename());
 				
 				// 중복 되지 않는 파일 객체를 만든다.
 				File serverFile = DuplicateFile.getFile(saveDir, file);
-				System.out.println("서버 파일 명:"+serverFile.getName());
-				System.out.println("서버 파일 명:"+serverFile.getPath());
-				//System.out.println("수업때 배운거로 써보는 저장 경로"+path);
-				// 실제적으로 저장할 파일로 이동
-				file.transferTo(serverFile);
-				System.out.println("저장 된 경로 및 파일 이름 ? "+serverFile);
+				file.transferTo(new File(saveDir+"/mvimg"+(i)+".jpg"));
+				
+				//serverFile.renameTo(new File(saveDir+"/mvimg"+(i++)));
 				
 				String filePath = ""+serverFile;
 				String CompleteFilePath = filePath.replaceAll("\\\\", "/");
-				System.out.println(CompleteFilePath+"완전체");
-				paths.add(CompleteFilePath);
 				
-				botari.add("resources/userimage/"+file.getOriginalFilename());
-				System.out.println(botari+"넌 누구냐!!!!!!!!!!!!!!!!!!!!!!");
+				botari.add("resources/userimage"+"/mvimg"+(i)+".jpg");
+				
+				i++;
 			}//for
 			model.addAttribute("botari",botari);
 			model.addAttribute("files",files);
-			model.addAttribute("paths", paths);
 			model.addAttribute("saveDir",saveDir);
 			System.out.println("파일 이름 : "+files);
 			
 			return "template/movie";
+		}//fileUploadForms()
+		
+		@ResponseBody
+		@RequestMapping(value="/reupload",method=RequestMethod.POST)
+		public String reupload(MultipartFile files,String index,HttpServletRequest request) throws IllegalStateException, IOException
+		{
+			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
+			File file = new File(saveDir+"/"+index+".jpg");
+			if(file.exists()){
+				file.delete();
+			}
+			
+			File serverFile = DuplicateFile.getFile(saveDir, files);
+			files.transferTo(new File(saveDir+"/"+index+".jpg"));
+			
+			System.out.println("들어옴"+files.getOriginalFilename());
+			System.out.println(index);
+			
+			String toFile = "resources/userimage/"+index+".jpg";
+			
+			return toFile;
 		}//fileUploadForms()
 		
 		
