@@ -160,14 +160,27 @@
 	</header> 
 	
 	<!-- ===== UPLOAD IMAGES ===== -->
-	<div>
+	<div class="container" style="text-align: center;">
+	<div style="display: inline-block;">
 		<form id="imageUploadForm" action="tempImg" method="post" enctype="multipart/form-data">
 			<input id="multiFile" name="files" type="file" multiple="multiple" style="display: none;">
-			<img src='resources/assets/img/photos.png' onclick='document.all.multiFile.click();' style="width: 43px; margin-bottom: 30px;">
+			<img src='resources/assets/img/uploadicon.png' onclick='document.all.multiFile.click();' style="width: 43px; margin-bottom: 30px;">
 			<button type="submit">전송</button>
 		</form>
 	</div>
 	
+	<div style="display: inline-block;">
+		<table>
+			<tr>
+				<td colspan="2">[입력 권장사항]</td>
+			</tr>
+			<tr>
+				<th>사진 수</th>
+				<td>35</td>
+			</tr>
+		</table>
+	</div>
+	</div>
 	</main>
 
 	<!-- ===== FOOTER ===== -->

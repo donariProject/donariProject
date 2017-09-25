@@ -193,27 +193,27 @@
 		<!-- ===== PICTURES ===== -->
 		<div class="container" style="height:100%; margin-top:auto; margin-bottom:auto;">
 			<!-- ===== GALLERY WITH ZOOM ===== -->
-			<div class="page-gallery">
-				<div style="height:100%;">
-					<figure style="height:100%;">
-						<a href="movieImg">
-						<img src="resources/assets/img/template/movie.jpg" alt="movie" title="movie" />
+			<div style="text-align: center; margin:auto auto;">
+				<div style="height:100%; display: inline-block;width:30%;">
+					<figure style="display:table;width:100%;">
+						<a href="movieImg" >
+						<img src="resources/assets/img/template/movie.jpg" alt="movie" title="movie" style="width:100%" />
 						</a>
 						<figcaption>MOVIE</figcaption>
 					</figure>
 				</div>
-				<div style="height:100%;">
-					<figure style="height:100%;">
+				<div style="height:100%; display: inline-block;width:30%;">
+					<figure style="display:table;width:100%;">
 						<a href="travel">
-						<img src="resources/assets/img/template/travel.jpg" alt="travel" title="travel" />
+						<img src="resources/assets/img/template/travel.jpg" alt="travel" title="travel" style="width:100%"  />
 						</a>
 						<figcaption>TRAVEL</figcaption>
 					</figure>
 				</div>
-				<div style="height:100%;">
-					<figure class="gallery-item" style="height:100%;">
+				<div style="height:100%; display: inline-block;width:30%;">
+					<figure style="display:table;width:100%;">
 						<a href="vlog">
-							<img src="resources/assets/img/template/vlog.jpg" alt="vlog" title="vlog" />
+							<img src="resources/assets/img/template/vlog.jpg" alt="vlog" title="vlog" style="width:100%; overflow: hidden;"  />
 						</a>
 						<figcaption>VLOG</figcaption>
 					</figure>

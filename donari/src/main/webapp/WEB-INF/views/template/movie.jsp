@@ -168,12 +168,16 @@
 			
 			<c:forEach varStatus="s" items="${botari}" var="pic">
 				<div style="display: block;">
-					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="vertical-align: middle; text-align: center; margin: auto auto;">
+					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="z-index vertical-align: middle; text-align: center; margin: auto auto;">
 					<input type="hidden" name="s" value="${s.index}">
+					<input type=text id="content${s.index}" value='insert subtitles' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent;  font-size: 40pt;"/>
+				
+					<c:if test="${s.index}=${s.last}">
+					<input type="button" value="make it" id="makeit" onclick="toMakeIt();">
+					</c:if>
 				</div>
 			</c:forEach>
 			
-			<button type="submit">전송</button>
 		</div>
 			</form>
 		<div class="sliderbtn slick-next"><p style="text-align: center; vertical-align: middle;"><i class="fa fa-angle-double-right fa-3x"></i></p></div>
@@ -282,18 +286,11 @@
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="resources/assets/slick/slick.js"></script>
+	
+	
+	<!-- IMAGE CHANGE SCRIPT -->
 	<script type="text/javascript">
 
-	/* $(document).ready(function(){
-		var html = "";
-		
-		var imgs = "${botari}";
-		for (var i = 0; i < imgs.length; i++) {
-			html += '<div style="display:block;"><img src="/'+imgs[i]+'"></div>';
-		}
-		document.getElementById("imgBoard").innerHTML(html);
-	});*/
-	
 	var clicked;
 	
 	function gogo(mvimg){
@@ -301,8 +298,6 @@
 		clicked=mvimg;
 		
 	}
-	
-	
 	
 	$(document).ready(function(){
 		
@@ -319,6 +314,7 @@
 			prevArrow: '.slick-prev', //prev 버튼
 		    nextArrow: '.slick-next' //netx 버튼
 		});
+		
 		
 		$("#reimg").change(function () {
 			var form = $("#reimg");
@@ -357,7 +353,6 @@
 		            return myXhr;
 		        },
 		        success : function(result){
-		        	alert(result);
 					//document.getElementById(""+clicked).src=result+ new Date().getTime();
 					$("#"+clicked).attr('src', '');
 		        	d = new Date();
@@ -368,14 +363,57 @@
 		
 	  });
 
-	  
 	
-	$('.realimg').on('click', function() {
-		/*  var imgg = $('.realimg').change();
-		 var ii = imgg.getAttribute("src");
-		 alert(ii); */
+	function eedit(val, id){
 		
-	});
+		var editables = document.querySelector('#content'+id);
+		
+		var form = $("#reimg");
+		var formData = new FormData(form);
+		formData.append('subtitles', val);
+		formData.append('index', id);
+	    
+	      $.ajax({
+		        // Your server script to process the upload
+		        url: 'subs',
+		        type: 'POST',
+
+		        // Form data
+		        data: formData,
+
+		        // Tell jQuery not to process data or worry about content-type
+		        // You *must* include these options!
+		        cache: false,
+		        contentType: false,
+		        processData: false,
+
+		        // Custom XMLHttpRequest
+		        xhr: function() {
+		            var myXhr = $.ajaxSettings.xhr();
+		            if (myXhr.upload) {
+		                // For handling the progress of the upload
+		                myXhr.upload.addEventListener('progress', function(e) {
+		                    if (e.lengthComputable) {
+		                        $('progress').attr({
+		                            value: e.loaded,
+		                            max: e.total,
+		                        });
+		                    }
+		                } , false);
+		            }
+		            return myXhr;
+		        },
+		        success : function(result){
+		        	alert(result);
+				}
+		    });
+	}
+	
+	function toMakeIt(){
+		location.herf="makeit";
+	}
+	
+	
 </script>
 </body>
 
