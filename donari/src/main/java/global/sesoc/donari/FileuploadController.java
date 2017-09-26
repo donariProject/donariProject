@@ -119,6 +119,30 @@ public class FileuploadController
 			return "makingVideo/basicVideo";
 		}//fileUploadForms()
 		
+		@ResponseBody
+	      @RequestMapping(value="/musicUpload",method=RequestMethod.POST)
+	      public String musicupload(MultipartFile music, Model model, HttpServletRequest request) throws IllegalStateException, IOException
+	      {
+	         String saveDir = request.getServletContext().getRealPath("/resources/usermusic");
+	         System.out.println("다중 파일 저장 경로 : "+saveDir);
+	         
+	            System.out.println("다중 파일 원본 파일 명 : "+music.getOriginalFilename());
+	             
+	            // 중복 되지 않는 파일 객체를 만든다.
+	            File serverFile = DuplicateFile.getFile(saveDir, music);
+	            System.out.println("서버 파일 명:"+serverFile.getName());
+	            // 실제적으로 저장할 파일로 이동
+	            music.transferTo(serverFile);
+	            
+	            String filePath = ""+serverFile;
+	            String CompleteFilePath = filePath.replaceAll("\\\\", "/");
+	            System.out.println(CompleteFilePath+"완전체");
+	            model.addAttribute("saveDir",saveDir);
+	                  
+	         
+	         return "sucess";
+	      }   
+		
 		
 		@RequestMapping(value="/tempImg",method=RequestMethod.POST)
 		public String tempImg(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
@@ -171,6 +195,31 @@ public class FileuploadController
 			
 			return toFile;
 		}//fileUploadForms()
+		
+		
+		@ResponseBody
+		@RequestMapping(value="/subs",method=RequestMethod.POST)
+		public String subs(String subtitles,String index, HttpServletRequest request) throws IllegalStateException, IOException
+		{
+			System.out.println("subtitles : "+subtitles+"/ index : "+ index);
+			/*String saveDir = request.getServletContext().getRealPath("/resources/userimage");
+			File file = new File(saveDir);
+			if(file.exists()){
+				file.delete();
+			}
+			*/
+			/*File serverFile = DuplicateFile.getFile(saveDir, files);
+			files.transferTo(new File(saveDir+"/"+index+".jpg"));
+			
+			System.out.println("들어옴"+files.getOriginalFilename());
+			System.out.println(index);
+			
+			String toFile = "resources/userimage/"+index+".jpg";*/
+			
+			return "success";
+		}//fileUploadForms()
+		
+		
 		
 		
 	}//class

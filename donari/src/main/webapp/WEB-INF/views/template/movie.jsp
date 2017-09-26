@@ -172,7 +172,7 @@
 					<input type="hidden" name="s" value="${s.index}">
 					<input type=text id="content${s.index}" value='insert subtitles' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent;  font-size: 40pt;"/>
 				
-					<c:if test="${s.index}=${s.last}">
+					<c:if test="${s.index}==${s.end}">
 					<input type="button" value="make it" id="makeit" onclick="toMakeIt();">
 					</c:if>
 				</div>

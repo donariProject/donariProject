@@ -164,7 +164,7 @@
 	<div style="display: inline-block;">
 		<form id="imageUploadForm" action="tempImg" method="post" enctype="multipart/form-data">
 			<input id="multiFile" name="files" type="file" multiple="multiple" style="display: none;">
-			<img src='resources/assets/img/uploadicon.png' onclick='document.all.multiFile.click();' style="width: 43px; margin-bottom: 30px;">
+			<img src='resources/assets/img/uploadicon.png' onclick='document.all.multiFile.click();' style="width: 43px;">
 			<button type="submit">전송</button>
 		</form>
 	</div>
