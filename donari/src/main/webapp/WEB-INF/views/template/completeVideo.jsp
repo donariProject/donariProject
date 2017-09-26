@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -159,41 +158,26 @@
 			</div>
 		</div>
 	</header> 
-
-	<div class="template-container">
-			<form action="changeImg" method="post" enctype="multipart/form-data">
-		<div class="templates" id="imgBoard">
-			<input class="imgsection" id="reimg" name="files" type="file" style="display: none;">
-			
-			<c:forEach varStatus="s" items="${botari}" var="pic">
-				<div style="display: block;">
-					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="z-index vertical-align: middle; text-align: center; margin: auto auto;">
-					<input type="hidden" name="s" value="${s.index}">
-					
-					<c:if test="${s.count==5 || s.count==23 || s.count==28 || s.count==29 || s.count==30}">
-					<input type=text id="content${s.index}" value='insert subtitles' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent;  font-size: 40pt;"/>
-					</c:if>
-				</div>
-			</c:forEach>
-		</div>
-			</form>
-			<div style="width: 80%; display: inline-block;">
-			
-				<div class="template-nav">
-			<c:forEach items="${botari}" var="navPic">
-					<img src="${navPic}" class="navImg" >
-			</c:forEach>
-				</div>
-				<div style="display: block; position: relative;">
-						<div class="sliderbtn slick-prev" style=" position: absolute; left: 0;"><p style="text-align: left; vertical-align: middel;"><i class="fa fa-angle-double-left fa-3x"></i></p></div>
-						<div class="sliderbtn slick-next" style=" position: absolute; right: 0;"><p style="text-align: right; vertical-align: middle;"><i class="fa fa-angle-double-right fa-3x"></i></p></div>
-						<c:if test="${s.last}">
-						<input type="button" value="make it" id="makeit" onclick="toMakeIt();">
-						</c:if>
-					</div>
-			</div>
+	
+	<!-- ===== UPLOAD IMAGES ===== -->
+	<div class="container" style="text-align: center;">
+	<div style="display: inline-block;">
+		<video src="/resources/complete/${videoName}"></video>
 	</div>
 	
+	<div style="display: inline-block;">
+		<table>
+			<tr>
+				<td colspan="2">[입력 권장사항]</td>
+			</tr>
+			<tr>
+				<th>사진 수</th>
+				<td>35</td>
+			</tr>
+		</table>
+	</div>
+	
+	</div>
 	</main>
 
 	<!-- ===== FOOTER ===== -->
@@ -293,145 +277,6 @@
 	<!-- THEME JS -->
 	<script src="resources/assets/js/main.js"></script>
 	
-	<!-- SLICK -->
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script src="resources/assets/slick/slick.js"></script>
-	
-	
-	<!-- IMAGE CHANGE SCRIPT -->
-	<script type="text/javascript">
-
-	var clicked;
-	
-	function gogo(mvimg){
-		document.getElementById('reimg').click();
-		clicked=mvimg;
-		
-	}
-	
-	$(document).ready(function(){
-		var cnt = ${imgCount};
-	/* 	if (cnt => 5) {
-			cnt=5;
-		} */
-		$('.templates').slick({
-			arrows: true,
-			infinite: false,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			draggable: false,
-			asNavFor: '.template-nav',
-			prevArrow: '.slick-prev', //prev 버튼
-		    nextArrow: '.slick-next' //netx 버튼
-		});
-		$('.template-nav').slick({
-	          slidesToShow: cnt, //작은이미지 몇개 보여줄것인지..
-	          slidesToScroll: 1,
-	          asNavFor: '.stemplates',
-	          focusOnSelect: true,
-	          arrows: true
-	       });
-		
-		$("#reimg").change(function () {
-			var form = $("#reimg");
-			var formData = new FormData(form);
-			formData.append('files', $('input[type=file]')[0].files[0]);
-			formData.append('index', clicked);
-			
-			$.ajax({
-		        // Your server script to process the upload
-		        url: 'reupload',
-		        type: 'POST',
-
-		        // Form data
-		        data: formData,
-
-		        // Tell jQuery not to process data or worry about content-type
-		        // You *must* include these options!
-		        cache: false,
-		        contentType: false,
-		        processData: false,
-
-		        // Custom XMLHttpRequest
-		        xhr: function() {
-		            var myXhr = $.ajaxSettings.xhr();
-		            if (myXhr.upload) {
-		                // For handling the progress of the upload
-		                myXhr.upload.addEventListener('progress', function(e) {
-		                    if (e.lengthComputable) {
-		                        $('progress').attr({
-		                            value: e.loaded,
-		                            max: e.total,
-		                        });
-		                    }
-		                } , false);
-		            }
-		            return myXhr;
-		        },
-		        success : function(result){
-					//document.getElementById(""+clicked).src=result+ new Date().getTime();
-					$("#"+clicked).attr('src', '');
-		        	d = new Date();
-		        	$("#"+clicked).attr("src", result+"?"+d.getTime());
-				}
-		    });
-		});
-		
-	  });
-
-	
-	function eedit(val, id){
-		
-		var editables = document.querySelector('#content'+id);
-		
-		var form = $("#reimg");
-		var formData = new FormData(form);
-		formData.append('subtitles', val);
-		formData.append('index', id);
-	    
-	      $.ajax({
-		        // Your server script to process the upload
-		        url: 'subs',
-		        type: 'POST',
-
-		        // Form data
-		        data: formData,
-
-		        // Tell jQuery not to process data or worry about content-type
-		        // You *must* include these options!
-		        cache: false,
-		        contentType: false,
-		        processData: false,
-
-		        // Custom XMLHttpRequest
-		        xhr: function() {
-		            var myXhr = $.ajaxSettings.xhr();
-		            if (myXhr.upload) {
-		                // For handling the progress of the upload
-		                myXhr.upload.addEventListener('progress', function(e) {
-		                    if (e.lengthComputable) {
-		                        $('progress').attr({
-		                            value: e.loaded,
-		                            max: e.total,
-		                        });
-		                    }
-		                } , false);
-		            }
-		            return myXhr;
-		        },
-		        success : function(result){
-				console.log("subs : "+id+" : "+val+" : "+result);
-		        }
-		    });
-	}
-	
-	function toMakeIt(){
-		location.herf="video";
-	}
-	
-	
-</script>
 </body>
 
 </html>

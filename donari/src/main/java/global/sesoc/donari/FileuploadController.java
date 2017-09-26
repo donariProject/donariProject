@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -124,6 +125,10 @@ public class FileuploadController
 	      public String musicupload(MultipartFile music, Model model, HttpServletRequest request) throws IllegalStateException, IOException
 	      {
 	         String saveDir = request.getServletContext().getRealPath("/resources/usermusic");
+	         File dir = new File(saveDir);
+				if (!dir.exists()) {
+					dir.mkdirs();
+				}
 	         System.out.println("다중 파일 저장 경로 : "+saveDir);
 	         
 	            System.out.println("다중 파일 원본 파일 명 : "+music.getOriginalFilename());
@@ -148,6 +153,13 @@ public class FileuploadController
 		public String tempImg(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
 		{
 			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
+			File dir = new File(saveDir);
+			if (!dir.exists()) {
+				dir.mkdirs();
+			} else {
+				dir.delete();
+				dir.mkdirs();
+			}
 			// 올라온 파일 확인
 			ArrayList<String> botari = new ArrayList<String>();
 			int i = 0;
@@ -167,6 +179,7 @@ public class FileuploadController
 				
 				i++;
 			}//for
+			model.addAttribute("imgCount", botari.size());
 			model.addAttribute("botari",botari);
 			model.addAttribute("files",files);
 			model.addAttribute("saveDir",saveDir);
@@ -180,6 +193,10 @@ public class FileuploadController
 		public String reupload(MultipartFile files,String index,HttpServletRequest request) throws IllegalStateException, IOException
 		{
 			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
+			File dir = new File(saveDir);
+			if (!dir.exists()) {
+				dir.mkdirs();
+			}
 			File file = new File(saveDir+"/"+index+".jpg");
 			if(file.exists()){
 				file.delete();
@@ -196,28 +213,6 @@ public class FileuploadController
 			return toFile;
 		}//fileUploadForms()
 		
-		
-		@ResponseBody
-		@RequestMapping(value="/subs",method=RequestMethod.POST)
-		public String subs(String subtitles,String index, HttpServletRequest request) throws IllegalStateException, IOException
-		{
-			System.out.println("subtitles : "+subtitles+"/ index : "+ index);
-			/*String saveDir = request.getServletContext().getRealPath("/resources/userimage");
-			File file = new File(saveDir);
-			if(file.exists()){
-				file.delete();
-			}
-			*/
-			/*File serverFile = DuplicateFile.getFile(saveDir, files);
-			files.transferTo(new File(saveDir+"/"+index+".jpg"));
-			
-			System.out.println("들어옴"+files.getOriginalFilename());
-			System.out.println(index);
-			
-			String toFile = "resources/userimage/"+index+".jpg";*/
-			
-			return "success";
-		}//fileUploadForms()
 		
 		
 		

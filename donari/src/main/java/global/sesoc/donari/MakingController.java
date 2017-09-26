@@ -1,6 +1,10 @@
 package global.sesoc.donari;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,26 +42,39 @@ public class MakingController {
 	public String vlog() {
 		return "template/vlog";
 	}
+
+	HashMap<String, String> map = new HashMap<>();
 	
 	@ResponseBody
-	@RequestMapping(value="video", method = RequestMethod.POST)
-	public String ttest(Thread ts) throws Exception{
-		System.out.println("나는 들어왓지롱");
+	@RequestMapping(value="/subs",method=RequestMethod.POST)
+	public String subs(String subtitles,String index, HttpServletRequest request) throws IllegalStateException, IOException
+	{
+		System.out.println("subtitles : "+subtitles+"/ index : "+ index);
+		
+		if (map.containsKey(index)) {
+			map.remove(index);
+		}
+		map.put(index, subtitles);
+		System.out.println("current map : "+map.toString());
+		
+		return "success";
+	}//subs
+	
+	@RequestMapping(value="video", method = RequestMethod.GET)
+	public String ttest(Thread ts, HttpServletRequest request) throws Exception{
+		System.out.println("let's begin!!!!!!!!!!!!!!!!!!!");
+		
+		String imgDir = request.getServletContext().getRealPath("/resources/userimage");
+		File dir = new File(imgDir);
+		
 		MovieTemplate mt = new MovieTemplate();
 		File video = mt.rrn();
       
 		ts.sleep(3000);
       
-		return "success";
+		return "completeVideo";
 	}
 
-	@RequestMapping(value = "makeit", method = RequestMethod.GET)
-	public String makeit() {
-		
-		
-		return "redirect:video";
-	}
-	
 }
 	
 
