@@ -170,8 +170,12 @@
 					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="z-index vertical-align: middle; text-align: center; margin: auto auto;">
 					<input type="hidden" name="s" value="${s.index}">
 					
-					<c:if test="${s.count==5 || s.count==23 || s.count==28 || s.count==29 || s.count==30}">
-					<input type=text id="content${s.index}" value='insert subtitles' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent;  font-size: 40pt;"/>
+					<c:if test="${s.index==3 || s.index==18 || s.index==22 || s.index==27 || s.index==28 || s.index==29}">
+					<input type=text id="content${s.index}" value='insert subtitles${s.index}' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent;  font-size: 40pt;"/>
+					</c:if>
+					
+					<c:if test="${s.last}">
+					<input type="button" value="make it" id="makeit" onclick="toMakeIt();">
 					</c:if>
 				</div>
 			</c:forEach>
@@ -187,9 +191,7 @@
 				<div style="display: block; position: relative;">
 						<div class="sliderbtn slick-prev" style=" position: absolute; left: 0;"><p style="text-align: left; vertical-align: middel;"><i class="fa fa-angle-double-left fa-3x"></i></p></div>
 						<div class="sliderbtn slick-next" style=" position: absolute; right: 0;"><p style="text-align: right; vertical-align: middle;"><i class="fa fa-angle-double-right fa-3x"></i></p></div>
-						<c:if test="${s.last}">
-						<input type="button" value="make it" id="makeit" onclick="toMakeIt();">
-						</c:if>
+						
 					</div>
 			</div>
 	</div>
@@ -427,7 +429,7 @@
 	}
 	
 	function toMakeIt(){
-		location.herf="video";
+		location.href="video";
 	}
 	
 	

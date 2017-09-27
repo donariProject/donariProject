@@ -162,7 +162,9 @@
 	<!-- ===== UPLOAD IMAGES ===== -->
 	<div class="container" style="text-align: center;">
 	<div style="display: inline-block;">
-		<video src="/resources/complete/${videoName}"></video>
+		<video>
+			<source src="resources/template/complete/complete.mp4" type="video/mp4">
+		</video>
 	</div>
 	
 	<div style="display: inline-block;">
@@ -257,7 +259,8 @@
 	<!-- =================================== -->
 
 	<!-- JQUERY -->
-	<script src="resources/assets/js/jquery-1.11.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>	
 
 	<!-- BOOTSTRAP JS -->
 	<script src="resources/assets/js/bootstrap.min.js"></script>

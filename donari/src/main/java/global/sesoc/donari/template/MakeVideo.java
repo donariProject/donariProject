@@ -247,6 +247,14 @@ public class MakeVideo {
 		executeCmd(code);
 	}
 
+	public void scrollingOverlay(String input1, String input2, String output){
+		String[] code = {
+				ffmpegPath, "-i", input1, input2, "-filter_complex [1] scale=100:100 [tmp]; [0][tmp] overlay=x='if(gte(t,2), t*100, 10)':y=30", output
+		};
+		executeCmd(code);
+	}
+	
+	
 	/**
 	 * cmd에서 ffmpeg 명령어를 실행하는 메소드
 	 */
