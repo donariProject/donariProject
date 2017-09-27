@@ -246,13 +246,34 @@ public class MakeVideo {
 				outputVidPath };
 		executeCmd(code);
 	}
-
+	
+	/**
+	 * 왼쪽에서 오른쪽으로 스크롤링 되는 효과를 삽입한다.
+	 * 
+	 */
 	public void scrollingOverlay(String input1, String input2, String output){
 		String[] code = {
 				ffmpegPath, "-i", input1, input2, "-filter_complex [1] scale=100:100 [tmp]; [0][tmp] overlay=x='if(gte(t,2), t*100, 10)':y=30", output
 		};
 		executeCmd(code);
 	}
+	
+	
+	//  흑백 효과 적용
+	  public void black_white_filter(String inputImgPath, String outputPath)
+	  {
+	      String [] code={ffmpegPath,"-i",inputImgPath,"-vf","eq=1:0:0:1:1:1:1:1",outputPath};
+	      executeCmd(code);
+	  }
+	  
+	//  거울 효과 적용
+	  public void mirror_filter(String inputImgPath,String outputPath)
+	  {
+	      String[]code={ffmpegPath,"-i",inputImgPath,"-vf","crop=iw:ih:0:0, split[left][tmp]; [tmp]hflip[right]; [left][right]hstack",outputPath};
+	      executeCmd(code);
+	  }
+
+	
 	
 	
 	/**
@@ -285,7 +306,7 @@ public class MakeVideo {
 
 			processDuration.destroy();
 
-			System.out.println(outputJson);
+			//System.out.println(outputJson);
 
 		} catch (Exception e) {
 

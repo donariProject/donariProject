@@ -160,26 +160,23 @@
 	</header> 
 	
 	<!-- ===== UPLOAD IMAGES ===== -->
-	<div class="container" style="text-align: center;">
-	<div style="display: inline-block;">
-		<form id="imageUploadForm" action="tempImg" method="post" enctype="multipart/form-data">
-			<input id="multiFile" name="files" type="file" maxlength="35" multiple="multiple" style="display: none;">
-			<img src='resources/assets/img/uploadicon.png' onclick='document.all.multiFile.click();' style="width: 43px;">
-			<button type="submit">전송</button>
-		</form>
-	</div>
-	
-	<div style="display: inline-block;">
-		<table>
-			<tr>
-				<td colspan="2">[입력 권장사항]</td>
-			</tr>
-			<tr>
-				<th>사진 수</th>
-				<td>35</td>
-			</tr>
-		</table>
-	</div>
+	<div class="container" style="text-align: center; height: 500px;">
+		<div style="margin: 130px auto; vertical-align: middle;">
+			<div style="display: inline-block; margin: auto auto; width: 40%; height: 100%;">
+				<form id="imageUploadForm" action="tempImg" method="post" enctype="multipart/form-data">
+					<input id="multiFile" name="files" type="file" maxlength="35" multiple="multiple" style="display: none;">
+					<img src='resources/assets/img/uploadicon.png' onclick='document.all.multiFile.click();' style="width: 50px;">
+					<button type="submit"><img src='resources/assets/img/play.png'  style="width: 50px; background-color: Transparent;"></button>
+				</form>
+			</div>
+			
+			<div style="display: inline-block; margin: auto auto; width: 40%; height: 100%;">
+				<div class="tabshead"><i class="fa fa-bar"><h3 style="text-align: center; ">RECOMMENDATIONS</h3></i></div>
+				<div class="tabs"><i class="fa fa-camera-retro fa-2x" style="padding: 0 15px;"></i></div><div class="tabs"><h3>35</h3></div><br>
+				<div class="tabs"><i class="fa fa-clock-o fa-2x" style="padding: 0 15px;"></i></div><div class="tabs"><h3>1min</h3></div><br>
+				<div class="tabs"><i class="fa fa-file-text-o fa-2x" style="padding: 0 15px;"></i></div><div class="tabs"><h3>5</h3></div>
+			</div>
+		</div>
 	</div>
 	</main>
 

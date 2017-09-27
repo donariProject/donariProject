@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import global.sesoc.donari.template.MakeVideo;
+import global.sesoc.donari.template.MovieTemplate;
 import global.sesoc.donari.util.DuplicateFile;
 import global.sesoc.donari.vo.File_VO;
 
@@ -152,41 +154,76 @@ public class FileuploadController
 		@RequestMapping(value="/tempImg",method=RequestMethod.POST)
 		public String tempImg(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
 		{
-			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
-			File dir = new File(saveDir);
-			if (!dir.exists()) {
-				dir.mkdirs();
-			} else {
-				dir.delete();
-				dir.mkdirs();
+			String originDir = request.getServletContext().getRealPath("/resources/original_image");
+			File opath = new File(originDir);
+			MakeVideo mv = new MakeVideo(new MovieTemplate().getFFMPEG_PATH());
+			if (opath.exists()) {
+				mv.deleteDir(opath.getPath());
 			}
+			opath.mkdirs();
+			
 			// 올라온 파일 확인
-			ArrayList<String> botari = new ArrayList<String>();
 			int i = 0;
 			for(MultipartFile file : multiFiles.getFiles())
 			{
-				
 				// 중복 되지 않는 파일 객체를 만든다.
-				File serverFile = DuplicateFile.getFile(saveDir, file);
-				file.transferTo(new File(saveDir+"/mvimg"+(i)+".jpg"));
-				
-				//serverFile.renameTo(new File(saveDir+"/mvimg"+(i++)));
-				
-				String filePath = ""+serverFile;
-				String CompleteFilePath = filePath.replaceAll("\\\\", "/");
-				
-				botari.add("resources/userimage"+"/mvimg"+(i)+".jpg");
+				File serverFile = DuplicateFile.getFile(originDir, file);
+				file.transferTo(new File(originDir+"/img"+(i)+".jpg"));
 				
 				i++;
 			}//for
+			
+			return "template/loading";
+		}
+		
+		@RequestMapping(value="/loaded",method=RequestMethod.GET)
+		public String loaded(Model model, HttpServletRequest request) throws Exception
+		{
+			MakeVideo mv = new MakeVideo(new MovieTemplate().getFFMPEG_PATH());
+			String originDir = request.getServletContext().getRealPath("/resources/original_image");
+			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
+			
+			// 올라온 파일 확인
+			ArrayList<String> botari = new ArrayList<String>();
+			File[] list = mv.getFileList(saveDir);
+			for (int j = 0; j < list.length; j++) {
+				botari.add("resources/userimage"+"/mvimg"+(j)+".jpg");
+			}
+			
 			model.addAttribute("imgCount", botari.size());
 			model.addAttribute("botari",botari);
-			model.addAttribute("files",files);
 			model.addAttribute("saveDir",saveDir);
-			System.out.println("파일 이름 : "+files);
 			
 			return "template/movie";
-		}//fileUploadForms()
+		}
+		
+		@ResponseBody
+		@RequestMapping(value="/load",method=RequestMethod.GET)
+		public String load(Model model,HttpServletRequest request) throws Exception
+		{
+			MakeVideo mv = new MakeVideo(new MovieTemplate().getFFMPEG_PATH());
+			String originDir = request.getServletContext().getRealPath("/resources/original_image");
+			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
+			File path = new File(saveDir);
+			if (path.exists()) {
+				mv.deleteDir(path.getPath());
+			}
+			path.mkdirs();
+			
+			// 올라온 파일 확인
+			ArrayList<String> botari = new ArrayList<String>();
+			File[] list = mv.getFileList(originDir);
+			for (int j = 0; j < list.length; j++) {
+				mv.reformatImg(originDir+"/img"+(j)+".jpg", saveDir+"/mvimg"+(j)+".jpg", "640", "360");
+				botari.add("resources/userimage"+"/mvimg"+(j)+".jpg");
+			}
+			
+			model.addAttribute("imgCount", botari.size());
+			model.addAttribute("botari",botari);
+			model.addAttribute("saveDir",saveDir);
+			
+			return "template/movie";
+		}
 		
 		@ResponseBody
 		@RequestMapping(value="/reupload",method=RequestMethod.POST)

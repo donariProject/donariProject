@@ -58,7 +58,6 @@ public class MakingController {
 		map.put(index, subtitles);
 		System.out.println("current map : "+map.toString());
 		
-		
 		return "success";
 	}//subs
 	
@@ -72,9 +71,10 @@ public class MakingController {
 		return map;
 	}//subs
 	
-	@RequestMapping(value="video", method = RequestMethod.GET)
-	public String ttest(Thread ts, HttpServletRequest request,Model model) throws Exception{
-System.out.println("let's begin!!!!!!!!!!!!!!!!!!!");
+	@ResponseBody
+	@RequestMapping(value="makingTemplate", method = RequestMethod.GET)
+	public String ttest(HttpServletRequest request,Model model) throws Exception{
+		System.out.println("let's begin!!!!!!!!!!!!!!!!!!!");
 		
 		String imgDir = request.getServletContext().getRealPath("/resources/userimage");
 		System.out.println("imgDir : "+imgDir);
@@ -99,18 +99,27 @@ System.out.println("let's begin!!!!!!!!!!!!!!!!!!!");
 		System.out.println("final map check : "+map.toString());
 		
 		System.out.println("server path : "+serverpath);
-		String comple = making(serverpath, music, map, imgDir);
-		System.out.println("comple : "+comple);
+		String completeName = making(serverpath, music, map, imgDir);
+		System.out.println("comple : "+completeName);
 		
-		File complete = new File(serverpath+"complete/" + comple);
+		File complete = new File(serverpath+"complete/" + completeName);
 		System.out.println("complete : "+complete.toString());
 		
-		model.addAttribute("videoName", comple);
-		ts.sleep(3000);
+		model.addAttribute("videoName", completeName);
 		
       
+		return completeName;
+	}
+	
+	
+	@RequestMapping(value="video", method = RequestMethod.GET)
+	public String vid(Model model, String completeName) throws Exception{
+		
+		model.addAttribute("videoName", completeName);
+		
 		return "template/completeVideo";
 	}
+	
 	
 	public String making(String serverpath, String music, HashMap<String, String>map, String imgDir){
 		
@@ -125,29 +134,6 @@ System.out.println("let's begin!!!!!!!!!!!!!!!!!!!");
 		String completeVideo = mt.getComplete_filename();
 		
 		return completeVideo;
-	}
-	
-	public void wait(){
-	String cmd = "C:\\tools\\ffmpeg -i C:\\videos\\b.wmv -ar 44100 -ab 32 -f flv -s 320x240 C:\\videos\\b.flv";
-	Runtime r = Runtime.getRuntime();
-	Process p = null; 
-	try {
-	   p = r.exec(cmd); // 동영상 변환 명령어 실행시키고 부모 프로세스(자바) 를 얻는다.
-	 p.waitFor();  // 서브 프로세스 (ffmepg) 가 종료할때 까지 메인 프로세스를 잠시 대기시킨다.
-	} catch (InterruptedException e) { 
-	   p.destroy(); // 서브 프로세스를 강제로 종료시킴.
-	}
-	if (p.exitValue() != 0) { 
-	   System.out.println("변환 중 에러 발생"); 
-	// 정상 종료가 되지 않았을 경우 로직처리
-	}
-	if (fResult.length() == 0) { 
-	   System.out.println("변환된 파일의 사이즈가 0임");
-	// 변환을 하는 중 에러가 발생하여 파일의 크기가 0일 경우 로직 처리
-	}
-	// 변환 성공시 로직 처리
-	System.out.println("변환 성공 ^^");
-
 	}
 
 }

@@ -163,20 +163,8 @@
 	<div class="container" style="text-align: center;">
 	<div style="display: inline-block;">
 		<video>
-			<source src="resources/template/complete/complete.mp4" type="video/mp4">
+			<source src="resources/template/complete/${videoName}" type="video/mp4">
 		</video>
-	</div>
-	
-	<div style="display: inline-block;">
-		<table>
-			<tr>
-				<td colspan="2">[입력 권장사항]</td>
-			</tr>
-			<tr>
-				<th>사진 수</th>
-				<td>35</td>
-			</tr>
-		</table>
 	</div>
 	
 	</div>

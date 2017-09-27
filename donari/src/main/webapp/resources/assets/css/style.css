@@ -2710,3 +2710,15 @@ form .form-callback.error {
 		height: 160px;
 	}
 }
+
+.tabshead {
+	display: block;
+}
+.tabs {
+	display: inline-block;
+	margin: 10px;
+}
+
+
+
+

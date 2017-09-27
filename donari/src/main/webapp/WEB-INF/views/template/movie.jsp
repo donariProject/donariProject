@@ -159,7 +159,6 @@
 			</div>
 		</div>
 	</header> 
-
 	<div class="template-container">
 			<form action="changeImg" method="post" enctype="multipart/form-data">
 		<div class="templates" id="imgBoard">
@@ -170,7 +169,7 @@
 					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="z-index vertical-align: middle; text-align: center; margin: auto auto;">
 					<input type="hidden" name="s" value="${s.index}">
 					
-					<c:if test="${s.index==3 || s.index==18 || s.index==22 || s.index==27 || s.index==28 || s.index==29}">
+					<c:if test="${s.index==4 || s.index==18 || s.index==22 || s.index==27 || s.index==28 || s.index==29}">
 					<input type=text id="content${s.index}" value='insert subtitles${s.index}' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent;  font-size: 40pt;"/>
 					</c:if>
 					
@@ -301,6 +300,12 @@
 	<script src="resources/assets/slick/slick.js"></script>
 	
 	
+	<!-- loading -->
+	<link rel = "stylesheet" href="resources/assets/css/pace-theme-center-circle.css"/>
+	<script data-pace-options='{ "elements": { "selectors": ["#image"] }, "startOnPageLoad": false }' src= "resources/assets/js/pace.js"></script>
+	<script src= "resources/assets/js/jquery-3.2.1.min.js"></script>
+	
+	
 	<!-- IMAGE CHANGE SCRIPT -->
 	<script type="text/javascript">
 
@@ -429,9 +434,49 @@
 	}
 	
 	function toMakeIt(){
-		location.href="video";
+		
+		$.ajax({
+			url: 'makingTemplate',
+	        type: 'GET',
+			beforeSend:function(){
+				initDestroyTimeOutPace();
+				Pace.start();
+		    },
+		    complete:function(){
+		        $('.loadingScreen').addClass('display-none');
+		    },
+		    error:function(e){
+		     	alert('fail');
+		    },
+ 			success: function(result){
+ 				location.href="video?completeName="+result;
+			},
+		});
+		
 	}
-	
+
+	var videoPath = "";
+
+ var initDestroyTimeOutPace = function() {
+	    var counter = 0;
+
+	    var refreshIntervalId = setInterval( function(){
+	        var progress; 
+
+	        if( typeof $( '.pace-progress' ).attr( 'data-progress-text' ) !== 'undefined' ) {
+	            progress = Number( $( '.pace-progress' ).attr( 'data-progress-text' ).replace("%" ,'') );
+	        }
+
+	        if( progress === 99 ) {
+	            counter++;
+	        }
+
+	        if( counter > 50 ) {
+	            clearInterval(refreshIntervalId);
+	            Pace.stop();
+	        }
+	    }, 100);
+	}
 	
 </script>
 </body>
