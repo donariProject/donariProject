@@ -3,8 +3,10 @@ package global.sesoc.donari.template;
 import java.io.File;
 import java.util.HashMap;
 
-public class MovieTemplate {
-	
+import global.sesoc.donari.template.MakeVideo;
+
+public class TravelTemplate {
+
 	public String SERVER_PATH = "";
 	private String FFMPEG_PATH = "C:/ffmpeg/bin/ffmpeg";
 	private String COPIED_IMAGES = SERVER_PATH+"copied_images/";
@@ -13,10 +15,21 @@ public class MovieTemplate {
 	private String TEMP = SERVER_PATH+"temp/";
 	private String COMPLETE = SERVER_PATH+"complete/";
 	private String complete_filename = "complete.mp4";
-	private String music_path = SERVER_PATH;
-	private String music = "heisPirate.mp3";
+	private String music_path = "";
+	private String music = "";
 	private HashMap<String, String> map = new HashMap<>();
 	
+	public TravelTemplate() {	}
+	
+	public TravelTemplate(String sERVER_PATH, String complete_filename, String music, HashMap<String, String> map) {
+		super();
+		SERVER_PATH = sERVER_PATH;
+		this.complete_filename = complete_filename;
+		this.music = music;
+		this.map = map;
+		setServerPath(sERVER_PATH);
+	}
+
 	public void setServerPath(String serverpath){
 		SERVER_PATH = serverpath;
 		COPIED_IMAGES = SERVER_PATH+"copied_images/";
@@ -25,17 +38,6 @@ public class MovieTemplate {
 		TEMP = SERVER_PATH+"temp/";
 		COMPLETE = SERVER_PATH+"complete/";
 		music_path = SERVER_PATH;
-	}
-	
-	public MovieTemplate() { }
-	
-	public MovieTemplate(String complete_filename, String music_path, String music, HashMap<String, String> map, String serverpath) {
-		super();
-		this.complete_filename = complete_filename;
-		this.music_path = music_path;
-		this.music = music;
-		this.map = map;
-		setServerPath(serverpath);
 	}
 
 	public String getFFMPEG_PATH() {
@@ -124,8 +126,6 @@ public class MovieTemplate {
 		File copiedImagesDir = new File(COPIED_IMAGES); // 렌더링 작업중인 임시 파일들을 저장하는 폴더
 		File processingVidDir = new File(PROCESSING_VID); // 렌더링 작업중인 임시 파일들을 저장하는 폴더
 		File processedVidsDir = new File(PROCESSED_VIDS); // // 렌더링 작업중인 임시 파일들을 저장하는 폴더
-//		File tempDir = new File(TEMP);
-//		File outputDir = new File(new File(outputVidPath).getParent());
 		
 		if(!copiedImagesDir.exists()) {
 			copiedImagesDir.mkdirs();
@@ -136,9 +136,6 @@ public class MovieTemplate {
 		if(!processedVidsDir.exists()) {
 			processedVidsDir.mkdirs();
 		}
-//		if(!outputDir.exists()) {
-//			outputDir.mkdirs();
-//		}
 		
 		File imgs[] = mv.getFileList(inputImgsPath+"/"); // 영상으로 만들 이미지 경로
 		
@@ -147,9 +144,8 @@ public class MovieTemplate {
 		return imgs;
 	}
 	
-	
 	public void rendering(File[] imgs){
-		System.out.println("I'm making movie And map is : "+map.toString());
+		System.out.println("I'm making travel video And map is : "+map.toString());
 		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
 		for (int i = 0; i < imgs.length; i++) {
 			String imgName = String.format("%03d", (i+1));
@@ -281,9 +277,6 @@ public class MovieTemplate {
 			mv.deleteDir(PROCESSED_VIDS);
 		}
 	}
-	
-	
-	
 	
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import global.sesoc.donari.template.MovieTemplate;
+import global.sesoc.donari.template.TravelTemplate;
 
 @Controller
 public class MakingController {
@@ -73,47 +74,86 @@ public class MakingController {
 		return map;
 	}//subs
 	
-	@ResponseBody
+	@ResponseBody //ajax로 요청 보내서 로딩 나와 있는 동안 영상 제작
 	@RequestMapping(value="makingMovie", method = RequestMethod.GET)
-	public String makingMovie(HttpServletRequest request, Model model) throws Exception{
-		System.out.println("let's begin!!!!!!!!!!!!!!!!!!!");
+	public String makingMovie(HttpServletRequest request, Model model, String music) throws Exception{
+		System.out.println("[Let's Begin to making Movie video]");
 		
 		String imgDir = request.getServletContext().getRealPath("/resources/userimage");
 		System.out.println("imgDir : "+imgDir);
-		String serverpath = request.getServletContext().getRealPath("/resources/template/");
+		String serverpath = request.getServletContext().getRealPath("/resources/template/movie/");
 		File mdir = new File(serverpath);
 		if (!mdir.exists()) {
 			mdir.mkdirs();
-			System.out.println("mkdirs");
 		}
-		String music = "spider.mp3";
+		//음악이름
+		music = "spider.mp3";
 		
-		File[] ckimgs = new File(imgDir).listFiles();
-		
+		//자막 들어간 사진 번호
 		int[] num = {4, 18, 22, 27, 28, 29};
 		
+		//자막입력이 안된 사진들이 있다면 기본값으로 자막 셋팅
 		for (int i = 0; i < num.length; i++) {
 			String n = ""+num[i];
 			if (!map.containsKey(n)) {
 				map.put(n, "default");
 			}
 		}
+		//최종 자막 확인
 		System.out.println("final map check : "+map.toString());
-		
+		//서버 주소 확인
 		System.out.println("server path : "+serverpath);
-		String completeName = mkMovie(serverpath, music, map, imgDir);
-		System.out.println("comple : "+completeName);
 		
-		File complete = new File(serverpath+"complete/" + completeName);
-		System.out.println("complete : "+complete.toString());
+		//영상 만들고 최종 영상 이름 반환
+		String[] result = mkMovie(serverpath, music, map, imgDir);
+		System.out.println("complete path : "+result[0]);
 		
-		model.addAttribute("videoName", completeName);
-		
+		model.addAttribute("videoName", result[1]);
       
-		return completeName;
+		return result[1];
 	}
 	
 	
+	@ResponseBody //ajax로 요청 보내서 로딩 나와 있는 동안 영상 제작
+	@RequestMapping(value="makingTravel", method = RequestMethod.GET)
+	public String makingTravel(HttpServletRequest request, Model model, String music) throws Exception{
+		System.out.println("[Let's Begin to making Travel video]");
+		
+		String imgDir = request.getServletContext().getRealPath("/resources/userimage");
+		System.out.println("imgDir : "+imgDir);
+		String serverpath = request.getServletContext().getRealPath("/resources/template/travel/");
+		File mdir = new File(serverpath);
+		if (!mdir.exists()) {
+			mdir.mkdirs();
+		}
+		//음악이름
+		music = "spider.mp3";
+		
+		//자막 들어간 사진 번호
+		int[] num = {4, 18, 22, 27, 28, 29};
+		
+		//자막입력이 안된 사진들이 있다면 기본값으로 자막 셋팅
+		for (int i = 0; i < num.length; i++) {
+			String n = ""+num[i];
+			if (!map.containsKey(n)) {
+				map.put(n, "default");
+			}
+		}
+		//최종 자막 확인
+		System.out.println("final map check : "+map.toString());
+		//서버 주소 확인
+		System.out.println("server path : "+serverpath);
+		
+		//영상 만들고 최종 영상 이름 반환
+		String[] result = mkTravel(serverpath, music, map, imgDir);
+		System.out.println("complete path : "+result[0]);
+		
+		model.addAttribute("videoName", result[1]);
+		
+		return result[1];
+	}
+	
+	//최종 비디오 재생 페이지
 	@RequestMapping(value="video", method = RequestMethod.GET)
 	public String vid(Model model, String completeName) throws Exception{
 		
@@ -123,25 +163,30 @@ public class MakingController {
 	}
 	
 	
-	public String mkMovie(String serverpath, String music, HashMap<String, String>map, String imgDir){
+	public String[] mkMovie(String serverpath, String music, HashMap<String, String>map, String imgDir){
 		
 		MovieTemplate mt = new MovieTemplate("complete.mp4", serverpath, music, map, serverpath);
-		System.out.println("make a movietemplate");
+		System.out.println("[make a movietemplate]");
 		File[] imgs = mt.mkDir(imgDir);
 		System.out.println("make a movietemplate22222");
 		mt.rendering(imgs);
 		System.out.println("firststep complete");
 		mt.merging();
-		
-		String completeVideo = mt.getComplete_filename();
-		
-		return completeVideo;
+		String compath = mt.getCOMPLETE()+mt.getComplete_filename();
+		String[] result = {compath, mt.getComplete_filename()};
+		return result;
 	}
 	
-	public String mkTravel(String serverpath, String music, HashMap<String, String>map, String imgDir){
+	public String[] mkTravel(String serverpath, String music, HashMap<String, String>map, String imgDir){
 		
-		String completeVideo =""; 
-		return completeVideo;
+		TravelTemplate tt = new TravelTemplate();
+		System.out.println("[make a travel template]");
+		File[] imgs = tt.mkDir(imgDir);
+		tt.rendering(imgs);
+		tt.merging();
+		String compath = tt.getCOMPLETE()+tt.getComplete_filename();
+		String[] result = {compath, tt.getComplete_filename()};
+		return result;
 	}
 
 }

@@ -139,34 +139,25 @@
 	<!-- THEME JS -->
 	<script src="resources/assets/js/main.js"></script>
 	
-	<script src= "resources/assets/js/jquery-3.2.1.min.js"></script>
 	
 	<script type="text/javascript">
 	
-
 	$(document).ready(function() {
-	/* 	$.ajax({
-	        url: 'load',
-	        type: 'GET',
-	       
-			beforeSend:function(){
-				initDestroyTimeOutPace();
-				Pace.start();
-		    },
-		    complete:function(){
-		        $('.loadingScreen').addClass('display-none');
-		    },
-		    error:function(e){
-		     	alert('fail');
-		    },
- 			success: function(result){
-				location.href="loaded";
-			},
-		}); */
+		//어느 템플릿 용 사진이 올라왔는지 확인
+		var cmds = '${cmd}';
+		var width = '${width}';
+		var height = '${height}';
+		alert(cmds);
+		
+		//ajax로 메소드 실행하는 동안 로딩 gif 띄워주기
 		$.ajax({
 			url: 'load',
 	        type: 'GET',
-	       
+	       	data:{
+	       		cmd : cmds,
+	       		width : width,
+	       		height : height
+	       	},
 			beforeSend:function(){
 				$('.wrap-loading').removeClass('display-none');
 		    },
@@ -177,7 +168,7 @@
 		     	alert('fail');
 		    },
 			success: function(result){
-			location.href="loaded";
+			location.href="loaded?cmd="+result;
 			}
 		    ,timeout:100000
 		});

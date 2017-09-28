@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import global.sesoc.donari.ffmpeg_handler.MusicReactVideo;
 import global.sesoc.donari.template.MakeVideo;
 import global.sesoc.donari.template.MovieTemplate;
+import global.sesoc.donari.template.TravelTemplate;
 import global.sesoc.donari.util.DuplicateFile;
 import global.sesoc.donari.vo.File_VO;
 
@@ -132,26 +133,25 @@ public class FileuploadController
 				if (!dir.exists()) {
 					dir.mkdirs();
 				}
-	         System.out.println("다중 파일 저장 경로 : "+saveDir);
+	        System.out.println("다중 파일 저장 경로 : "+saveDir);
 	         
-	            System.out.println("다중 파일 원본 파일 명 : "+music.getOriginalFilename());
-	             
-	            // 중복 되지 않는 파일 객체를 만든다.
-	            File serverFile = DuplicateFile.getFile(saveDir, music);
-	            System.out.println("서버 파일 명:"+serverFile.getName());
-	            // 실제적으로 저장할 파일로 이동
-	            music.transferTo(serverFile);
-	            
-	            String filePath = ""+serverFile;
-	            String CompleteFilePath = filePath.replaceAll("\\\\", "/");
-	            System.out.println(CompleteFilePath+"완전체");
-	            model.addAttribute("saveDir",saveDir);
-	                  
+            System.out.println("다중 파일 원본 파일 명 : "+music.getOriginalFilename());
+             
+            // 중복 되지 않는 파일 객체를 만든다.
+            File serverFile = DuplicateFile.getFile(saveDir, music);
+            System.out.println("서버 파일 명:"+serverFile.getName());
+            // 실제적으로 저장할 파일로 이동
+            music.transferTo(serverFile);
+            
+            String filePath = ""+serverFile;
+            String CompleteFilePath = filePath.replaceAll("\\\\", "/");
+            System.out.println(CompleteFilePath+"완전체");
+            model.addAttribute("saveDir",saveDir);
 	         
 	         return "sucess";
 	      }   
 		
-		
+		//업로드  된 원본 사진을 파일로 저장 + 이미지 리사이징 하는동안 로딩 페이지를 띄워주기 위해 로딩 페이지로 이동
 		@RequestMapping(value="/tempImg",method=RequestMethod.POST)
 		public String tempImg(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
 		{
@@ -173,68 +173,115 @@ public class FileuploadController
 				
 				i++;
 			}//for
+			String cmd = "movie";
+			String width = "640";
+			String height = "320";
+			model.addAttribute("cmd", cmd);
+			model.addAttribute("width", width);
+			model.addAttribute("height", height);
+			
+			return "template/loading";
+		}
+		
+		@RequestMapping(value="/tarveltempImg",method=RequestMethod.POST)
+		public String traveltempImg(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
+		{
+			String originDir = request.getServletContext().getRealPath("/resources/original_image");
+			File opath = new File(originDir);
+			MakeVideo mv = new MakeVideo(new TravelTemplate().getFFMPEG_PATH());
+			if (opath.exists()) {
+				mv.deleteDir(opath.getPath());
+			}
+			opath.mkdirs();
+			
+			// 올라온 파일 확인
+			int i = 0;
+			for(MultipartFile file : multiFiles.getFiles())
+			{
+				// 중복 되지 않는 파일 객체를 만든다.
+				File serverFile = DuplicateFile.getFile(originDir, file);
+				file.transferTo(new File(originDir+"/timg"+(i)+".jpg"));
+				
+				i++;
+			}//for
+			String cmd = "travel";
+			String width = "640";
+			String height = "320";
+			model.addAttribute("cmd", cmd);
+			model.addAttribute("width", width);
+			model.addAttribute("height", height);
 			
 			return "template/loading";
 		}
 		
 		@RequestMapping(value="/loaded",method=RequestMethod.GET)
-		public String loaded(Model model, HttpServletRequest request) throws Exception
+		public String loaded(Model model, HttpServletRequest request, String cmd) throws Exception
 		{
+			
 			MakeVideo mv = new MakeVideo(new MovieTemplate().getFFMPEG_PATH());
-			String originDir = request.getServletContext().getRealPath("/resources/original_image");
 			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
 			
 			// 올라온 파일 확인
 			ArrayList<String> botari = new ArrayList<String>();
 			File[] list = mv.getFileList(saveDir);
 			for (int j = 0; j < list.length; j++) {
-				botari.add("resources/userimage"+"/mvimg"+(j)+".jpg");
+				botari.add("resources/userimage"+"/"+cmd+(j)+".jpg");
 			}
 			
 			model.addAttribute("imgCount", botari.size());
 			model.addAttribute("botari",botari);
 			model.addAttribute("saveDir",saveDir);
 			
-			return "template/movie";
+			return "template/"+cmd;
 		}
 		
+		
+		//로딩하는 동안 이미지 리사이징(경로 이동 :  original_image -> userimage)
 		@ResponseBody
 		@RequestMapping(value="/load",method=RequestMethod.GET)
-		public String load(Model model,HttpServletRequest request) throws Exception
+		public String load(Model model,HttpServletRequest request, String cmd, String width, String height) throws Exception
 		{
+			//템플릿 확인
+			System.out.println("[load cmd : "+cmd+"]");
+			
 			MakeVideo mv = new MakeVideo(new MovieTemplate().getFFMPEG_PATH());
+			
+			//원본사진 경로
 			String originDir = request.getServletContext().getRealPath("/resources/original_image");
-			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
+			//저장할 폴더명
+			String topath = "/resources/userimage";
+			//저장할 경로
+			String saveDir = request.getServletContext().getRealPath(topath);
+			//저장할 경로 확인, 폴더 초기화 후 생성
 			File path = new File(saveDir);
 			if (path.exists()) {
 				mv.deleteDir(path.getPath());
 			}
 			path.mkdirs();
 			
-			// 올라온 파일 확인
-			ArrayList<String> botari = new ArrayList<String>();
+			//원본 파일 리스트
 			File[] list = mv.getFileList(originDir);
 			for (int j = 0; j < list.length; j++) {
-				mv.reformatImg(originDir+"/img"+(j)+".jpg", saveDir+"/mvimg"+(j)+".jpg", "640", "360");
-				botari.add("resources/userimage"+"/mvimg"+(j)+".jpg");
+				mv.reformatImg(originDir+"/img"+(j)+".jpg", saveDir+"/"+cmd+(j)+".jpg", width, height);
 			}
 			
-			model.addAttribute("imgCount", botari.size());
-			model.addAttribute("botari",botari);
-			model.addAttribute("saveDir",saveDir);
-			
-			return "template/movie";
+			//cmd 반환
+			return cmd;
 		}
 		
 		@ResponseBody
 		@RequestMapping(value="/reupload",method=RequestMethod.POST)
-		public String reupload(MultipartFile files,String index,HttpServletRequest request) throws IllegalStateException, IOException
+		public String reupload(MultipartFile files,String index,HttpServletRequest request, String cmd) throws IllegalStateException, IOException
 		{
-			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
-			File dir = new File(saveDir);
-			if (!dir.exists()) {
-				dir.mkdirs();
-			}
+			MakeVideo mv = new MakeVideo(new MovieTemplate().getFFMPEG_PATH());
+			
+			//원본사진 경로
+			String originDir = request.getServletContext().getRealPath("/resources/original_image");
+			//저장할 폴더명
+			String topath = "/resources/userimage";
+			//저장할 경로
+			String saveDir = request.getServletContext().getRealPath(topath);
+
 			File file = new File(saveDir+"/"+index+".jpg");
 			if(file.exists()){
 				file.delete();

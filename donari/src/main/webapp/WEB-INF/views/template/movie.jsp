@@ -199,7 +199,7 @@
 			
 			<c:forEach varStatus="s" items="${botari}" var="pic">
 				<div style="display: block;">
-					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="margin-left:450px; text-align: center; ">
+					<img src="${pic}" id="movie${s.index}" class="realimg" onclick="gogo('movie${s.index}');" style="margin-left:450px; text-align: center; ">
 					<input type="hidden" name="s" value="${s.index}">
 					
 					<c:if test="${s.index==4 || s.index==18 || s.index==22 || s.index==27 || s.index==28 || s.index==29}">
@@ -207,7 +207,7 @@
 					</c:if>
 					
 					<c:if test="${s.last}">
-					<input type="image" value="make it" id="makeit" onclick="toMakeIt();" src="resources/assets/img/making.png" style="margin-left:200px; ">
+					<img onclick="toMakeIt();" src="resources/assets/img/making.png" style="margin-left:200px; width: 50px; ">
 					</c:if>
 				</div>
 			</c:forEach>
@@ -383,6 +383,7 @@
 			var formData = new FormData(form);
 			formData.append('files', $('input[type=file]')[0].files[0]);
 			formData.append('index', clicked);
+			formData.append('cmd', "movie");
 			
 			$.ajax({
 		        // Your server script to process the upload
@@ -473,8 +474,11 @@
 	
 	function toMakeIt(){
 		$.ajax({
-			url: 'makingTemplate',
+			url: 'makingMovie',
 	        type: 'GET',
+	        data: {
+	        	music : 'spider.mp3'
+	        },
 			beforeSend:function(){
 				$('.wrap-loading').removeClass('display-none');
 		    },

@@ -204,7 +204,7 @@
 				</div>
 				<div style="height:100%; display: inline-block;width:30%;">
 					<figure style="display:table;width:100%;">
-						<a href="travel">
+						<a href="travelImg">
 						<img src="resources/assets/img/template/travel.jpg" alt="travel" title="travel" style="width:100%"  />
 						</a>
 						<figcaption>TRAVEL</figcaption>
