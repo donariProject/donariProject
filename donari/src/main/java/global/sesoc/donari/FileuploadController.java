@@ -228,10 +228,13 @@ public class FileuploadController
 			return "template/loading";
 		}
 		
-		@RequestMapping(value="/tarveltempImg",method=RequestMethod.POST)
+		@RequestMapping(value="tarveltempImg",method=RequestMethod.POST)
 		public String traveltempImg(File_VO multiFiles,String title, MultipartFile files,Model model,HttpServletRequest request) throws IllegalStateException, IOException
 		{
+			
+			System.out.println("tarvel");
 			String originDir = request.getServletContext().getRealPath("/resources/original_image");
+			System.out.println("server path : "+originDir);
 			File opath = new File(originDir);
 			MakeVideo mv = new MakeVideo(new TravelTemplate().getFFMPEG_PATH());
 			if (opath.exists()) {
@@ -245,7 +248,7 @@ public class FileuploadController
 			{
 				// 중복 되지 않는 파일 객체를 만든다.
 				File serverFile = DuplicateFile.getFile(originDir, file);
-				file.transferTo(new File(originDir+"/timg"+(i)+".jpg"));
+				file.transferTo(new File(originDir+"/img"+(i)+".jpg"));
 				
 				i++;
 			}//for
@@ -262,7 +265,7 @@ public class FileuploadController
 		@RequestMapping(value="/loaded",method=RequestMethod.GET)
 		public String loaded(Model model, HttpServletRequest request, String cmd) throws Exception
 		{
-			
+			System.out.println("loaded 실행");
 			MakeVideo mv = new MakeVideo(new MovieTemplate().getFFMPEG_PATH());
 			String saveDir = request.getServletContext().getRealPath("/resources/userimage");
 			

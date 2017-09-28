@@ -489,7 +489,7 @@
 		     	alert('fail');
 		    },
  			success: function(result){
- 				location.href="video?completeName="+result;
+ 				location.href="video?completeName="+result+"&cmd=movie";
 			},
 		});
 		

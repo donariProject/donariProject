@@ -152,126 +152,121 @@ public class TravelTemplate {
 		return imgs;
 	}
 	
+	public void delDir(){
+		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
+		
+		File copiedImagesDir = new File(COPIED_IMAGES); // 렌더링 작업중인 임시 파일들을 저장하는 폴더
+		File processingVidDir = new File(PROCESSING_VID); // 렌더링 작업중인 임시 파일들을 저장하는 폴더
+		File processedVidsDir = new File(PROCESSED_VIDS); // // 렌더링 작업중인 임시 파일들을 저장하는 폴더
+		
+		if(copiedImagesDir.exists()) {
+			copiedImagesDir.delete();
+		}
+		if(processingVidDir.exists()) {
+			processingVidDir.delete();
+		}
+		if(processedVidsDir.exists()) {
+			processedVidsDir.delete();
+		}
+		
+	}
+	
 	public void rendering(File[] imgs){
+		
 		System.out.println("<<I'm making travel video And map is : "+map.toString());
 		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
 		for (int i = 0; i < imgs.length; i++) {
 			String imgName = String.format("%03d", (i+1));
 			mv.reformatImg(imgs[i].getPath(), COPIED_IMAGES+imgName+".png", width, height);
 			
-			//인트로
+			//시작
 			if (i == 0) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "5");
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "3");
 				mv.insertFadeIn(PROCESSING_VID+imgName+".mp4", PROCESSED_VIDS+imgName+".mp4", "0", "3");
 			}
 			
-			//인트로 맛보기
-			else if (i <= 3) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSED_VIDS+imgName+".mp4", "1");
+			//시작2
+			else if (i == 1) {
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "2");
+				mv.insertFadeIn(PROCESSING_VID+imgName+".mp4", PROCESSED_VIDS+imgName+".mp4", "0", "2");
 			}
 			
-			//타이틀
-			else if (i <= 5) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "2.5");
-				File tempDir = new File(TEMP);
-				if(!tempDir.exists()) {
-					tempDir.mkdirs();
-				}
-				if (i == 4) {
-					mv.insertFadeOut(PROCESSING_VID+imgName+".mp4", TEMP+imgName+".mp4", "0", "1");
-				}else {
-					
-					mv.insertFadeIn(PROCESSING_VID+imgName+".mp4", TEMP+imgName+".mp4", "0.5", "1.5");
-					File[] tempf = mv.getFileList(TEMP);
-					mv.writeVidListFile(tempf, TEMP+"input.txt");
-					mv.mergeVids(TEMP+"input.txt", TEMP+"merge.mp4");
-					System.out.println("[inserting : "+map.get("4")+" ]");
-					mv.insertText(TEMP+"merge.mp4", PROCESSED_VIDS+imgName+".mp4", map.get("4"), "default", "default", "default", "center", "center", "0.8", "3");
-					mv.deleteDir(tempDir.toString());
-				}
+			//타이틀자막
+			else if (i == 2) {
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+"a.mp4", "2");
+				mv.insertText(PROCESSING_VID+imgName+"a.mp4", PROCESSING_VID+imgName+".mp4", map.get(""+i), "Bungee-Regular.ttf", "white", "50", "center", "center", "0", "2");
+				mv.insertFadeIn(PROCESSING_VID+imgName+".mp4", PROCESSED_VIDS+imgName+".mp4", "0", "2");
+			}
+			//짧은 컷들
+			else if (i <= 7) {
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSED_VIDS+imgName+"a.mp4", "1");
 			}
 			
-			//웅장한 장면들
-			else if (i <= 10) {
-				File tempDir = new File(TEMP);
-				if(!tempDir.exists()) {
-					tempDir.mkdirs();
-				}
+			//짧은 전환 씬
+			else if (i <= 13) {
 				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "1.5");
-				mv.insertFadeIn(PROCESSING_VID+imgName+".mp4", TEMP+imgName+".mp4", "0", "0.5");
-				mv.insertFadeOut(TEMP+imgName+".mp4", PROCESSED_VIDS+imgName+".mp4", "1", "1.5");
+				File tempDir = new File(TEMP);
+				if(!tempDir.exists()) {
+					tempDir.mkdirs();
+				}
+				//자막(2-7번) index : 8 9 10 11 12 13
+				mv.insertText(PROCESSING_VID+imgName+".mp4", TEMP+imgName+".mp4", map.get(""+i), "Bungee-Regular.ttf", "white", "50", "center", "center", "0", "1.2");
+				mv.insertFadeIn(TEMP+imgName+".mp4", PROCESSED_VIDS+imgName+".mp4", "0", "0.5");
 				mv.deleteDir(tempDir.toString());
 			}
 			
-			//빠른 장면들
+			//컷 나열
 			else if (i <= 17) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSED_VIDS+imgName+".mp4", "0.5");
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSED_VIDS+imgName+".mp4", "1");
 			}
 			
-			//홍보 멘트
+			//마지막 -3
 			else if (i == 18) {
 				File tempDir = new File(TEMP);
 				if(!tempDir.exists()) {
 					tempDir.mkdirs();
 				}
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "2");
-				mv.insertText(PROCESSING_VID+imgName+".mp4", PROCESSING_VID+imgName+"a.mp4", map.get(""+i), "default", "default", "default", "center", "center", "0.4", "1.7");
-				mv.insertFadeIn(PROCESSING_VID+imgName+"a.mp4", TEMP+imgName+".mp4", "0", "0.5");
-				mv.insertFadeOut(TEMP+imgName+".mp4", PROCESSED_VIDS+imgName+".mp4", "1.5", "2");
-
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", TEMP+imgName+".mp4", "2");
+				mv.insertFadeIn(TEMP+imgName+".mp4", TEMP+imgName+"a.mp4", "0", "0.5");
+				mv.insertFadeOut(TEMP+imgName+"a.mp4", PROCESSED_VIDS+imgName+".mp4", "1.5", "2");
 				mv.deleteDir(tempDir.toString());
 			}
-			else if (i <= 21) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSED_VIDS+imgName+".mp4", "1");
-			}
-			else if (i == 22) {
+			
+			//마지막 -2
+			else if (i == 19) {
 				File tempDir = new File(TEMP);
 				if(!tempDir.exists()) {
 					tempDir.mkdirs();
 				}
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "3");
-				mv.insertText(PROCESSING_VID+imgName+".mp4", PROCESSING_VID+imgName+"a.mp4", map.get(""+i), "default", "default", "default", "center", "center", "0.4", "1.7");
-				mv.insertFadeIn(PROCESSING_VID+imgName+"a.mp4", TEMP+imgName+".mp4", "0", "0.5");
-				mv.insertFadeOut(TEMP+imgName+".mp4", PROCESSED_VIDS+imgName+".mp4", "1.5", "2");
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", TEMP+imgName+"c.mp4", "2");
+				mv.insertText(TEMP+imgName+"c.mp4", TEMP+imgName+".mp4", map.get(""+i), "Bungee-Regular.ttf", "white", "50", "center", "center", "0.2", "1.2");
+				mv.insertFadeIn(TEMP+imgName+".mp4", TEMP+imgName+"a.mp4", "0", "0.5");
+				mv.insertFadeOut(TEMP+imgName+"a.mp4", PROCESSED_VIDS+imgName+".mp4", "1.5", "2");
 				mv.deleteDir(tempDir.toString());
 			}
-			else if (i <= 26) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSED_VIDS+imgName+".mp4", "1");
+			
+			//마지막 -3
+			else if (i == 20) {
+				File tempDir = new File(TEMP);
+				if(!tempDir.exists()) {
+					tempDir.mkdirs();
+				}
+				mv.imgToVid(COPIED_IMAGES+imgName+".png", TEMP+imgName+".mp4", "2");
+				mv.insertFadeIn(TEMP+imgName+".mp4", TEMP+imgName+"a.mp4", "0", "0.5");
+				mv.insertFadeOut(TEMP+imgName+"a.mp4", PROCESSED_VIDS+imgName+".mp4", "1.2", "2");
+				mv.deleteDir(tempDir.toString());
 			}
-			else if (i == 27) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "3");
-				mv.insertText(PROCESSING_VID+imgName+".mp4", PROCESSING_VID+imgName+"a.mp4", map.get(""+i), "default", "default", "default", "center", "center", "1", "2.7");
-				mv.insertFadeOut(PROCESSING_VID+imgName+"a.mp4", PROCESSED_VIDS+imgName+".mp4", "2.5", "0.5");
-			}
-			else if (i == 28) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "3");
-				mv.insertText(PROCESSING_VID+imgName+".mp4", PROCESSING_VID+imgName+"a.mp4", map.get(""+i), "default", "default", "default", "center", "center", "1", "2.7");
-				mv.insertFadeOut(PROCESSING_VID+imgName+"a.mp4", PROCESSED_VIDS+imgName+".mp4", "2.5", "0.5");
-			}
-			else if (i == 29) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "3");
-				mv.insertText(PROCESSING_VID+imgName+".mp4", PROCESSING_VID+imgName+"a.mp4", map.get(""+i), "default", "default", "default", "center", "center", "1", "2.7");
-				mv.insertFadeOut(PROCESSING_VID+imgName+"a.mp4", PROCESSED_VIDS+imgName+".mp4", "2.5", "0.5");
-			}
-			else if (i <= 32) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSED_VIDS+imgName+".mp4", "0.5");
-			}
-			else if (i == 33) {
-				mv.imgToVid(COPIED_IMAGES+imgName+".png", PROCESSING_VID+imgName+".mp4", "5.5");
-				mv.insertFadeIn(PROCESSING_VID+imgName+".mp4", PROCESSING_VID+imgName+"a.mp4", "0", "1.5");
-				mv.insertFadeOut(PROCESSING_VID+imgName+"a.mp4", PROCESSED_VIDS+imgName+".mp4", "4", "5.5");
-			}
+			
 		}
 	}
 	
 	public void merging(){
 		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
 		File[] files = mv.getFileList(PROCESSED_VIDS);
-		System.out.println("files : "+files.toString());
 		File completeDir = new File(COMPLETE);
 		if (!completeDir.exists()) {
 			completeDir.mkdirs();
-			System.out.println("mkdir");
+			System.out.println("complete mkdir");
 		}
 		mv.writeVidListFile(files, PROCESSED_VIDS+"input.txt");
 		System.out.println("writeList");

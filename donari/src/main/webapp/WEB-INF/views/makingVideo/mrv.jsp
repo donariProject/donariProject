@@ -394,7 +394,7 @@ input[type="file"] {
                   </form>
                </div>
                <button id="nextBtn"
-                  style="margin-top: 100px; margin-left: 450px; background-color: #f1f1f1; display: none;">
+                  style="margin-top: 130px; margin-left: 450px;margin-bottom:30px; background-color: #f1f1f1; display: none;">
                   <i class="fa fa-arrow-right fa-4x"></i>
                </button>
             </div>
@@ -412,7 +412,7 @@ input[type="file"] {
 
             <div class="imageSection" style="margin-top: 30px;">
                <button id="previousBtn"
-                  style="margin-left: 200px; background: #f1f1f1; float: left; margin-top: 300px;">
+                  style="margin-left: 200px; background: #f1f1f1; float: left; margin-top: 450px;">
                   <i class="fa fa-arrow-left fa-4x"></i>
                </button>
                </fieldset>

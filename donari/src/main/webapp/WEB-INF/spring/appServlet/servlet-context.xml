@@ -24,18 +24,7 @@
 	<context:component-scan base-package="global.sesoc.donari"/>
 
 
-	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
-	
-		<beans:property value="20971520" name="maxUploadSize"/>
-		
-		<beans:property value="20971520" name="maxInMemorySize"/>
-		
-		<beans:property value="UTF-8" name="defaultEncoding"/>
-	
-	</beans:bean>
-
 <!-- 로그인 인터셉터 정의 -->
-
 
 	<beans:bean class="global.sesoc.donari.interceptor.LoginInterceptor" id="loginInterceptor"></beans:bean>
 
@@ -60,5 +49,10 @@
 		</interceptor>
 
 	</interceptors>
-
+	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	      <beans:property name="maxUploadSize" value="524288000"></beans:property>
+	      <beans:property name="maxInMemorySize" value="524288000"></beans:property>
+	      <beans:property name="defaultEncoding" value="UTF-8"></beans:property>
+  	 </beans:bean>
 </beans:beans>

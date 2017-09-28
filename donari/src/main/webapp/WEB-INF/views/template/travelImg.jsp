@@ -161,7 +161,7 @@
 	
 	<!-- ===== UPLOAD IMAGES ===== -->
 	<div class="container" style="text-align: center; height: 500px; display: table;">
-		<img alt="movieimage" src="resources/assets/img/template/travel.jpg" style="display:table-cell; max-width: 50%; max-height:500px; margin: auto auto; overflow:hidden; vertical-align: middle; padding-top: 30px;">
+		<img alt="travelimage" src="resources/assets/img/template/travel.jpg" style="display:table-cell; max-width: 50%; max-height:500px; margin: auto auto; overflow:hidden; vertical-align: middle; padding-top: 30px;">
 		
 		<div style="display: table-cell; vertical-align: middle;">
 		<div class="contentss" style="margin:auto auto; vertical-align: middle;">
@@ -169,13 +169,13 @@
 				<div class="tabshead"><h3 style="text-align: center; ">RECOMMENDATIONS</h3></div>
 				<div class="tabs"><i class="fa fa-camera-retro fa-2x" style="padding: 0 15px;"></i></div><div class="tabs"><h3>20</h3></div><br>
 				<div class="tabs"><i class="fa fa-clock-o fa-2x" style="padding: 0 15px;"></i></div><div class="tabs"><h3>30sec</h3></div><br>
-				<div class="tabs"><i class="fa fa-file-text-o fa-2x" style="padding: 0 15px;"></i></div><div class="tabs"><h3>5</h3></div>
+				<div class="tabs"><i class="fa fa-file-text-o fa-2x" style="padding: 0 15px;"></i></div><div class="tabs"><h3>8</h3></div>
 			</div>
 		</div>
 		<div class="contentss" style="margin:auto auto; vertical-align: middle;">
 			<div style="display: inline-block; margin: auto auto; width: 40%; height: 100%;">
 				
-				<form id="imageUploadForm" action="traveltempImg" method="post" enctype="multipart/form-data">
+				<form id="imageUploadForm" action="tarveltempImg" method="post" enctype="multipart/form-data">
 					<input id="multiFile" name="files" type="file" maxlength="35" multiple="multiple" style="display: none;">
 					<img src='resources/assets/img/uploadicon.png' onclick='document.all.multiFile.click();' style="width: 50px;">
 					<button type="submit"><img src='resources/assets/img/play.png'  style="width: 50px; background-color: #110f16;"></button>

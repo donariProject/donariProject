@@ -147,6 +147,24 @@ public class MovieTemplate {
 		return imgs;
 	}
 	
+	public void delDir(){
+		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
+		
+		File copiedImagesDir = new File(COPIED_IMAGES); // 렌더링 작업중인 임시 파일들을 저장하는 폴더
+		File processingVidDir = new File(PROCESSING_VID); // 렌더링 작업중인 임시 파일들을 저장하는 폴더
+		File processedVidsDir = new File(PROCESSED_VIDS); // // 렌더링 작업중인 임시 파일들을 저장하는 폴더
+		
+		if(copiedImagesDir.exists()) {
+			copiedImagesDir.delete();
+		}
+		if(processingVidDir.exists()) {
+			processingVidDir.delete();
+		}
+		if(processedVidsDir.exists()) {
+			processedVidsDir.delete();
+		}
+		
+	}
 	
 	public void rendering(File[] imgs){
 		System.out.println("I'm making movie And map is : "+map.toString());

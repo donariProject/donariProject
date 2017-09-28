@@ -197,7 +197,7 @@
 				<div style="height:100%; display: inline-block;width:30%;">
 					<figure style="display:table;width:100%;">
 						<a href="movieImg" >
-						<img src="resources/assets/img/template/movie.jpg" alt="movie" title="movie" style="width:100%" />
+						<img src="resources/assets/img/template/movie.jpg" alt="movie" title="movie" style="width:100%; max-height: 350px;" />
 						</a>
 						<figcaption>MOVIE</figcaption>
 					</figure>
@@ -205,7 +205,7 @@
 				<div style="height:100%; display: inline-block;width:30%;">
 					<figure style="display:table;width:100%;">
 						<a href="travelImg">
-						<img src="resources/assets/img/template/travel.jpg" alt="travel" title="travel" style="width:100%"  />
+						<img src="resources/assets/img/template/travel.jpg" alt="travel" title="travel" style="width:100%; max-height: 350px;"  />
 						</a>
 						<figcaption>TRAVEL</figcaption>
 					</figure>

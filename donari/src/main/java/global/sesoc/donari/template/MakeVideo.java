@@ -306,7 +306,7 @@ public class MakeVideo {
 
 			processDuration.destroy();
 
-			//System.out.println(outputJson);
+			System.out.println(outputJson);
 
 		} catch (Exception e) {
 

@@ -147,7 +147,6 @@
 		var cmds = '${cmd}';
 		var width = '${width}';
 		var height = '${height}';
-		alert(cmds);
 		
 		//ajax로 메소드 실행하는 동안 로딩 gif 띄워주기
 		$.ajax({
