@@ -17,19 +17,26 @@ public class TravelTemplate {
 	private String complete_filename = "complete.mp4";
 	private String music_path = "";
 	private String music = "";
+	private String width = "";
+	private String height = "";
 	private HashMap<String, String> map = new HashMap<>();
 	
 	public TravelTemplate() {	}
 	
-	public TravelTemplate(String sERVER_PATH, String complete_filename, String music, HashMap<String, String> map) {
+	//객체 생성할 때 부터 서버주소, 완성된 파일 이름, 음악파일 이름, 자막정보 map, 가로, 세로 정보를 받아 놓음
+	public TravelTemplate(String sERVER_PATH, String complete_filename, String music, HashMap<String, String> map, String width, String height) {
 		super();
 		SERVER_PATH = sERVER_PATH;
 		this.complete_filename = complete_filename;
 		this.music = music;
 		this.map = map;
+		this.width = width;
+		this.height = height;
+		//모든 경로에 서버 경로 추가
 		setServerPath(sERVER_PATH);
 	}
 
+	//모든 경로에 서버 경로 추가
 	public void setServerPath(String serverpath){
 		SERVER_PATH = serverpath;
 		COPIED_IMAGES = SERVER_PATH+"copied_images/";
@@ -120,6 +127,7 @@ public class TravelTemplate {
 		this.map = map;
 	}
 
+	//랜더링 할 때 필요한 폴더 경로 생성
 	public File[] mkDir(String inputImgsPath){
 		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
 		
@@ -145,11 +153,11 @@ public class TravelTemplate {
 	}
 	
 	public void rendering(File[] imgs){
-		System.out.println("I'm making travel video And map is : "+map.toString());
+		System.out.println("<<I'm making travel video And map is : "+map.toString());
 		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
 		for (int i = 0; i < imgs.length; i++) {
 			String imgName = String.format("%03d", (i+1));
-			mv.reformatImg(imgs[i].getPath(), COPIED_IMAGES+imgName+".png", "640", "360");
+			mv.reformatImg(imgs[i].getPath(), COPIED_IMAGES+imgName+".png", width, height);
 			
 			//인트로
 			if (i == 0) {

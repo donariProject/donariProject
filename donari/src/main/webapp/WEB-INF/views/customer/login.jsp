@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,10 +142,15 @@
 <link rel="shortcut icon" href="resources/assets/img/favicon.png" />
 
 <script type="text/javascript">
-	function join() {
-		location.href="join";
+	function login() 
+	{
+		location.href="login";
 	}
 	
+	function index()
+	{
+		location.href="index";
+	}
 </script>
 
 </head>
@@ -153,7 +158,7 @@
 <body itemscope itemtype="http://schema.org/WebSite">
 
 	<!-- ===== HEADER ===== -->
-	<header class="header absolute" itemscope
+	<header class="header absolute2" itemscope
 		itemtype="http://schema.org/Organization">
 		<div class="container">
 
@@ -168,11 +173,17 @@
 			<!-- ===== NAVIGATION ===== -->
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
-				<ul class="menu">
-					<li class="menuitem active"><a href="index">Home</a></li>
-					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
+				<ul class="menu" style="display: inline-block;">
+					<li class="menuitem active"><a href="index">HOME</a></li>
+					<li class="menuitem"><a href="contact">CONTACT</a></li>
 					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
-					<li class="menuitem"><a href="savevideo">My Page</a></li>
+					<c:if test="${id==null }">
+						<li class="menuitem"><a href="join">JOIN</a></li>
+					</c:if>
+					<c:if test="${id!=null }">
+						<li class="menuitem"><a href="savevideo">My Video</a></li>
+						<li class="menuitem"><a href="logout">LOG OUT</a></li>
+					</c:if>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -199,33 +210,46 @@
 
 			<div class="form" style="margin-top: 100px;">
 
+			<c:if test="${id!=null }">
 				<ul class="tab-group">
-					<li class="tab"><a href="login" style="width: 515px;">Log In</a></li>
+					<li class="tab"><a href="#" style="width: 515px;">Hi ${id=nickname }</a></li>
 				</ul>
+			</c:if>
 
 				<div class="tab-contents">
 					<div id="signup">
 						<div class="login">
-							<form action="login" method="post">
-								<h1>Welcome Back!</h1>
-								<div class="field-wrap">
-									<label> ID<span class="reqs">*</span>
-									</label> <input type="text" name="id" required autocomplete="off" />
+							<c:if test="${id!=null }">
+								<div id="signup">
+									<div class="login">
+										<button class="button button-block" onclick="index();">
+										Back
+										</button>
+									</div>
 								</div>
-								
-								<div class="field-wrap">
-									<label> Password<span class="reqs">*</span>
-									</label> <input type="password" name="password" required autocomplete="off" />
-								</div>
-
-								<button type="submit" class="button button-block">
-								Get Started
-								</button>
-								<br>
-								<button class="button button-block" onclick="join();">
-								Join
-								</button>
-							</form>
+							</c:if>
+							<c:if test="${id==null }">
+								<form action="login" method="post">
+									<h1>Welcome Back!</h1>
+									<div class="field-wrap">
+										<label> ID<span class="reqs">*</span>
+										</label> <input type="text" name="id" required autocomplete="off" />
+									</div>
+									
+									<div class="field-wrap">
+										<label> Password<span class="reqs">*</span>
+										</label> <input type="password" name="password" required autocomplete="off" />
+									</div>
+	
+									<button onclick="login();" class="button button-block">
+									Log In
+									</button>
+									<br>
+									<button class="button button-block" onclick="index();">
+									Back
+									</button>
+								</form>
+							</c:if>
 						</div>
 					</div>
 

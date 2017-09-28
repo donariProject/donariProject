@@ -120,12 +120,15 @@ public class MakingController {
 		System.out.println("[Let's Begin to making Travel video]");
 		
 		String imgDir = request.getServletContext().getRealPath("/resources/userimage");
-		System.out.println("imgDir : "+imgDir);
+		
 		String serverpath = request.getServletContext().getRealPath("/resources/template/travel/");
+		System.out.println("[Travel Template path : "+serverpath+"]");
+		
 		File mdir = new File(serverpath);
 		if (!mdir.exists()) {
 			mdir.mkdirs();
 		}
+		String complete_filename = "travel.mp4";
 		//음악이름
 		music = "spider.mp3";
 		
@@ -144,8 +147,10 @@ public class MakingController {
 		//서버 주소 확인
 		System.out.println("server path : "+serverpath);
 		
+		String width = "640";
+		String height = "320";
 		//영상 만들고 최종 영상 이름 반환
-		String[] result = mkTravel(serverpath, music, map, imgDir);
+		String[] result = mkTravel(serverpath, complete_filename, music, map, imgDir, width, height);
 		System.out.println("complete path : "+result[0]);
 		
 		model.addAttribute("videoName", result[1]);
@@ -177,9 +182,9 @@ public class MakingController {
 		return result;
 	}
 	
-	public String[] mkTravel(String serverpath, String music, HashMap<String, String>map, String imgDir){
+	public String[] mkTravel(String serverpath, String complete_filename, String music, HashMap<String, String>map, String imgDir, String width, String height){
 		
-		TravelTemplate tt = new TravelTemplate();
+		TravelTemplate tt = new TravelTemplate(serverpath, complete_filename, music, map, width, height);
 		System.out.println("[make a travel template]");
 		File[] imgs = tt.mkDir(imgDir);
 		tt.rendering(imgs);

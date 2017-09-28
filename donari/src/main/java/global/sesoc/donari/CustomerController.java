@@ -12,54 +12,68 @@ import global.sesoc.donari.dao.UserInfoDAO;
 import global.sesoc.donari.vo.UserInfoVO;
 
 @Controller
-public class CustomerController {
-
+public class CustomerController 
+{
 	@Autowired
 	SqlSession sql;
 
-
-	//·Î±×ÀÎ Ã¹ È­¸é
+	//ë¡œê·¸ì¸ ì²˜ë¦¬
 	@RequestMapping(value = "login", method = RequestMethod.GET)
-	public String login() {
-
+	public String login() 
+	{
 		return "customer/login";
 	}
 
-	//·Î±×ÀÎ ¾ÆÀÌµğ ¹× ºñ¹Ğ¹øÈ£ °Ë»ç
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String loginConnect(HttpSession session, String id, String password){
-		System.out.println("id:"+id+", pw:"+password);
+	public String loginConnect(HttpSession session, String id, String password)
+	{
+		System.out.println("ì‚¬ìš©ìê°€ ì…ë ¥í•œ id : "+id+", ì‚¬ìš©ìê°€ ì…ë ¥í•œ  pw : "+password);
 		UserInfoDAO ldao = sql.getMapper(UserInfoDAO.class);
 		String loginInformation =ldao.selectLogin(id);
-		
-		if(loginInformation!=null && loginInformation.equals(password)){
-			
+		String nickname=ldao.selectNickname(id);
+		if(loginInformation!=null && loginInformation.equals(password))
+		{
 			session.setAttribute("id", id);
-			
-			
+			session.setAttribute("nickname", nickname);
 			return "mainScreen/index";	
 		}
-		
 		return "login";
 	}
+	//ë¡œê·¸ì¸ ì²˜ë¦¬ ë
 	
-	//È¸¿ø°¡ÀÔ  Ã¹ È­¸é
+	//Joinì²˜ë¦¬
 	@RequestMapping(value="join", method = RequestMethod.GET)
-	public String join(){
-		
+	public String join()
+	{
 		return "customer/join";
 	}
 	
-	//È¸¿ø°¡ÀÔ µ¥ÀÌÅÍº£ÀÌ½º ÀúÀå
 	@RequestMapping(value="join", method = RequestMethod.POST)
-	public String insertJoin(UserInfoVO user){
-		
+	public String insertJoin(UserInfoVO user)
+	{
 		UserInfoDAO jdao = sql.getMapper(UserInfoDAO.class);
 		jdao.insertUserInfo(user);
-		
-		return "customer/login";
+		return "mainScreen/index";
 	}
-
-
-
+	//Join ì²˜ë¦¬ ë
+	
+	/**
+	 * ë¡œê·¸ ì•„ì›ƒ ì²˜ë¦¬
+	 * @param session HttpSessionê°ì²´
+	 */
+	@RequestMapping (value="logout", method=RequestMethod.GET)
+	public String logout(HttpSession session) 
+	{
+		session.invalidate();
+		return "mainScreen/index";
+	}
+	//ë¡œê·¸ ì•„ì›ƒ ì²˜ë¦¬ ë
+	
+	//Contact ì²˜ë¦¬
+	@RequestMapping(value="contact",method=RequestMethod.GET)
+	public String contact()
+	{
+		return "contact/contact";
+	}
+	//Contact ì²˜ë¦¬ ë
 }

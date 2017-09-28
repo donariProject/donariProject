@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +16,7 @@
 <!-- 			  TITLE 			 	 -->
 <!-- =================================== -->
 
-<title>Soundcast - Podcast Responsive Theme</title>
+<title>Donari</title>
 
 <!-- =================================== -->
 <!-- 			MORDERNIZR 			 	 -->
@@ -50,16 +49,11 @@
 <link href="resources/assets/css/style.css" rel="stylesheet" />
 
 <!-- GOOGLE FONTS -->
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'
-	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 
 <!-- FONT AWESOME -->
-<link
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
-	rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <!-- =================================== -->
 <!-- 		 	THEME COLOR 			 -->
@@ -80,8 +74,7 @@
 <!-- 			 VIEWPORT 				 -->
 <!-- =================================== -->
 
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
 
 <!-- =================================== -->
 <!-- 			  AUTHOR 				 -->
@@ -96,10 +89,8 @@
 <!-- 			 CONTENT 				 -->
 <!-- =================================== -->
 
-<meta name="keywords"
-	content="soundcast, html5 template, creative template, themeforest, podcast template, podcast theme" />
-<meta name="description"
-	content="A clean, lightweight and responsive podcast theme." />
+<meta name="keywords" content="soundcast, html5 template, creative template, themeforest, podcast template, podcast theme" />
+<meta name="description" content="A clean, lightweight and responsive podcast theme." />
 
 <!-- =================================== -->
 <!-- 			 ROBOTS 				 -->
@@ -132,8 +123,7 @@
 <meta name="twitter:title" content="Soundcast" />
 <meta name="twitter:description" content="Podcast Responsive Theme" />
 <meta name="twitter:domain" content="reidark" />
-<meta name="twitter:image"
-	content="http://www.reidark.com.br/soundcast/assets/img/twitter-og.jpg" />
+<meta name="twitter:image" content="http://www.reidark.com.br/soundcast/assets/img/twitter-og.jpg" />
 
 <!-- =================================== -->
 <!-- 			  FAVICON 				 -->
@@ -143,30 +133,33 @@
 <link rel="shortcut icon" href="resources/assets/img/favicon.png" />
 
 <script type="text/javascript">
-	function join() {
+	function join() 
+	{
 		location.href="join";
 	}
-	function login(){
+	
+	function login()
+	{
 		location.href="login";
-		
 	}
 	
-	function joinCK(){
-		var id = document.getElementById
-		
-		
+	function joinCK()
+	{
+		var id = document.getElementById("id");
 	}
 	
-	
+	function index()
+	{
+		location.href="index";
+	}
 </script>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebSite">
+<body >
 
 	<!-- ===== HEADER ===== -->
-	<header class="header absolute" itemscope
-		itemtype="http://schema.org/Organization">
+	<header class="header absolute2">
 		<div class="container">
 
 			<!-- ===== LOGO ===== -->
@@ -180,13 +173,19 @@
 			<!-- ===== NAVIGATION ===== -->
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
-				<ul class="menu">
-					<li class="menuitem active"><a href="index">Home</a></li>
-					<li class="menuitem"><a href="podcasts.html">CONTACT</a></li>
+				<ul class="menu" style="display: inline-block;">
+					<li class="menuitem active"><a href="index">HOME</a></li>
+					<li class="menuitem"><a href="contact">CONTACT</a></li>
 					<li class="menuitem dropdown"><a href="making">MAKING VIDEO</a>
-						
-					<li class="menuitem"><a href="savevideo">My Page</a></li>
+					<c:if test="${id==null }">
+						<li class="menuitem"><a href="login">LOGIN</a></li>
+					</c:if>
+					<c:if test="${id!=null }">
+						<li class="menuitem"><a href="savevideo">My Video</a></li>
+						<li class="menuitem"><a href="logout">LOG OUT</a></li>
+					</c:if>
 				</ul>
+				
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
 			</nav>
@@ -211,15 +210,27 @@
 			<main id="main" class="main">
 
 			<div class="form" style="margin-top: 100px;">
-
-				<ul class="tab-group">
-					<li class="tab"><a href="login" style="width: 515px;">Join</a></li>
-				</ul>
+				
+				<c:if test="${id!=null }">
+					<ul class="tab-group">
+							<li class="tab"><a href="#" style="width: 515px;">Hi ${nickname} </a></li>
+					</ul>
+				</c:if>
 
 				<div class="tab-contents">
+				<c:if test="${id!=null }">
 					<div id="signup">
 						<div class="login">
-							<form action="join" method="post" onclick="return:joinCK();">
+							<button class="button button-block" onclick="index();">
+							Back
+							</button>
+						</div>
+					</div>
+				</c:if>
+				<c:if test="${id==null }">
+					<div id="signup">
+						<div class="login">
+							<form action="join" method="post" onclick="return joinCK();">
 								<h1>Welcome to My Studio</h1>
 								<div class="field-wrap">
 									<label> NickName<span class="reqs">*</span>
@@ -243,20 +254,18 @@
 									</label> <input type="email" name="email" required autocomplete="off" />
 								</div>
 
-								<button type="submit" class="button button-block">
-								Get Started
+								<button class="button button-block" onclick="login();">
+								Join
 								</button>
 								<br>
-								<button class="button button-block" onclick="login();">
+								<button class="button button-block" onclick="index();">
 								Back
 								</button>
 							</form>
 						</div>
 					</div>
-
+					</c:if>
 					<div id="login">
-						
-
 						<form action="/" method="post">
 
 							<div class="field-wrap">
@@ -292,18 +301,27 @@
 			<!-- ===== FOOTER ===== --> <!-- ===== FOOTER INFORMATION ===== --> <!-- =================================== -->
 			<!-- 			  SCRIPTS 				 --> <!-- =================================== -->
 
-			<!-- JQUERY --> <script src="resources/assets/js/jquery-1.11.min.js"></script>
+			<!-- JQUERY --> 
+			<script src="resources/assets/js/jquery-1.11.min.js"></script>
 
-			<!-- BOOTSTRAP JS --> <script
-				src="resources/assets/js/bootstrap.min.js"></script> <!-- MEDIA ELEMENT -->
+			<!-- BOOTSTRAP JS --> 
+			<script src="resources/assets/js/bootstrap.min.js"></script> 
+			
+			<!-- MEDIA ELEMENT -->
 			<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
 
-			<!-- MAGNIFIC POPUP --> <script
-				src="resources/assets/js/magnific-popup.min.js"></script> <!-- FORM VALIDATE -->
-			<script src="resources/assets/js/validate.min.js"></script> <!-- PLACEHOLDER FOR IE -->
-			<script src="resources/assets/js/placeholder.min.js"></script> <!-- THEME JS -->
-			<script src="resources/assets/js/main.js"></script> <script
-				src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+			<!-- MAGNIFIC POPUP --> 
+			<script src="resources/assets/js/magnific-popup.min.js"></script> 
+			
+			<!-- FORM VALIDATE -->
+			<script src="resources/assets/js/validate.min.js"></script> 
+			
+			<!-- PLACEHOLDER FOR IE -->
+			<script src="resources/assets/js/placeholder.min.js"></script> 
+			
+			<!-- THEME JS -->
+			<script src="resources/assets/js/main.js"></script> 
+			<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 			<script src="resources/assets/js/index2.js"></script>
 </body>
