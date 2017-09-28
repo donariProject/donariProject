@@ -148,7 +148,7 @@ public class MovieTemplate {
 	}
 	
 	
-	public void firstStep(File[] imgs){
+	public void rendering(File[] imgs){
 		System.out.println("I'm making movie And map is : "+map.toString());
 		MakeVideo mv = new MakeVideo(FFMPEG_PATH);
 		for (int i = 0; i < imgs.length; i++) {

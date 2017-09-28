@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import global.sesoc.donari.template.MakeVideo;
 import global.sesoc.donari.template.MovieTemplate;
-import global.sesoc.donari.template.Test;
 
 @Controller
 public class MakingController {
@@ -36,7 +34,11 @@ public class MakingController {
 	
 	@RequestMapping(value = "travel", method = RequestMethod.GET)
 	public String travel() {
-		return "template/completeVideo";
+		return "template/travel";
+	}
+	@RequestMapping(value = "travelImg", method = RequestMethod.GET)
+	public String travelImg() {
+		return "template/travelImg";
 	}
 	
 	@RequestMapping(value = "vlog", method = RequestMethod.GET)
@@ -72,8 +74,8 @@ public class MakingController {
 	}//subs
 	
 	@ResponseBody
-	@RequestMapping(value="makingTemplate", method = RequestMethod.GET)
-	public String ttest(HttpServletRequest request,Model model) throws Exception{
+	@RequestMapping(value="makingMovie", method = RequestMethod.GET)
+	public String makingMovie(HttpServletRequest request, Model model) throws Exception{
 		System.out.println("let's begin!!!!!!!!!!!!!!!!!!!");
 		
 		String imgDir = request.getServletContext().getRealPath("/resources/userimage");
@@ -99,7 +101,7 @@ public class MakingController {
 		System.out.println("final map check : "+map.toString());
 		
 		System.out.println("server path : "+serverpath);
-		String completeName = making(serverpath, music, map, imgDir);
+		String completeName = mkMovie(serverpath, music, map, imgDir);
 		System.out.println("comple : "+completeName);
 		
 		File complete = new File(serverpath+"complete/" + completeName);
@@ -121,18 +123,24 @@ public class MakingController {
 	}
 	
 	
-	public String making(String serverpath, String music, HashMap<String, String>map, String imgDir){
+	public String mkMovie(String serverpath, String music, HashMap<String, String>map, String imgDir){
 		
 		MovieTemplate mt = new MovieTemplate("complete.mp4", serverpath, music, map, serverpath);
 		System.out.println("make a movietemplate");
 		File[] imgs = mt.mkDir(imgDir);
 		System.out.println("make a movietemplate22222");
-		mt.firstStep(imgs);
+		mt.rendering(imgs);
 		System.out.println("firststep complete");
 		mt.merging();
 		
 		String completeVideo = mt.getComplete_filename();
 		
+		return completeVideo;
+	}
+	
+	public String mkTravel(String serverpath, String music, HashMap<String, String>map, String imgDir){
+		
+		String completeVideo =""; 
 		return completeVideo;
 	}
 

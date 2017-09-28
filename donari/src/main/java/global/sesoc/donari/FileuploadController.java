@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import global.sesoc.donari.ffmpeg_handler.MusicReactVideo;
 import global.sesoc.donari.template.MakeVideo;
 import global.sesoc.donari.template.MovieTemplate;
 import global.sesoc.donari.util.DuplicateFile;
@@ -250,7 +251,43 @@ public class FileuploadController
 			return toFile;
 		}//fileUploadForms()
 		
-		
+		@RequestMapping(value = "/faceUploads", method = {RequestMethod.POST, RequestMethod.GET})
+		public String facebookWindow(File_VO multiFiles, MultipartFile files, Model model, HttpServletRequest request)
+				throws IllegalStateException, IOException {
+			
+			System.out.println("페이스 업로드 들어왔다아");
+			
+			String saveDir = request.getServletContext().getRealPath("/resources/facebook");
+			MakeVideo makeVideo = new MakeVideo("");
+			File savedirFile = new File(saveDir);
+			if (!savedirFile.exists()) {
+				savedirFile.mkdirs();
+			}
+			
+			MusicReactVideo mrv = new MusicReactVideo();
+//			VideoTime vidtime = new VideoTime();
+			mrv.makeBasicVid(saveDir + "/", request.getServletContext().getRealPath("/resources/output/outvid.mp4"),
+					request.getServletContext().getRealPath("/resources/usermusic/music.mp3"),
+					request.getServletContext().getRealPath("/"));
+				
+//			vidtime.videoTime(request.getServletContext().getRealPath("/resources/output/outvid.mp4"));
+			
+			Calendar c = Calendar.getInstance(); //객체 생성 및 현재 일시분초...셋팅
+			String ntime = new String();
+			
+			final String[] arrMonth = {"", "January", "February", "March", "April", "May", "June", "July","August","September", "October","November","December"}; 
+			
+			/*ntime = String.valueOf(c.get(Calendar.MONTH)+1) + "-";*/
+			ntime = arrMonth[c.get(Calendar.MONTH)+1] + " ";
+			ntime += String.valueOf(c.get(Calendar.DATE)) + ",";
+			ntime += String.valueOf(c.get(Calendar.YEAR)) ;
+			
+			model.addAttribute("today", ntime);
+
+			
+			
+			return "makingVideo/movieWindow";
+		}
 		
 		
 		

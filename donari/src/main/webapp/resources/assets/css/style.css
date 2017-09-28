@@ -426,9 +426,6 @@ li {
 	display: inline-block;
 	text-align: center;
 	position: relative;
-/* 	margin: auto auto; */
-	padding: 0 0;
-		
 }
 .sliderbtn {
 	width: 5%;

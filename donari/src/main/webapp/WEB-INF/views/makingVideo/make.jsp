@@ -150,16 +150,12 @@
 <body itemscope itemtype="http://schema.org/WebSite">
 
 	<!-- ===== HEADER ===== -->
-	<header class="header absolute" itemscope
-		itemtype="http://schema.org/Organization">
+	<header class="header sticky scrolling" data-offset="60" itemscope itemtype="http://schema.org/Organization">
 		<div class="container">
-
 			<!-- ===== LOGO ===== -->
 			<h1 class="logo">
-				<a href="index.html"> <img itemprop="logo"
-					src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a>
+				<a href="index"><img itemprop="logo" src="resources/assets/img/logo.png" alt="Donari" title="Donari" /></a>
 			</h1>
-
 			<!-- ===== NAVIGATION ===== -->
 			<nav class="navigation">
 				<!-- ===== MENU ===== -->
@@ -167,12 +163,13 @@
 					<li class="menuitem"><a href="index">Home</a></li>
 					<li class="menuitem dropdown active"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="mrv" style="fontsize:20pt;">Music React Video</a></li>
+							<li class="droplist-item"><a href="mrv" style="fontsize: 20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
 					<li class="menuitem"><a href="login">Login</a></li>
 					<li class="menuitem"><a href="join">Join</a></li>
+					<li class="menuitem"><a href="myPage">My Page</a></li>
 				</ul>
 				<!-- ===== HAMBURGUER ICON ===== -->
 				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
@@ -180,38 +177,33 @@
 		</div>
 	</header>
 
-	<!-- ===== UPSIDE ===== -->
-	<section class="podcast-hero"
-		style="background-image: url(resources/assets/img/podcast-hero.jpg)">
-		<div class="podcast-hero-inner">
+	<!-- ===== MAIN ===== -->
+	<main class="main"> 
+	<!-- ===== PAGE HEADER ===== --> 
+	<header class="page-header" id="vpHeader" >
+		<div class="page-header-inner">
+			<div class="container" style="position: relative;">
 
-			<!-- ===== UPSIDE TITLE ===== -->
-			<div class="container">
-				<div class="podcast-hero-content">
-					<h2 class="podcast-hero-title">
-						<a href="podcast.html">Select Mode</a>
-					</h2>
+				<!-- ===== PAGE HEADER CONTENT 페이지 타이틀 ===== -->
+				<div class="page-header-content text-center" style="position: relative;">
+					<h2 style="margin-top: 20px;">SELECT MODE</h2>
 				</div>
 			</div>
-	</section>
-
-	<!-- ===== MAIN ===== -->
-	<main id="main-basic" class="main-making">
-	<div class="container" style="width: 100%; text-align:center; vertical-align:middle;">
+		</div>
+	</header> 
 		<!-- ===== SECTION TITLE ===== -->
-		<div class="mode"
-			style="display: inline-block; margin-left: auto; margin-right: auto; width: 40%;">
-			<h2 class="title-default" style="text-align: center;">Basic
-				<a href="mrv"><figure>
-				<img src="resources/assets/img/basic.jpg" alt="Music React Video" title="Music React Video" class="mode"/></figure></a>
-			</h2>
-		</div>
-		<div class="mode" style="display: inline-block; margin-left: auto; margin-right: auto; width: 40%;">
-			<h2 class="title-default" style="text-align: center;">Template
-				<a href="selectTemplate"><figure>
-				<img src="resources/assets/img/template.jpg" alt="template" title="template" class="mode"/></figure></a>
-			</h2>
-		</div>
+		<!-- <div style="margin-left: 330px; margin-top: 100px;"> -->
+			<div class="mode" style="display: inline-block; margin-left: 80px;; margin-right: auto; width: 45%;">
+				<h2 class="title-default" style="text-align: center; margin-bottom: 25px; ">Basic</h2>
+				<a href="mrv"><figure><img src="resources/assets/img/basic.jpg" alt="Music React Video" title="Music React Video" class="mode"/></figure></a>
+				
+			</div>
+			<div class="mode" style="display: inline-block; margin-left: auto; margin-right: auto; width: 45%;">
+				<h2 class="title-default" style="text-align: center; margin-bottom: 25px;">Template</h2>
+					<a href="selectTemplate"><figure><img src="resources/assets/img/template.jpg" alt="template" title="template" class="mode"/></figure></a>
+				
+			</div>
+		<!-- </div> -->
 	</div>
 	</main>
 

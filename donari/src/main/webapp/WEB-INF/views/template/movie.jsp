@@ -8,7 +8,40 @@
 <!-- =================================== -->
 	
 <head>
-
+	<style type="text/css" >
+	.wrap-loading{ /*화면 전체를 어둡게 합니다.*/
+	    position: fixed;
+	    left:0;
+	    right:0;
+	    top:0;
+	    bottom:0;
+	    background: rgba(0,0,0,0.2); /*not in ie */
+	    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');    /* ie */
+	}
+	    .wrap-loading div{ /*로딩 이미지*/
+	        position: fixed;
+	        top:50%;
+	        left:50%;
+	        margin-left: -21px;
+	        margin-top: -21px;
+	    }
+	    .display-none{ /*감추기*/
+	        display:none;
+	    }
+	   /*  .forslider{
+	    	padding-left: inherit;
+	    } */
+	    
+	    .height{
+	    	padding-top: 50px;
+    		max-height: 500px;
+    		margin-left: 80px;
+	    }
+	    input {
+	    max-height: 50px;
+	    }
+	    
+	</style>
 <!-- =================================== -->
 <!-- 		  COMPATIBILITY 			 -->
 <!-- =================================== -->
@@ -166,21 +199,21 @@
 			
 			<c:forEach varStatus="s" items="${botari}" var="pic">
 				<div style="display: block;">
-					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="z-index vertical-align: middle; text-align: center; margin: auto auto;">
+					<img src="${pic}" id="mvimg${s.index}" class="realimg" onclick="gogo('mvimg${s.index}');" style="margin-left:450px; text-align: center; ">
 					<input type="hidden" name="s" value="${s.index}">
 					
 					<c:if test="${s.index==4 || s.index==18 || s.index==22 || s.index==27 || s.index==28 || s.index==29}">
-					<input type=text id="content${s.index}" value='insert subtitles${s.index}' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent;  font-size: 40pt;"/>
+					<input type=text id="content${s.index}" value='insert subtitles${s.index}' onchange="eedit(this.value, ${s.index});" contentEditable="true" style="background-color: transparent; margin-left:200px; font-size: 40pt;"/>
 					</c:if>
 					
 					<c:if test="${s.last}">
-					<input type="button" value="make it" id="makeit" onclick="toMakeIt();">
+					<input type="image" value="make it" id="makeit" onclick="toMakeIt();" src="resources/assets/img/making.png" style="margin-left:200px; ">
 					</c:if>
 				</div>
 			</c:forEach>
 		</div>
 			</form>
-			<div style="width: 80%; display: inline-block;">
+			<div style="width: 100%; display: inline-block;">
 			
 				<div class="template-nav">
 			<c:forEach items="${botari}" var="navPic">
@@ -263,11 +296,14 @@
 					</div>
 					<!-- ===== CREDIT LOGO ===== -->
 					<div class="col-sm-6 text-right">Donari - 2017. All rights reserved.</div>
+					<div class="wrap-loading display-none">
+	    <div><img src="resources/assets/img/loading1.svg" /></div>
+	</div>
 				</div>
 			</div>
 		</section>
-
 	</footer>
+	
 
 	<!-- =================================== -->
 	<!-- 			  SCRIPTS 				 -->
@@ -300,12 +336,6 @@
 	<script src="resources/assets/slick/slick.js"></script>
 	
 	
-	<!-- loading -->
-	<link rel = "stylesheet" href="resources/assets/css/pace-theme-center-circle.css"/>
-	<script data-pace-options='{ "elements": { "selectors": ["#image"] }, "startOnPageLoad": false }' src= "resources/assets/js/pace.js"></script>
-	<script src= "resources/assets/js/jquery-3.2.1.min.js"></script>
-	
-	
 	<!-- IMAGE CHANGE SCRIPT -->
 	<script type="text/javascript">
 
@@ -314,16 +344,16 @@
 	function gogo(mvimg){
 		document.getElementById('reimg').click();
 		clicked=mvimg;
-		
 	}
 	
 	$(document).ready(function(){
+		
 		var cnt = ${imgCount};
 	/* 	if (cnt => 5) {
 			cnt=5;
 		} */
 		$('.templates').slick({
-			arrows: true,
+			//arrows: true,
 			infinite: false,
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -333,12 +363,20 @@
 		    nextArrow: '.slick-next' //netx 버튼
 		});
 		$('.template-nav').slick({
-	          slidesToShow: cnt, //작은이미지 몇개 보여줄것인지..
-	          slidesToScroll: 1,
-	          asNavFor: '.stemplates',
-	          focusOnSelect: true,
-	          arrows: true
+			accessibility: true,
+			infinite:true,
+			slidesToShow: cnt, //작은이미지 몇개 보여줄것인지..
+	        //slidesToScroll: 1,
+	        asNavFor: '.templates',
+	        draggable: false,
+	        centerMode: true,
+	        focusOnSelect: true,
+	        arrows: true
 	       });
+		
+		$('.slick-slider').addClass('forslider');
+		$('.slick-list').addClass('height');
+		$('*[draggable!=true]','.slick-list').unbind('dragstart');
 		
 		$("#reimg").change(function () {
 			var form = $("#reimg");
@@ -434,16 +472,14 @@
 	}
 	
 	function toMakeIt(){
-		
 		$.ajax({
 			url: 'makingTemplate',
 	        type: 'GET',
 			beforeSend:function(){
-				initDestroyTimeOutPace();
-				Pace.start();
+				$('.wrap-loading').removeClass('display-none');
 		    },
 		    complete:function(){
-		        $('.loadingScreen').addClass('display-none');
+		    	$('.wrap-loading').addClass('display-none');
 		    },
 		    error:function(e){
 		     	alert('fail');

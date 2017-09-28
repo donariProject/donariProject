@@ -1,7 +1,5 @@
 package global.sesoc.donari.template;
 
-import java.io.File;
-
 public class Test {
 
 	

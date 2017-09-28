@@ -117,7 +117,7 @@
 		<!-- =================================== -->
 		<!-- 			  FAVICON 				 -->
 		<!-- =================================== -->
-		
+		<link href="resources/assets/css/video.css" rel="stylesheet">
 		<link rel="icon" href="resources/assets/img/favicon.png" />
 		<link rel="shortcut icon" href="resources/assets/img/favicon.png" />
 
@@ -132,81 +132,105 @@
 				<h1 class="logo"><a href="index.html"><img itemprop="logo" src="resources/assets/img/logo.png" alt="Soundcast - Podcast Responsive Theme" title="Soundcast - Podcast Responsive Theme"/></a></h1>
 				
 				<!-- ===== NAVIGATION ===== -->
-				<nav class="navigation">
-					<!-- ===== MENU ===== -->
-					<ul class="menu">
-						<li class="menuitem"><a href="index">Home</a></li>
-						<li class="menuitem"><a href="#">Contact</a></li>
-						<li class="menuitem"><a href="making">Making Video</a></li>
-						<li class="menuitem"><a href="savevideo">My Page</a></li>
-					</ul>
-					<!-- ===== HAMBURGUER ICON ===== -->
-					<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
-				</nav>
+			<nav class="navigation">
+				<!-- ===== MENU ===== -->
+				<ul class="menu">
+					<li class="menuitem"><a href="index">Home</a></li>
+					<li class="menuitem dropdown"><a href="make">Make</a>
+						<ul class="droplist">
+							<li class="droplist-item"><a href="mrv" style="fontsize: 20pt;">Music React Video</a></li>
+							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
+						</ul></li>
+					<li class="menuitem"><a href="aboutUs">About Us</a></li>
+					<li class="menuitem"><a href="login">Login</a></li>
+					<li class="menuitem"><a href="join">Join</a></li>
+					<li class="menuitem active"><a href="myPage">My Page</a></li>
+				</ul>
+				<!-- ===== HAMBURGUER ICON ===== -->
+				<a href="#" class="btn-hamburguer-menu"><i class="fa fa-bars"></i></a>
+			</nav>
 				
 			</div>
 		</header>
 		
 		<!-- ===== MAIN ===== -->
-		<main id="main" class="main">
+		<div id="mains" class="main" style="background-color: black;">
 			
 			<!-- ===== PAGE HEADER ===== -->
 			<header class="page-header-podcast" style="background-image: url(resources/assets/img/single-background.jpg)">
 				<div class="page-header-inner">
 					<div class="container">
-
-							
 						<!-- ===== PAGE HEADER CONTENT ===== -->
 						<div class="page-header-content text-center">
 							<h2>My Video</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, consequuntur tempora quidem debitis dolores <br /> deleniti repellat veniam dicta minima rem soluta, provident accusantium consequatur voluptatibus nisi eum animi officiis eligendi!</p>
 						</div>
-
 					</div>
+							<div class="podcast-meta-element">
+					<span class="podcast-meta-item"></span>
+				</div>
 				</div>
 			</header>
 			
 			<!-- ===== PODCAST PLAYER ===== -->
 			
-			<div class="video" style="float: left;">
+			
+				<div class="container">
+			<div class="video" style="float: left; margin-right: 15px">
 				<div class="vide-inner" style="width: 300px">
 					<div class="container">
-						<iframe src="resources/assets/video/Sunrise.mp4" class="video-frame"></iframe>
+						 <video id="my-video" class="video-js" controls preload="auto" width="300" height="264"  data-setup="{}">
+						 <source src="resources/assets/video/Numbers.mp4" type='video/mp4'>
+						</video>
 					</div>
+					
 				</div>
 			</div>
-			<div class="video" style="float: left;">
+			<div class="video" style="float: left; margin-right: 15px">
 				<div class="vide-inner" style="width: 300px">
 					<div class="container">
-						<iframe src="resources/assets/video/Numbers.mp4" class="video-frame"></iframe>
+						 <video id="my-video" class="video-js" controls preload="auto" width="300" height="264"  data-setup="{}">
+						 <source src="resources/assets/video/Numbers.mp4" type='video/mp4'>
+						</video>
 					</div>
+					
+				</div>
+			</div>
+			<div class="video" style="float: left; margin-right: 15px; margin-bottom: 15px" >
+				<div class="vide-inner" style="width: 300px">
+					<div class="container">
+						 <video id="my-video" class="video-js" controls preload="auto" width="300" height="264"  data-setup="{}">
+						 <source src="resources/assets/video/Numbers.mp4" type='video/mp4'>
+						</video>
+					</div>
+					
+				</div>
+			</div>
+			<div class="video" style="float: left; margin-right: 15px">
+				<div class="vide-inner" style="width: 300px">
+					<div class="container">
+						 <video id="my-video" class="video-js" controls preload="auto" width="300" height="264"  data-setup="{}">
+						 <source src="resources/assets/video/Numbers.mp4" type='video/mp4'>
+						</video>
+					</div>
+					
 				</div>
 			</div>
 			
+			
+			</div>
+			
+				
 			<!-- ===== PODCAST META ===== -->
 			<div class="podcast-meta-element">
-				<span class="podcast-meta-item"><i class="fa fa-calendar"></i> December 21, 2015</span>
-				<span class="podcast-meta-item"><i class="fa fa-clock-o"></i> 37 minutes</span>
-				<a class="podcast-meta-item" href="#"><i class="fa fa-tag"></i> Lifestyle</a>
-				<a class="podcast-meta-item" href="#"><i class="fa fa-download"></i> Download (MP3)</a>
+				<span class="podcast-meta-item"></span>
 			</div>
 			
-			<!-- ===== SINGLE PAGE CONTENT ===== -->
-			<div class="section-negative">
-				<div class="container">
-					
-					<div class="row mt-70 mb-50">
+			
 						
 						
 						
-						<!-- ===== SIDEBAR ===== -->
-						<div class="col-md-4">
-						</div>
 					</div>
-				</div>
-			</div>
-			
-		</main>
 		
 		
 			
@@ -216,9 +240,10 @@
 		<!-- 			  SCRIPTS 				 -->
 		<!-- =================================== -->
 		
+		 <script src="resources/assets/js/videos.js"></script>
+		<script src="resources/assets/js/video.js"></script>
 		<!-- JQUERY -->
-		<script src="resources/assets/js/jquery-1.11.min.js"></script>
-		
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>		
 		<!-- BOOTSTRAP JS -->
 		<script src="resources/assets/js/bootstrap.min.js"></script>
 		
@@ -226,16 +251,12 @@
 		<script src="resources/assets/js/mediaelement-and-player.min.js"></script>
 		
 		<!-- MAGNIFIC POPUP -->
-		<script src="resources/assets/js/magnific-popup.min.js"></script>
 		
 		<!-- FORM VALIDATE -->
-		<script src="resources/assets/js/validate.min.js"></script>
 		
 		<!-- PLACEHOLDER FOR IE -->
-		<script src="resources/assets/js/placeholder.min.js"></script>
 		
 		<!-- THEME JS -->
-		<script src="resources/assets/js/main.js"></script>
 
 	</body>
 

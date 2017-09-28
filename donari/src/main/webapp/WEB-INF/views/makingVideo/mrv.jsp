@@ -126,6 +126,22 @@ input[type="file"] {
 <script src="resources/assets/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="resources/assets/js/jquery.bgiframe.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+	//Facebook 추가된 것
+	function facebook(){
+	    
+	    var win = window.open("albumWindow","","fullscreen");
+	    var winClosed = setInterval(function () {
+	
+	        if (win.closed) {
+	            clearInterval(winClosed);
+	            location.assign("faceUploads");  //Execute your code here
+	        }
+	
+	    }, 250);
+	 }
+	 
+
 	$(function() {
 		initSwap();
 		//$("#changeposition").sortable();
@@ -240,15 +256,12 @@ input[type="file"] {
 
 <body itemscope itemtype="http://schema.org/WebSite">
 	<!-- ===== HEADER ===== -->
-	<header class="header absolute" itemscope
-		itemtype="http://schema.org/Organization">
+	<header class="header absolute" itemscope itemtype="http://schema.org/Organization">
 		<div class="container">
 
 			<!-- ===== LOGO ===== -->
 			<h1 class="logo">
-				<a href="index.html"> <img itemprop="logo"
-					src="resources/assets/img/logo.png"
-					alt="Donari - Make Your Video At Once!" title="Dougani Narimashita" /></a>
+				<a href="index.html"> <img itemprop="logo" src="resources/assets/img/logo.png" alt="Donari - Make Your Video At Once!" title="Dougani Narimashita" /></a>
 			</h1>
 
 			<!-- ===== NAVIGATION ===== -->
@@ -258,8 +271,7 @@ input[type="file"] {
 					<li class="menuitem active"><a href="index">Home</a></li>
 					<li class="menuitem dropdown"><a href="make">Make</a>
 						<ul class="droplist">
-							<li class="droplist-item"><a href="mrv"
-								style="fontsize: 20pt;">Music React Video</a></li>
+							<li class="droplist-item"><a href="mrv" style="fontsize: 20pt;">Music React Video</a></li>
 							<li class="droplist-item"><a href="selectTemplate">Template</a></li>
 						</ul></li>
 					<li class="menuitem"><a href="aboutUs">About Us</a></li>
@@ -273,8 +285,7 @@ input[type="file"] {
 	</header>
 
 	<!-- ===== PAGE HEADER ===== -->
-	<header class="page-header"
-		style="background-image: url(resources/assets/img/single-background.jpg)">
+	<header class="page-header" style="background-image: url(resources/assets/img/single-background.jpg)">
 		<div class="page-header-inner">
 			<div class="container">
 
@@ -291,18 +302,13 @@ input[type="file"] {
 		<div class="slide">
 			<div id="musicUpload">
 				<!-- ===== SECTION TITLE ===== -->
-				<h1 class="title-default text-center" style='font-size: 30pt'>Step
-					1</h1>
+				<h1 class="title-default text-center" style='font-size: 30pt'>Step 1</h1>
 				<h2 class="title-default text-center">Insert Music</h2>
 				<fieldset class="row" style="margin-left: 600px;">
-					<form name="musicUploadForm" action="fileUploads" method="post"
-						enctype="multipart/form-data">
-						<input id="music" name="music" type="file" accept="audio/mp3"
-							style="display: none;"
-							onchange="musicUpload(this.value);">
-						<img id="musicUploadBtn"
-							src='resources/assets/img/musicUploadBtn.png'> <input
-							type="text" size="30" id="musicFileName" readonly="readonly">
+					<form name="musicUploadForm" action="fileUploads" method="post" enctype="multipart/form-data">
+						<input id="music" name="music" type="file" accept="audio/mp3" style="display: none;" onchange="musicUpload(this.value);">
+						<img id="musicUploadBtn" src='resources/assets/img/music.png' style="width: 60px;"> 
+						<input type="text" size="30" id="musicFileName" readonly="readonly">
 						<button type="submit" style="display: none;"></button>
 					</form>
 				</fieldset>
@@ -312,32 +318,21 @@ input[type="file"] {
 				<!-- ===== SECTION TITLE ===== -->
 				<h2 class="title-default text-center">Insert Photo</h2>
 				<fieldset class="row" style="margin-top: 100px;">
-
-
 					<button id="previousBtn" style="margin-left: 200px;">Previous</button>
 				</fieldset>
+				
 				<fieldset class="row" style="margin-left: 410px;">
-					
-					<form name="tes" action="fileUploads" method="post"
-						enctype="multipart/form-data">
-						
+					<form name="tes" action="fileUploads" method="post" enctype="multipart/form-data">
 					</form>
-					
-					<form id="imageUploadForm" action="fileUploads" method="post"
-						enctype="multipart/form-data">
-						<input id="multiFile" name="files" type="file" multiple="multiple"
-							style="display: none;"> <img
-							src='resources/assets/img/photos.png'
-							onclick='document.all.multiFile.click();'
-							style="width: 43px; margin-bottom: 30px;">
+					<form id="imageUploadForm" action="fileUploads" method="post" enctype="multipart/form-data">
+						<input id="multiFile" name="files" type="file" multiple="multiple" style="display: none;">
+						<img src='resources/assets/img/photos.png' onclick='document.all.multiFile.click();' style="width: 43px; margin-bottom: 30px;">
 						<button type="submit">전송</button>
 					</form>
 
-					<input type="image" src="resources/assets/img/facebook.png"
-						onclick="facebook()" style="width: 43px;">
+					<input type="image" src="resources/assets/img/facebook.png" onclick="facebook()" style="width: 43px;">
 				</fieldset>
-				<div
-					style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
+				<div style="white-space: nowrap; overflow: auto; width: 1200px; height: 500px;">
 					<div class="row mb-30 image" style="margin-left: 85px; width: 1000px">
 						<!-- 업로드된 다중 이미지가 들어가는 div -->
 						<div id="imageArrayDiv">
@@ -367,8 +362,7 @@ input[type="file"] {
 					<!-- ===== CREDIT LOGO ===== -->
 
 					<!-- ===== CREDIT LOGO ===== -->
-					<div class="col-sm-6 text-right">Donari - 2017. All rights
-						reserved.</div>
+					<div class="col-sm-6 text-right">Donari - 2017. All rights reserved.</div>
 				</div>
 			</div>
 		</section>
@@ -378,14 +372,11 @@ input[type="file"] {
 	<!-- 			  SCRIPTS 				 -->
 	<!-- =================================== -->
 
-	<script type="text/javascript"
-		src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript"
-		src="resources/assets/slick/slick.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="resources/assets/slick/slick.min.js"></script>
 
 
-	<script type="text/javascript"
-		src="resources/assets/js/jquery.tablednd.js"></script>
+	<script type="text/javascript" src="resources/assets/js/jquery.tablednd.js"></script>
 
 
 	<!-- BOOTSTRAP JS -->
